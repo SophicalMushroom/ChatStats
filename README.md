@@ -7,7 +7,7 @@ Get statistics on your fackbook group chats.
 
 ## File Info
 
-|          Column          |                                        Content                                       |
+|          File Name          |                                        Description                                       |
 |:--------------------:|:------------------------------------------------------------------------------------:|
 | parser.py           | Parses the raw data from FB archives to make it usable by the other scripts                                                                       |
 | messageDistribution.py       | Displays a stacked bar graph showing number of messages per use per week                                               |
@@ -17,7 +17,7 @@ Get statistics on your fackbook group chats.
 
 
 ## Steps:
-run parser.py first then run any of the other scripts
+Run parser.py first then run any of the other scripts
 
 ## Dependencies:
 * Python 3+
