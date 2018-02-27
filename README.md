@@ -14,3 +14,13 @@ Get statistics on your fackbook group chats.
 | totalMessages.py | Displays a bar graph that shows total messages sent by each user |
 | wordCount.py           | DIsplays a pie chart that shows the top 10 used word in chat                                                                   |
 | extraStats.py                | Displays any extra stats on an empty matplotlib graph                                                        |
+
+
+## Steps:
+run parser.py first then run any of the other scripts
+
+## Dependencies:
+* Python 3+
+* Pandas
+* Matplotlib
+* Numpy
