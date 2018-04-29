@@ -50,22 +50,27 @@ def getWordCounts():
 
 def getTop10(num):
     '''(int)-> dict, list, list
-    return the (num) of words used in the chat
+    return the top (num) words used in the chat
     '''
+    common100 = ['nan', 'it&#039;s', 'won&#039;t',
+                 'i&#039;m', 'I&#039;m', 'I&#039;M']
+
     wordData = pd.read_csv('wordCount.csv')
     countlist = wordData['count'].tolist()
     wordlist = wordData['words'].tolist()
     topWords = []
     topCounts = []
     topDict = {}
-    for i in range(num):
+    i = 0
+    while i < num:
         max_count = max(countlist)
         max_idx = countlist.index(max_count)
         word = wordlist[max_idx]
-        topDict[str(word)] = max_count
-        topWords.append(word)
-        topCounts.append(max_count)
-
+        if str(word) not in common100:
+            topDict[str(word)] = max_count
+            topWords.append(word)
+            topCounts.append(max_count)
+            i += 1
         wordlist.pop(max_idx)
         countlist.pop(max_idx)
 
