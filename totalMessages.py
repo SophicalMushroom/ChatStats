@@ -15,6 +15,23 @@ metaData = pd.read_csv('metadata.csv')
 # generate users and message_count lists
 message_count = metaData['users'].value_counts().tolist()
 users = metaData['users'].value_counts().index.tolist()
+
+
+def findTop(num):
+    message_countc = message_count[:]
+    usersc = users[:]
+    out = {}
+    for i in range(num):
+        idx = message_countc.index(max(message_countc))
+        out[usersc[idx]] = message_countc[idx]
+        del usersc[idx]
+        del message_countc[idx]
+    return out
+
+# find user and message count
+# print(users.index('Dittam Dey'))
+# print(message_count[40])
+
 # generate indexes starting at 0 to len(users)
 users_indexes = list(range(len(users)))
 
@@ -43,4 +60,9 @@ ax1.grid(True, color='#ABAA98', alpha=0.2, linewidth=0.4)
 # plot data
 ax1.bar(users_indexes, message_count,
         width=0.4, linewidth=1.8, edgecolor='#5998ff', alpha=0.6, color='#66b5ff')
+
+title_obj = plt.title('Total Messages by User')
+plt.getp(title_obj)  # print out the properties of title
+plt.getp(title_obj, 'text')  # print out the 'text' property for title
+plt.setp(title_obj, color='#ABAA98')
 plt.show()
