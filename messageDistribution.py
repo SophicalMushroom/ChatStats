@@ -5,7 +5,7 @@ import numpy as np
 
 #----initiate plots----
 fig = plt.figure(facecolor='#07000d')
-fig.canvas.set_window_title('Message Distribution by user')
+fig.canvas.set_window_title('Message Distribution by week')
 ax1 = fig.add_subplot(1, 1, 1, facecolor='#07000d')
 plt.rcParams['savefig.facecolor'] = '#07000d'
 
@@ -40,9 +40,29 @@ messagesDay2Week()
 # read messagesPerWeek.csv
 df = pd.read_csv('messagesPerWeek.csv', names=["users", "date", "numMessages"])
 
+
+def findTopUsers(dictTopUsers, dataframe):
+    '''(dict, DataFrame) -> DataFrame
+    use findTop() in totalMessages.py to get dictTopUsers
+    '''
+    dfnew = pd.DataFrame(columns=['users', 'date', 'numMessages'])
+    row = 0
+    for i in range(len(dataframe['users'])):
+        if dataframe['users'][i] in dictTopUsers:
+            dfnew.loc[row] = [dataframe['users'][i], dataframe['date']
+                              [i], dataframe['numMessages'][i]]
+            row += 1
+    return dfnew
+
+
+df = findTopUsers({'Jaden Wang': 3824, 'Paolo Velarde': 3109, 'Brian Lin': 1980, 'Rikin Katyal': 1963, 'Dinoyan Ganeshalingam': 1688, 'Bryan Oladeji': 1449, 'Pearl Kong': 1389,
+                   'Moe Ali': 1322, 'Chedy Sankar': 1238, 'Kevin Shen': 1176, 'Pravinthan Prabagaran': 1009, 'Daniel Wang': 969, 'Rahul Kumar Saini': 939, 'Vincent La': 910, 'Jayesh Khullar': 774}, df)
+
+
 # add more depending on number of chat memebers
 colors = ["#006D2C", "#31A354", "#ff0000", "#ffff66", "#74C476", "#0066ff",
-          "#6600cc", "#ff00ff", "#ff9999", "#660033"]
+          "#6600cc", "#ff00ff", "#ff9999", "#660033", '#e542f4', '#f4ac41', '#41ebf4',
+          '#7cf441', '#f4cd41']
 
 
 #------graph customization-------
@@ -60,4 +80,9 @@ pivot_df = df.pivot(index='date', columns='users', values='numMessages')
 pivot_df.plot.bar(stacked=True, color=colors,
                   figsize=(10, 7), ax=ax1, grid=True, alpha=0.7, linewidth=0.8, edgecolor='#5998ff', rot=-45)
 
+
+title_obj = plt.title('Message Distribution by week, top 15 users')
+plt.getp(title_obj)  # print out the properties of title
+plt.getp(title_obj, 'text')  # print out the 'text' property for title
+plt.setp(title_obj, color='#ABAA98')
 plt.show()
