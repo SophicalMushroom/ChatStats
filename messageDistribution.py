@@ -55,9 +55,6 @@ def findTopUsers(dictTopUsers, dataframe):
     return dfnew
 
 
-df = findTopUsers({'Jaden Wang': 3824, 'Paolo Velarde': 3109, 'Brian Lin': 1980, 'Rikin Katyal': 1963, 'Dinoyan Ganeshalingam': 1688, 'Bryan Oladeji': 1449, 'Pearl Kong': 1389,
-                   'Moe Ali': 1322, 'Chedy Sankar': 1238, 'Kevin Shen': 1176, 'Pravinthan Prabagaran': 1009, 'Daniel Wang': 969, 'Rahul Kumar Saini': 939, 'Vincent La': 910, 'Jayesh Khullar': 774}, df)
-
 
 # add more depending on number of chat memebers
 colors = ["#006D2C", "#31A354", "#ff0000", "#ffff66", "#74C476", "#0066ff",
