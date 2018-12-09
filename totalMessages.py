@@ -1,3 +1,4 @@
+‎  # February ‎26, ‎2018
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -27,6 +28,9 @@ def findTop(num):
         del usersc[idx]
         del message_countc[idx]
     return out
+
+
+print(findTop(12))
 
 # find user and message count
 # print(users.index('Dittam Dey'))

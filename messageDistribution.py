@@ -1,3 +1,4 @@
+‎  # February ‎26, ‎2018
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
@@ -54,6 +55,10 @@ def findTopUsers(dictTopUsers, dataframe):
             row += 1
     return dfnew
 
+
+# use findTop(num) form totalMessages.py
+df = findTopUsers({'Sean Applebaum': 7131, 'Michael Cottow': 7038, 'Parth Parpyani': 6526, 'Dittam Dey': 5350, 'Tony Attalla': 4330,
+                   'Smit Patel': 803, 'Abdullah Abid': 674, 'Gilbert Chui': 170, 'Anton Kaminsky': 80, 'Vidya Ananda': 15, 'PyBot Alpha': 15, 'Eleni Tuca': 4}, df)
 
 
 # add more depending on number of chat memebers

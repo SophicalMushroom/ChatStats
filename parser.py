@@ -1,3 +1,4 @@
+#‎February ‎26, ‎2018
 import unicodedata
 import pandas as pd
 import matplotlib.dates as dates
@@ -18,8 +19,8 @@ def str2numdate(datestring):
     'Apr 28, 2018 4:20pm' --> '2018-02-14'
     '''
     num = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-    cal = {'': 0, 'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'June': 6,
-           'July': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
+    cal = {'': 0, 'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
+           'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
 
     datestring = datestring.split(' ')
     datestring[0] = cal[datestring[0]]
@@ -41,7 +42,7 @@ def str2numdate(datestring):
 
 
 #-----get raw message data from file-----
-with open('C:/Users/ditta/Desktop/messages/UTSCCMSClassof2021_b599914f0f/message.html', 'r', encoding='utf-8') as f:
+with open('C:/Users/ditta/Desktop/messages/ARRR_6e93a7a903/message.html', 'r', encoding='utf-8') as f:
     lines = f.read()
 
 #-----Remove non-utf-8 chars-----
@@ -79,7 +80,7 @@ for message in decoded_text:
 
     # extract message
     messageText = (find_between(
-        message, '<div class="_3-96 _2let"><div><div>', '</div>'))
+        message, '<div class="_3-96 _2let"><div><div></div><div>', '</div>'))
 
     metadata['messages'].append(messageText)
 
