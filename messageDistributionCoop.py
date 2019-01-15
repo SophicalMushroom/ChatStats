@@ -10,10 +10,7 @@ fig.canvas.set_window_title('Message Distribution by week')
 ax1 = fig.add_subplot(1, 1, 1, facecolor='#07000d')
 plt.rcParams['savefig.facecolor'] = '#07000d'
 
-
-#------Stacked Bar Plot-------
-# matplotlib.style.use('ggplot')
-# read messagesPerWeek.csv
+# read data
 df = pd.read_csv('messagesPerWeek.csv', names=["users", "date", "numMessages"])
 
 
@@ -30,6 +27,7 @@ colors = ["#006D2C", "#ff0000", "#ffff66", "#0066ff", '#41ebf4', "#74C476", "#31
           "#6600cc", '#e542f4', "#ff00ff", "#ff9999", "#660033", '#f4ac41',
           '#7cf441', '#f4cd41']
 
+# plot data
 allUsers = df.users.unique()
 allUsers = ['Parth Parpyani', 'Michael Cottow',
             'Tony Attalla', 'Alex Greff', 'Chedy Sankar']
