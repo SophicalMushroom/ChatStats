@@ -1,4 +1,4 @@
-‎  # February ‎26, ‎2018
+# February ‎26, ‎2018
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
@@ -57,13 +57,13 @@ def findTopUsers(dictTopUsers, dataframe):
 
 
 # use findTop(num) form totalMessages.py
-df = findTopUsers({'Sean Applebaum': 7131, 'Michael Cottow': 7038, 'Parth Parpyani': 6526, 'Dittam Dey': 5350, 'Tony Attalla': 4330,
-                   'Smit Patel': 803, 'Abdullah Abid': 674, 'Gilbert Chui': 170, 'Anton Kaminsky': 80, 'Vidya Ananda': 15, 'PyBot Alpha': 15, 'Eleni Tuca': 4}, df)
+df = findTopUsers({'Michael Cottow': 12978, 'Parth Parpyani': 8712,
+                   'Tony Attalla': 6683, 'Alex Greff': 355, 'Chedy Sankar': 248}, df)
 
 
 # add more depending on number of chat memebers
-colors = ["#006D2C", "#31A354", "#ff0000", "#ffff66", "#74C476", "#0066ff",
-          "#6600cc", "#ff00ff", "#ff9999", "#660033", '#e542f4', '#f4ac41', '#41ebf4',
+colors = ["#006D2C", "#31A354", "#ff0000", "#ffff66", "#0066ff", "#74C476",
+          "#6600cc", '#e542f4', "#ff00ff", "#ff9999", "#660033", '#f4ac41', '#41ebf4',
           '#7cf441', '#f4cd41']
 
 

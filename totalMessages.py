@@ -1,4 +1,4 @@
-‎  # February ‎26, ‎2018
+# February ‎26, ‎2018
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,7 +12,6 @@ plt.rcParams['savefig.facecolor'] = '#07000d'
 
 # read data from parsed csv file
 metaData = pd.read_csv('metadata.csv')
-
 # generate users and message_count lists
 message_count = metaData['users'].value_counts().tolist()
 users = metaData['users'].value_counts().index.tolist()
@@ -31,6 +30,7 @@ def findTop(num):
 
 
 print(findTop(12))
+
 
 # find user and message count
 # print(users.index('Dittam Dey'))

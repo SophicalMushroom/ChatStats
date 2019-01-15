@@ -13,8 +13,14 @@ plt.rcParams['savefig.facecolor'] = '#07000d'
 plt.rcParams['text.color'] = '#ABAA98'
 plt.rcParams['font.size'] = 20
 
+totalMessages = 28818
+totalDays = 181
+totalChars = 894804
+totalWords = 140175
+uniqueWords = 33813
 # for total messages look at line count in metadat.csv
-w = 'Messages      32137 \n \nMessages per day      92.6 \n \nTotal Characters      1095740 \n \nTotal Words      170899 \n \nUnique words      38026 \n \nWords per day      492.5555 \n \nAvg words per message      5.31'
+w = 'Total Messages      {} \n \nMessages per day      {} \n \nTotal Characters      {} \n \nTotal Words      {} \n \nUnique words      {} \n \nWords per day      {} \n \nAvg words per message      {}'.format(
+    totalMessages, totalMessages / totalDays, totalChars, totalWords, uniqueWords, totalWords / totalDays, totalWords / totalMessages)
 x = [1, 2, 3, 4, 5]
 y = [1, 2, 5, 2, 1]
 ax1.plot(x, y, alpha=0.0)

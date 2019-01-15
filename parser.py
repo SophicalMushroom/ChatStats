@@ -42,7 +42,7 @@ def str2numdate(datestring):
 
 
 #-----get raw message data from file-----
-with open('C:/Users/ditta/Desktop/messages/ARRR_6e93a7a903/message.html', 'r', encoding='utf-8') as f:
+with open('C:/Users/ditta/Desktop/messages/inbox/TerryDavisAppreciationGroup_XoG7UMwgZg/message.html', 'r', encoding='utf-8') as f:
     lines = f.read()
 
 #-----Remove non-utf-8 chars-----
