@@ -1,90 +1,44 @@
-#‎February ‎26, ‎2018
-import unicodedata
+# April 11 2019
+import json
+import re
+from functools import partial
 import pandas as pd
-import matplotlib.dates as dates
+from pandas.io.json import json_normalize
+from sqlalchemy import create_engine
+
+# ---fix facebook's wrong encoding for special chars and emojis---
+fixFBEncoding = partial(re.compile(
+    rb'\\u00([\da-f]{2})').sub, lambda m: bytes.fromhex(m.group(1).decode()))
+
+# ---load json message archive---
+path = "C:\\Users\\ditta\\Desktop\\Google_Interns_2019\\message_1.json"
+with open(path, 'rb') as binaryData:
+    repaired = fixFBEncoding(binaryData.read())
+data = json.loads(repaired.decode('utf8'))
+
+df = json_normalize(data['messages'])  # load json into dataframe
+# reverse order of dataframe and index so oldest messages at index 0
+df = df.reindex(index=df.index[::-1])
+df = df.reset_index(drop=True)
+
+# ---write meassages dataframe to sql database in table Messages---
+engine = create_engine('sqlite:///ParsedData.db', echo=False)
+df[["content", "sender_name", "timestamp_ms"]].to_sql(
+    'Messages', con=engine, if_exists="replace")
+
+# ---Generate Reactions table---
+df = df[pd.notnull(df['reactions'])]  # remove messages with no reacts
+reactDf = pd.DataFrame(columns=["messageIdx", "reactor", "reaction"])
+# iterate over each reaction in each message and append to reactDf
+for i, row in df[["reactions"]].iterrows():
+    for react in row["reactions"]:
+        reactDf.loc[len(reactDf)] = [i, react["actor"], react["reaction"]]
+
+# ---write Reactions dataframe to sql database in table Reactions
+reactDf.to_sql('Reactions', con=engine, if_exists="replace")
 
 
-def find_between(string, first, last):
-    '''extract text in between two specified markers'''
-    try:
-        start = string.index(first) + len(first)
-        end = string.index(last, start)
-        return string[start:end]
-    except ValueError:
-        return ""
-
-
-def str2numdate(datestring):
-    '''convert string representation of a date to YYYY-MM-DD
-    'Apr 28, 2018 4:20pm' --> '2018-02-14'
-    '''
-    num = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-    cal = {'': 0, 'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
-           'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
-
-    datestring = datestring.split(' ')
-    datestring[0] = cal[datestring[0]]
-    after = []
-
-    after.append(str(datestring[2]) + '-')
-
-    if str(datestring[0]) in num:
-        after.append('0' + str(datestring[0]) + '-')
-    else:
-        after.append(str(datestring[0]) + '-')
-
-    if str(datestring[1]).strip(',') in num:
-        after.append('0' + str(datestring[1]).strip(','))
-    else:
-        after.append(str(datestring[1]).strip(','))
-
-    return''.join(after)
-
-
-#-----get raw message data from file-----
-with open('C:/Users/ditta/Desktop/messages/inbox/TerryDavisAppreciationGroup_XoG7UMwgZg/message.html', 'r', encoding='utf-8') as f:
-    lines = f.read()
-
-#-----Remove non-utf-8 chars-----
-normalized = unicodedata.normalize('NFKD', lines).encode('ascii', 'ignore')
-decoded_text = normalized.decode('utf-8')
-
-#-----split into list of messages with their metadata-----
-decoded_text = decoded_text.split(
-    '</div><div class="pam _3-95 _2pi0 _2lej uiBoxWhite noborder">')
-del decoded_text[0]
-
-metadata = {
-    'users': [],
-    'date': [],
-    'messages': [],
-}
-
-#-----Parse raw data into dictionary-----
-# filter tags for images, videos, attachments
-filters = ['<img src=', '<p><video src=', '<p><a href=']
-
-# for each message append a new entry containing user,
-# date, message to metadata dict
-for message in decoded_text:
-
-    # get user that sent the message
-    metadata['users'].append(find_between(
-        message, '<div class="_3-96 _2pio _2lek _2lel">', '</div>'))
-
-    # convert date to something readable
-    rawDate = find_between(message, '<div class="_3-94 _2lem">', '</div>')
-    #datenum = dates.datestr2num(str2numdate(rawDate))
-    dateReadable = str2numdate(rawDate)
-    metadata['date'].append(dateReadable)
-
-    # extract message
-    messageText = (find_between(
-        message, '<div class="_3-96 _2let"><div><div></div><div>', '</div>'))
-
-    metadata['messages'].append(messageText)
-
-#-----convert to panda dataframe-----
-dataFrame = pd.DataFrame(metadata)
-# save parsed data to csv file
-dataFrame.to_csv('metadata.csv')
+# result = engine.execute("DELETE FROM Messages WHERE content is NULL")
+# reactDf.loc[reactDf["index"]==78830]
+# select reaction,count(*) as count from Reactions group by reaction order
+# by count desc;
