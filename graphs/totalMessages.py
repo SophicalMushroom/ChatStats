@@ -1,9 +1,8 @@
 # April 12 2019
-import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 from sqlalchemy import create_engine
 from textwrap import wrap
+import pickle
 
 TOPUSERS = 10
 
@@ -13,7 +12,7 @@ fig.canvas.set_window_title('Total Messages by User')
 ax1 = fig.add_subplot(1, 1, 1, facecolor='#07000d')
 plt.rcParams['savefig.facecolor'] = '#07000d'
 
-# ---Gather data from database---
+# ---Gather message count per user data from database---
 engine = create_engine('sqlite:///../ParsedData.db', echo=False)
 connection = engine.connect()
 query = """
@@ -26,11 +25,14 @@ query = """
 results = engine.execute(query)
 users, messageCount, rank = [], [], 0
 for result in results:
-  users.append(result["sender_name"])
-  messageCount.append(result["count"])
-  rank += 1
-  if rank == TOPUSERS:
-    break
+    users.append(result["sender_name"])
+    messageCount.append(result["count"])
+    rank += 1
+    if rank == TOPUSERS:
+        break
+
+with open('../top10users.pkl', 'wb') as f:
+    pickle.dump(users, f)
 
 # generate indexes starting at 0 to len(users)
 usersIndexes = list(range(TOPUSERS))
@@ -41,11 +43,11 @@ plt.xticks(usersIndexes, users, rotation=-45)
 
 # set font size for x-axis lables
 for tick in ax1.xaxis.get_major_ticks():
-  tick.label.set_fontsize(10)
+    tick.label.set_fontsize(10)
 
 # render y value text above each bars
 for a, b in zip(usersIndexes, messageCount):
-  plt.text(a - 0.1, b + 50, str(b), color='#ABAA98')
+    plt.text(a - 0.1, b + 50, str(b), color='#ABAA98')
 
 # -----graph customization-----
 plt.ylabel('Messages', color='#ABAA98')

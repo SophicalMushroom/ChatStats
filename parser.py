@@ -39,6 +39,4 @@ for i, row in df[["reactions"]].iterrows():
 reactDf.to_sql('Reactions', con=connection, if_exists="replace")
 
 
-# result = engine.execute("DELETE FROM Messages WHERE content is NULL")
 # reactDf.loc[reactDf["index"]==78830]
-# select reaction,count(*) as count from Reactions group by reaction order by count desc;
