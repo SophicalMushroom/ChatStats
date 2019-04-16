@@ -3,3 +3,4 @@ common100.txt
 top10users.pkl
 ParsedData.db
 
+*.pyc

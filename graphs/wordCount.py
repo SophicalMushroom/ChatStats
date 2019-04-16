@@ -1,4 +1,3 @@
-# April 16 2019
 import sys
 sys.path.insert(
     0, 'C:/Users/ditta/OneDrive/Python Projects/Machine Learning Projects')
@@ -8,7 +7,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import datetime
 from sqlalchemy import create_engine
-
 # initialize plots
 fig = plt.figure(facecolor='#07000d')
 fig.canvas.set_window_title('Word Count')
@@ -46,8 +44,10 @@ wordFrame = wordFrame.to_frame()
 wordFrame["words"] = wordFrame.index
 wordFrame = wordFrame.sort_values(by=['count'])
 wordFrame = wordFrame.reset_index(drop=True)
-wordFrame.to_sql("WordCounts", con=connection, if_exists="replace")
-
+try:
+  wordFrame.to_sql("WordCounts", con=connection, if_exists="fail")
+except:
+  pass
 # generate label text
 wordsLabel = wordFrame["words"].tolist()[:-15:-1]
 counts = wordFrame["count"].tolist()[:-15:-1]
@@ -72,8 +72,8 @@ for w in wedges:
 plt.legend(facecolor='#07000d', labels=wordsLabel,
            loc='upper right', bbox_to_anchor=(0.25, 1.0))
 
-title_obj = plt.title(
-    'Most Used Words ' + datetime.datetime.now().strftime("%B %d, %Y"))
+title_obj = plt.title('Most Used Words ' +
+                      datetime.datetime.now().strftime("%B %d, %Y"))
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
 plt.setp(title_obj, color='#ABAA98')

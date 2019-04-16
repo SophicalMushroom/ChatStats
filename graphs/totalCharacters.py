@@ -2,7 +2,6 @@
 import matplotlib.pyplot as plt
 from sqlalchemy import create_engine
 from textwrap import wrap
-import pickle
 import pandas as pd
 import datetime
 TOPUSERS = 10

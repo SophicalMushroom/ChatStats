@@ -48,6 +48,7 @@ def messageCountPerUserByDay():
   connection.close()
 
 
+# word count
 sql = """
   select sender_name, Sum((length(content)-length(replace(content," ","")))+1 )
 from Messages

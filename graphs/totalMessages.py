@@ -2,14 +2,14 @@
 import matplotlib.pyplot as plt
 from sqlalchemy import create_engine
 from textwrap import wrap
-import pickle
 import pandas as pd
 import datetime
+import pickle
 TOPUSERS = 10
 
 # ---initialize plots---
 fig1 = plt.figure(facecolor='#07000d')
-fig1.canvas.set_window_title('Total Messages by User')
+fig1.canvas.set_window_title('Total Message Count by User')
 ax1 = fig1.add_subplot(1, 1, 1, facecolor='#07000d')
 plt.rcParams['savefig.facecolor'] = '#07000d'
 
@@ -17,7 +17,7 @@ plt.rcParams['savefig.facecolor'] = '#07000d'
 engine = create_engine('sqlite:///ParsedData.db', echo=False)
 connection = engine.connect()
 query = """
-  SELECT sender_name,COUNT(*) as count
+  SELECT sender_name, count(*) as count
   FROM Messages
   GROUP BY sender_name
   ORDER BY count DESC
@@ -28,6 +28,7 @@ messageFrame = pd.read_sql_query(query, connection)
 connection.close()
 users = messageFrame["sender_name"].tolist()[:TOPUSERS]
 messageCount = messageFrame["count"].tolist()[:TOPUSERS]
+
 # export top 10 users for other scripts to use
 with open('../top10users.pkl', 'wb') as f:
   pickle.dump(users, f)
@@ -62,12 +63,12 @@ ax1.bar(usersIndexes, messageCount,
         width=0.4, linewidth=1.8, edgecolor='#5998ff', alpha=0.6,
         color='#66b5ff')
 
-title_obj = plt.title('Total Messages by User ' +
+title_obj = plt.title('Total Message Count by User ' +
                       datetime.datetime.now().strftime("%B %d, %Y"))
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
 plt.setp(title_obj, color='#ABAA98')
 
 if __name__ == '__main__':
-  engine = create_engine('sqlite:///../ParsedData.db', echo=False)
+  # engine = create_engine('sqlite:///../ParsedData.db', echo=False)
   plt.show()
