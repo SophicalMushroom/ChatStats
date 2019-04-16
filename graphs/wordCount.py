@@ -1,126 +1,73 @@
+import sys
+sys.path.insert(
+    0, 'C:/Users/ditta/OneDrive/Python Projects/Machine Learning Projects')
+from PyChat.CleanData import cleanText
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from sqlalchemy import create_engine
 
 # initialize plots
 fig = plt.figure(facecolor='#07000d')
 fig.canvas.set_window_title('Word Count')
-ax1 = fig.add_subplot(1, 1, 1, facecolor='#07000d')
-ax1.axis("equal")
+ax3 = fig.add_subplot(1, 1, 1, facecolor='#07000d')
+ax3.axis("equal")
 plt.rcParams['savefig.facecolor'] = '#07000d'
 plt.rcParams['text.color'] = '#ABAA98'
 plt.rcParams['font.size'] = 14
 
 
-def getWordCounts():
-    '''
-    generate wordCount.csv that maps words to number of times they were used
-    in the chat
-    '''
-    metaData = pd.read_csv('metadata.csv')
-    # compile every message ever sent into a string
-    message_string = ''
-    for message in metaData['messages']:
-        message_string += str(message)
+engine = create_engine('sqlite:///ParsedData.db', echo=False)
+connection = engine.connect()
+# ---get all messages from database---
+query = """
+  SELECT *
+  FROM Messages
+  WHERE content IS NOT NULL
+  """
+wordCount = {}
+results = connection.execute(query)
+# for each message tokenize then record count of each word in message
+for message in results:
+  tokenized = cleanText(message["content"]).split(" ")
+  for word in set(tokenized):
+    if word in wordCount:
+      wordCount[word] += tokenized.count(word)
+    elif word != "":
+      wordCount[word] = tokenized.count(word)
 
-    # get total character and word counts
-    charCount = len(message_string)
-    message_string = message_string.split(' ')
-    wordCount = len(message_string)
+# ---convert to dataframe and write to WordCounts table---
+connection.close()
+connection = engine.connect()
+wordFrame = pd.Series(wordCount, name="count")
+wordFrame = wordFrame.to_frame()
+wordFrame["words"] = wordFrame.index
+wordFrame = wordFrame.sort_values(by=['count'])
+wordFrame = wordFrame.reset_index(drop=True)
+wordFrame.to_sql("WordCounts", con=connection, if_exists="replace")
 
-    # compile unique words set
-    uniqueWords = set()
-    for word in message_string:
-        uniqueWords.add(word)
+# generate label text
+wordsLabel = wordFrame["words"].tolist()[:-15:-1]
+counts = wordFrame["count"].tolist()[:-15:-1]
+for i in range(len(wordsLabel)):
+  wordsLabel[i] = '{: <8} {: >5}'.format(wordsLabel[i], counts[i])
 
-    # get the number of times each unique word appears in chat
-    wordlist = []
-    countlist = []
-    for word in uniqueWords:
-        wordlist.append(word)
-        countlist.append(message_string.count(word))
-
-    # save it as a pandas dataframe
-    dataFrame = pd.DataFrame({'words': wordlist})
-    dataFrame['count'] = countlist
-
-    dataFrame.to_csv('wordCount.csv')
-    return charCount, wordCount, len(uniqueWords)
-
-
-def getTop10(num):
-    '''(int)-> dict, list, list
-    return the top (num) words used in the chat
-    '''
-    common100 = ['nan', 'it&#039;s', 'won&#039;t',
-                 'i&#039;m', 'I&#039;m', 'I&#039;M']
-
-    wordData = pd.read_csv('wordCount.csv')
-    countlist = wordData['count'].tolist()
-    wordlist = wordData['words'].tolist()
-    topWords = []
-    topCounts = []
-    topDict = {}
-    i = 0
-    while i < num:
-        max_count = max(countlist)
-        max_idx = countlist.index(max_count)
-        word = wordlist[max_idx]
-        if str(word) not in common100:
-            topDict[str(word)] = max_count
-            topWords.append(word)
-            topCounts.append(max_count)
-            i += 1
-        wordlist.pop(max_idx)
-        countlist.pop(max_idx)
-
-    return topDict, topWords, topCounts
-
-
-def charCountPerUser():
-    '''return a dictionary mapping names to total characters typed in chat'''
-
-    dataFrame = pd.read_csv('metadata.csv')
-    charcountperuser = {}
-
-    for name in dataFrame['users']:
-        if name not in charcountperuser.keys():
-            charcountperuser[name] = 0
-
-    for i in range(len(dataFrame['date'])):
-        charcountperuser[dataFrame.loc[i]['users']
-                         ] += len(str(dataFrame.loc[i]['messages']))
-    return charcountperuser
-
-
-totalChars, totalWords, uniqueWords = getWordCounts()
-print('Total Characters: ' + str(totalChars))
-print('Total Words: ' + str(totalWords))
-print('Unique Words: ' + str(uniqueWords))
-print(charCountPerUser())
-
-dummyVar, words, counts = getTop10(10)
-
-# generate graph labels
-wordsLabel = words[:]
-for i in range(len(words)):
-    words[i] = '{: <8} {: >5}'.format(words[i], counts[i])
-
-# add more if more words than top 10
+# add more if more words than top 15
 colors = ['#b3daff', '#99ceff', '#80c1ff', '#66b5ff', '#4da9ff',
           '#339cff', '#1a90ff', '#0084ff', '#0077e6', '#0069cc', '#005cb3',
           '#004f99', '#004280', '#003566', '#00284d']
 
 # plot pie chart
-wedges, texts = ax1.pie(counts, startangle=90,
-                        labels=wordsLabel, colors=colors)
+wedges, texts = ax3.pie(counts, startangle=90,
+                        labels=wordFrame["words"].tolist()[:-15:-1],
+                        colors=colors)
 
 #------graph customization------
 for w in wedges:
-    w.set_linewidth(3)
-    w.set_edgecolor('#07000d')
+  w.set_linewidth(3)
+  w.set_edgecolor('#07000d')
 
-plt.legend(facecolor='#07000d', labels=words,
+plt.legend(facecolor='#07000d', labels=wordsLabel,
            loc='upper right', bbox_to_anchor=(0.25, 1.0))
 
 title_obj = plt.title('Most Used Words')
@@ -128,4 +75,7 @@ plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
 plt.setp(title_obj, color='#ABAA98')
 
-plt.show()
+
+if __name__ == '__main__':
+  engine = create_engine('sqlite:///../ParsedData.db', echo=False)
+  plt.show()

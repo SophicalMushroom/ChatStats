@@ -7,13 +7,13 @@ import pickle
 TOPUSERS = 10
 
 # ---initialize plots---
-fig = plt.figure(facecolor='#07000d')
-fig.canvas.set_window_title('Total Messages by User')
-ax1 = fig.add_subplot(1, 1, 1, facecolor='#07000d')
+fig1 = plt.figure(facecolor='#07000d')
+fig1.canvas.set_window_title('Total Messages by User')
+ax1 = fig1.add_subplot(1, 1, 1, facecolor='#07000d')
 plt.rcParams['savefig.facecolor'] = '#07000d'
 
 # ---Gather message count per user data from database---
-engine = create_engine('sqlite:///../ParsedData.db', echo=False)
+engine = create_engine('sqlite:///ParsedData.db', echo=False)
 connection = engine.connect()
 query = """
   SELECT sender_name,COUNT(*) as count
@@ -22,17 +22,17 @@ query = """
   ORDER BY count DESC
   """
 # ---Generate top TOPUSERS number of users and messageCount lists
-results = engine.execute(query)
+results = connection.execute(query)
 users, messageCount, rank = [], [], 0
 for result in results:
-    users.append(result["sender_name"])
-    messageCount.append(result["count"])
-    rank += 1
-    if rank == TOPUSERS:
-        break
-
+  users.append(result["sender_name"])
+  messageCount.append(result["count"])
+  rank += 1
+  if rank == TOPUSERS:
+    break
+connection.close()
 with open('../top10users.pkl', 'wb') as f:
-    pickle.dump(users, f)
+  pickle.dump(users, f)
 
 # generate indexes starting at 0 to len(users)
 usersIndexes = list(range(TOPUSERS))
@@ -43,11 +43,11 @@ plt.xticks(usersIndexes, users, rotation=-45)
 
 # set font size for x-axis lables
 for tick in ax1.xaxis.get_major_ticks():
-    tick.label.set_fontsize(10)
+  tick.label.set_fontsize(10)
 
 # render y value text above each bars
 for a, b in zip(usersIndexes, messageCount):
-    plt.text(a - 0.1, b + 50, str(b), color='#ABAA98')
+  plt.text(a - 0.1, b + 50, str(b), color='#ABAA98')
 
 # -----graph customization-----
 plt.ylabel('Messages', color='#ABAA98')
@@ -67,4 +67,7 @@ title_obj = plt.title('Total Messages by User')
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
 plt.setp(title_obj, color='#ABAA98')
-plt.show()
+
+if __name__ == '__main__':
+  engine = create_engine('sqlite:///../ParsedData.db', echo=False)
+  plt.show()
