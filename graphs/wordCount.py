@@ -1,3 +1,4 @@
+# April 16 2019
 import sys
 sys.path.insert(
     0, 'C:/Users/ditta/OneDrive/Python Projects/Machine Learning Projects')
@@ -5,6 +6,7 @@ from PyChat.CleanData import cleanText
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import datetime
 from sqlalchemy import create_engine
 
 # initialize plots
@@ -70,7 +72,8 @@ for w in wedges:
 plt.legend(facecolor='#07000d', labels=wordsLabel,
            loc='upper right', bbox_to_anchor=(0.25, 1.0))
 
-title_obj = plt.title('Most Used Words')
+title_obj = plt.title(
+    'Most Used Words ' + datetime.datetime.now().strftime("%B %d, %Y"))
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
 plt.setp(title_obj, color='#ABAA98')

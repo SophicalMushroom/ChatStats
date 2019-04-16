@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sqlalchemy import create_engine
 import pickle
+import datetime
 
 #----initiate plots----
 fig2 = plt.figure(facecolor='#07000d')
@@ -53,7 +54,8 @@ pivot_df.plot.bar(stacked=True, color=colors,
                   edgecolor='#5998ff', rot=-65)
 
 
-title_obj = plt.title('Message Distribution by week, top 10 users')
+title_obj = plt.title('Message Distribution by week, top 10 users ' +
+                      datetime.datetime.now().strftime("%B %d, %Y"))
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
 plt.setp(title_obj, color='#ABAA98')

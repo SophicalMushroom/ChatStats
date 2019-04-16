@@ -46,3 +46,11 @@ def messageCountPerUserByDay():
   for result in engine.execute(query):
     print(result)
   connection.close()
+
+
+sql = """
+  select sender_name, Sum((length(content)-length(replace(content," ","")))+1 )
+from Messages
+where content is not null
+group by sender_name
+"""

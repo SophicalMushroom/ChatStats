@@ -1,9 +1,10 @@
-# April 12 2019
+# April 16 2019
 import matplotlib.pyplot as plt
 from sqlalchemy import create_engine
 from textwrap import wrap
 import pickle
-
+import pandas as pd
+import datetime
 TOPUSERS = 10
 
 # ---initialize plots---
@@ -22,15 +23,12 @@ query = """
   ORDER BY count DESC
   """
 # ---Generate top TOPUSERS number of users and messageCount lists
-results = connection.execute(query)
-users, messageCount, rank = [], [], 0
-for result in results:
-  users.append(result["sender_name"])
-  messageCount.append(result["count"])
-  rank += 1
-  if rank == TOPUSERS:
-    break
+# read sql query into dataframe
+messageFrame = pd.read_sql_query(query, connection)
 connection.close()
+users = messageFrame["sender_name"].tolist()[:TOPUSERS]
+messageCount = messageFrame["count"].tolist()[:TOPUSERS]
+# export top 10 users for other scripts to use
 with open('../top10users.pkl', 'wb') as f:
   pickle.dump(users, f)
 
@@ -61,9 +59,11 @@ ax1.grid(True, color='#ABAA98', alpha=0.2, linewidth=0.4)
 
 # ---plot data---
 ax1.bar(usersIndexes, messageCount,
-        width=0.4, linewidth=1.8, edgecolor='#5998ff', alpha=0.6, color='#66b5ff')
+        width=0.4, linewidth=1.8, edgecolor='#5998ff', alpha=0.6,
+        color='#66b5ff')
 
-title_obj = plt.title('Total Messages by User')
+title_obj = plt.title('Total Messages by User ' +
+                      datetime.datetime.now().strftime("%B %d, %Y"))
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
 plt.setp(title_obj, color='#ABAA98')
