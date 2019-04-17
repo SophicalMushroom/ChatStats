@@ -13,7 +13,7 @@ fig.canvas.set_window_title('Word Count')
 ax3 = fig.add_subplot(1, 1, 1, facecolor='#07000d')
 ax3.axis("equal")
 plt.rcParams['savefig.facecolor'] = '#07000d'
-plt.rcParams['text.color'] = '#ABAA98'
+plt.rcParams['text.color'] = '#ffffff'
 plt.rcParams['font.size'] = 14
 
 
@@ -76,9 +76,10 @@ title_obj = plt.title('Most Used Words ' +
                       datetime.datetime.now().strftime("%B %d, %Y"))
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
-plt.setp(title_obj, color='#ABAA98')
+plt.setp(title_obj, color='#ffffff')
 
 
 if __name__ == '__main__':
   engine = create_engine('sqlite:///../ParsedData.db', echo=False)
   plt.show()
+# replace #ffffff with #ABAA98
