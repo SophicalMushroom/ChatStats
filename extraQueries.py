@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 import datetime
 
-engine = create_engine('sqlite:///../ParsedData.db', echo=False)
+engine = create_engine('sqlite:///ParsedData.db', echo=False)
 
 
 def searchByUserDate(name="Dittam Dey", date="2019-04-11"):

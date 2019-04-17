@@ -23,7 +23,7 @@ query = """
 df = pd.read_sql_query(query, connection)  # read sql query into dataframe
 connection.close()
 # filter dataframe by top 10 users
-with open('../top10users.pkl', 'rb') as f:
+with open('top10users.pkl', 'rb') as f:
   topUsers = pickle.load(f)
 df = df[df['reactor'].isin(topUsers)]
 

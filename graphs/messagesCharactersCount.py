@@ -33,7 +33,7 @@ messageCount = messageFrame["messageCount"].tolist()[:TOPUSERS]
 charCount = messageFrame["charCount"].tolist()[:TOPUSERS]
 
 # export top 10 users for other scripts to use
-with open('../top10users.pkl', 'wb') as f:
+with open('top10users.pkl', 'wb') as f:
   pickle.dump(users, f)
 
 # generate indexes starting at 0 to len(users)
