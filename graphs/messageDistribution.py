@@ -12,7 +12,7 @@ ax2 = fig2.add_subplot(1, 1, 1, facecolor='#07000d')
 plt.rcParams['savefig.facecolor'] = '#07000d'
 
 # ---Gather message count per user per week data from database---
-engine = create_engine('sqlite:///ParsedData.db', echo=False)
+engine = create_engine('sqlite:///../ParsedData.db', echo=False)
 connection = engine.connect()
 query = """
   SELECT sender_name, COUNT(*) as messageCount, date(strftime('%Y-%m-%d',
@@ -62,6 +62,5 @@ plt.setp(title_obj, color='#ffffff')
 for text in plt.legend(framealpha=0, loc='best').get_texts():
   plt.setp(text, color='w')
 if __name__ == '__main__':
-  engine = create_engine('sqlite:///../ParsedData.db', echo=False)
   plt.show()
 # replace #ffffff with #ABAA98

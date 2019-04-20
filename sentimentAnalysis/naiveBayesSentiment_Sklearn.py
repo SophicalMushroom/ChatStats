@@ -1,7 +1,7 @@
+# April 19 2019
 import sys
-sys.path.insert(
-    0, 'C:/Users/ditta/OneDrive/Python Projects/Machine Learning Projects')
-from PyChat.CleanData import cleanText
+sys.path.insert(0, 'C:/Users/ditta/OneDrive/Python Projects/ChatStats')
+from cleanData import cleanText
 import pandas as pd
 import numpy as np
 from sklearn.naive_bayes import MultinomialNB

@@ -1,7 +1,6 @@
 import sys
-sys.path.insert(
-    0, 'C:/Users/ditta/OneDrive/Python Projects/ChatStats')
-from extraQueries import *
+sys.path.insert(0, 'C:/Users/ditta/OneDrive/Python Projects/ChatStats')
+from utils.extraQueries import *
 import matplotlib.pyplot as plt
 '''
 Plot extra stats on an empty graph

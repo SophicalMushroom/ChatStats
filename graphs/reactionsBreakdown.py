@@ -1,7 +1,3 @@
-import sys
-sys.path.insert(
-    0, 'C:/Users/ditta/OneDrive/Python Projects/Machine Learning Projects')
-from PyChat.CleanData import cleanText
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -16,7 +12,7 @@ plt.rcParams['savefig.facecolor'] = '#07000d'
 plt.rcParams['text.color'] = '#ffffff'
 plt.rcParams['font.size'] = 14
 
-engine = create_engine('sqlite:///ParsedData.db', echo=False)
+engine = create_engine('sqlite:///../ParsedData.db', echo=False)
 connection = engine.connect()
 # ---get all messages from database---
 query = """
@@ -54,6 +50,5 @@ plt.setp(title_obj, color='#ffffff')
 
 
 if __name__ == '__main__':
-  engine = create_engine('sqlite:///../ParsedData.db', echo=False)
   plt.show()
 # replace #ffffff with #ABAA98
