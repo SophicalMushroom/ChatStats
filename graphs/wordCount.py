@@ -44,7 +44,7 @@ wordFrame["words"] = wordFrame.index
 wordFrame = wordFrame.sort_values(by=['count'])
 wordFrame = wordFrame.reset_index(drop=True)
 try:
-  wordFrame.to_sql("WordCounts", con=connection, if_exists="fail")
+  wordFrame.to_sql("WordCounts", con=connection, if_exists="replace")
 except:
   pass
 # generate label text
