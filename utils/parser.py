@@ -24,10 +24,11 @@ df = json_normalize(data['messages'])  # load json into dataframe
 # reverse order of dataframe and index so oldest messages at index 0
 df = df.reindex(index=df.index[::-1])
 df = df.reset_index(drop=True)
-
+df.index.names = ['messageIdx']
 # ---write meassages dataframe to sql database in table Messages---
 engine = create_engine('sqlite:///../ParsedData.db', echo=False)
 connection = engine.connect()
+
 df[["content", "sender_name", "timestamp_ms"]].to_sql(
     'Messages', con=connection, if_exists="replace")
 
