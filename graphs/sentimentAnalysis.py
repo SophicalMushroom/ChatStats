@@ -74,7 +74,7 @@ pivot_df.plot.bar(stacked=False, color=colors,
 
 
 title_obj = plt.title('Normalized Sentiment by User ' +
-                      datetime.datetime.now().strftime("%B %d, %Y"))
+                      datetime.datetime.now().strftime("%B %d, %Y") + ' (Naive Bayes)')
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
 plt.setp(title_obj, color='#ffffff')
@@ -136,7 +136,7 @@ pivot_df.plot.bar(stacked=False, color=colors,
 
 
 title_obj = plt.title('Normalized Sentiment Over time ' +
-                      datetime.datetime.now().strftime("%B %d, %Y"))
+                      datetime.datetime.now().strftime("%B %d, %Y") + ' (Naive Bayes)')
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
 plt.setp(title_obj, color='#ffffff')
