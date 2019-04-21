@@ -7,7 +7,17 @@ import datetime
 import numpy as np
 import pickle
 
-TOPUSERS = 10
+TOPUSERS = 12
+
+
+def delUsers(usersList, messageCount, charCount, listOfUserNames):
+  # remove users from TOPUSERS
+  for user in listOfUserNames:
+    idx = usersList.index(user)
+    del usersList[idx]
+    del messageCount[idx]
+    del charCount[idx]
+
 
 # ---initialize plots---
 fig1 = plt.figure(facecolor='#07000d')
@@ -31,13 +41,16 @@ connection.close()
 users = messageFrame["sender_name"].tolist()[:TOPUSERS]
 messageCount = messageFrame["messageCount"].tolist()[:TOPUSERS]
 charCount = messageFrame["charCount"].tolist()[:TOPUSERS]
+print("top users: ", users)
+
+# delUsers(users, messageCount, charCount, ["Smit Patel", "Abdullah Abid"])
 
 # export top 10 users for other scripts to use
 with open('../top10users.pkl', 'wb') as f:
   pickle.dump(users, f)
 
 # generate indexes starting at 0 to len(users)
-usersIndexes = np.arange(TOPUSERS)
+usersIndexes = np.arange(len(users))
 
 # wrap user names to fit graph
 users = ['\n'.join(wrap(l, 8)) for l in users]
