@@ -28,12 +28,12 @@ query2 = """
   """
 messages = pd.read_sql_query(query1, connection)
 reactions = pd.read_sql_query(query2, connection)
-'''
+
 # add converted emojiword to corresponding message in messages dataframe
 for index, row in reactions.iterrows():
   messages.loc[messages["messageIdx"] == row[
       'messageIdx'], "content"] += convert[row['reaction']]
-'''
+
 # ---RUN SENTIMENT CLASSIFIER ON ALL MESSAGES---
 # Load in trained model
 with open("../MultinomialNB_Sklearn_Accuracy76.pkl", "rb") as file:
