@@ -5,3 +5,5 @@ messagesPerWeek.csv
 parserOLD.py
 metadata.csv
 wordCount.csv
+*.pyc
+*.pkl
