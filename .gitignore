@@ -1,9 +1,6 @@
 
 common100.txt
-messagesPerDay.csv
-messagesPerWeek.csv
-parserOLD.py
-metadata.csv
-wordCount.csv
+top10users.pkl
+ParsedData.db
+
 *.pyc
-*.pkl
