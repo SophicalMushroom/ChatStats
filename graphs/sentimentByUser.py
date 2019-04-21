@@ -16,26 +16,22 @@ engine = create_engine('sqlite:///../ParsedData.db', echo=False)
 connection = engine.connect()
 query1 = """
   CREATE VIEW sentimentCount AS
-  SELECT Sentiment,COUNT(Sentiment) AS count,
-  strftime('%Y-%m',timestamp_ms/1000, 'unixepoch', 'localtime') AS Date
+  SELECT p2.sender_name,Sentiment,COUNT(Sentiment) AS count
   FROM Sentiments AS p1, Messages AS p2
   ON p1.messageIdx = p2.messageIdx
-  GROUP BY Date, Sentiment
-  ORDER BY Date;
+  GROUP BY Sentiment, sender_name;
 """
 query2 = """
   CREATE VIEW normalizer AS
-  SELECT COUNT(Sentiment) AS count,
-  strftime('%Y-%m',timestamp_ms/1000, 'unixepoch', 'localtime') AS Date
+  SELECT COUNT(Sentiment) AS count, sender_name
   FROM Sentiments AS p1, Messages AS p2
   ON p1.messageIdx = p2.messageIdx
-  GROUP BY Date
-  ORDER BY Date;
+  GROUP BY sender_name;
   """
 query3 = """
-  SELECT Sentiment, p1.Date, ((p1.count+0.0)/p2.count) AS normalizedCount
+  SELECT p1.sender_name, Sentiment, ((p1.count+0.0)/p2.count) AS normalizedCount
   FROM sentimentCount AS p1, normalizer AS p2
-  ON p1.Date=p2.Date;
+  ON p1.sender_name=p2.sender_name;
 """
 query4 = """
   DROP VIEW IF EXISTS normalizer;
@@ -51,6 +47,9 @@ connection.execute(query4)
 connection.execute(query5)
 connection.close()
 
+with open('../top10users.pkl', 'rb') as f:
+  topUsers = pickle.load(f)
+df = df[df['sender_name'].isin(topUsers)]
 # ------Stacked Bar Plot-------
 
 # add more depending on number of chat memebers
@@ -67,13 +66,13 @@ ax2.spines['right'].set_color('#5998ff')
 ax2.spines['top'].set_color('#5998ff')
 ax2.grid(True, color='#ffffff', alpha=0.3, linewidth=0.4)
 pivot_df = df.pivot_table(
-    index='Date', columns='Sentiment', values='normalizedCount')
+    index='sender_name', columns='Sentiment', values='normalizedCount')
 pivot_df.plot.bar(stacked=False, color=colors,
                   figsize=(10, 7), ax=ax2, grid=True, alpha=0.7, linewidth=0.8,
                   edgecolor='#5998ff', rot=-65)
 
 
-title_obj = plt.title('Normalized Sentiment Over time ' +
+title_obj = plt.title('Normalized Sentiment by User ' +
                       datetime.datetime.now().strftime("%B %d, %Y"))
 plt.getp(title_obj)  # print out the properties of title
 plt.getp(title_obj, 'text')  # print out the 'text' property for title
