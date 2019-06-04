@@ -8,14 +8,14 @@ from sqlalchemy import create_engine
 
 convert = {'👍': ':thumbsup:', '👎': ':thumbsdown:', '😆': ':joy:',
            '😍': ':heart_eyes:', '😠': ':angry:', '😢': ':disappointed_relieved:',
-           '😮': ':astonished:'}
+           '😮': ':astonished:', '❤': ':heart_eyes:'}
 
 # ---fix facebook's wrong encoding for special chars and emojis---
 fixFBEncoding = partial(re.compile(
     rb'\\u00([\da-f]{2})').sub, lambda m: bytes.fromhex(m.group(1).decode()))
 
 # ---load json message archive---
-path = "C:/Users/ditta/Desktop/Google_Interns_2019/message_1.json"
+path = "C:/Users/ditta/Desktop/messages/inbox/STAC67_7PcL1AVpXQ/message_1.json"
 with open(path, 'rb') as binaryData:
     repaired = fixFBEncoding(binaryData.read())
 data = json.loads(repaired.decode('utf8'))
