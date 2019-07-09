@@ -4,6 +4,16 @@ import datetime
 engine = create_engine('sqlite:///../ParsedData.db', echo=False)
 
 
+def convertUnixtimeToDate():
+  connection = engine.connect()
+  query = """
+    SELECT messageIdx, sender_name, content, 
+    DATETIME(ROUND(timestamp_ms / 1000), 'unixepoch') as convertedDate
+    FROM Messages
+    """
+  return connection.execute(query)
+
+
 def searchByUserDate(name="Dittam Dey", date="2019-04-11"):
   # messages a user sent on a certain day
   connection = engine.connect()
