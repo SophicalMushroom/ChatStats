@@ -1,5 +1,6 @@
 # April 11 2019
 import json
+import glob
 import re
 from functools import partial
 import pandas as pd
@@ -15,12 +16,21 @@ fixFBEncoding = partial(re.compile(
     rb'\\u00([\da-f]{2})').sub, lambda m: bytes.fromhex(m.group(1).decode()))
 
 # ---load json message archive---
-path = "C:/Users/ditta/Desktop/messages/inbox/STAC67_7PcL1AVpXQ/message_1.json"
-with open(path, 'rb') as binaryData:
-    repaired = fixFBEncoding(binaryData.read())
-data = json.loads(repaired.decode('utf8'))
+path = "C:/Users/ditta/Desktop/messages/inbox/UNK_XoG7UMwgZg"
+# read in all json files
+allJsons = []
+for f in glob.glob(path + "/*.json"):
+    with open(f, "rb") as infile:
+        repaired = fixFBEncoding(infile.read())
+        allJsons.append(json.loads(repaired.decode('utf8')))
+# merge the "messages" entries in all jsons into one object
+combinedMessages = []
+for i in allJsons:
+    combinedMessages += i['messages']
+data = [allJsons[0]['participants'], combinedMessages]
 
-df = json_normalize(data['messages'])  # load json into dataframe
+
+df = json_normalize(data[1])  # load json into dataframe
 # reverse order of dataframe and index so oldest messages at index 0
 df = df.reindex(index=df.index[::-1])
 df = df.reset_index(drop=True)
