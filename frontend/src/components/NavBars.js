@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -11,6 +11,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import Switch from "@material-ui/core/Switch";
+import { CustomThemeContext } from "./../Theme";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -56,26 +58,42 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const NavItems = () => {
+const NavItems = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
+	const { currentTheme, setTheme } = useContext(CustomThemeContext);
+
+	const handleThemeChange = (event) => {
+		setTheme(currentTheme === "dark" ? "light" : "dark");
+	};
+
 	return (
-		<List>
-			{["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-				<ListItem button key={text}>
-					<ListItemIcon>
-						{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-					</ListItemIcon>
-					<ListItemText primary={text} />
-				</ListItem>
-			))}
-		</List>
+		<Fragment>
+			<List>
+				{["Home", "Vocab", "Emojis", "Misc", "Regex"].map((text, index) => (
+					<ListItem
+						button
+						key={text}
+						onClick={() => props.HandleNavItemClick(text)}
+					>
+						<ListItemIcon>
+							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+						</ListItemIcon>
+						<ListItemText primary={text} />
+					</ListItem>
+				))}
+			</List>
+			<Switch checked={currentTheme === "dark"} onChange={handleThemeChange} />
+		</Fragment>
 	);
 };
 
 export const DesktopNav = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
+	const HandleNavItemClick = (text) => {
+		props.setCurTab(text);
+	};
 
 	return (
 		<Drawer
@@ -87,7 +105,7 @@ export const DesktopNav = (props) => {
 			anchor="left"
 		>
 			<div style={{ width: "240px", height: "50px" }}>LOGO</div>
-			<NavItems />
+			<NavItems HandleNavItemClick={HandleNavItemClick} />
 		</Drawer>
 	);
 };
@@ -95,6 +113,10 @@ export const DesktopNav = (props) => {
 export const MobileNav = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
+	const HandleNavItemClick = (text) => {
+		props.setCurTab(text);
+		props.setIsMobileNavOpen(!props.isMobileNavOpen);
+	};
 
 	return (
 		<Drawer
@@ -110,7 +132,7 @@ export const MobileNav = (props) => {
 			open={props.isMobileNavOpen}
 			onClose={() => props.setIsMobileNavOpen(!props.isMobileNavOpen)}
 		>
-			<NavItems />
+			<NavItems HandleNavItemClick={HandleNavItemClick} />
 		</Drawer>
 	);
 };
