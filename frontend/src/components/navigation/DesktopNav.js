@@ -2,6 +2,7 @@ import { Fragment, useContext } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import { NavItems } from "./NavItems";
+import { NavContext } from "./../../Contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
 	drawer: {
@@ -12,12 +13,15 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export const DesktopNav = (props) => {
+export const DesktopNav = () => {
 	const classes = useStyles();
 	const theme = useTheme();
+	const [curTab, setCurTab, isMobileNavOpen, setIsMobileNavOpen] = useContext(
+		NavContext
+	);
 
 	const HandleNavItemClick = (text) => {
-		props.setCurTab(text);
+		setCurTab(text);
 	};
 
 	return (

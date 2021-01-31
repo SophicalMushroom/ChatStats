@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import { useState, createContext } from "react";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
-export const CustomThemeContext = React.createContext({
-	currentTheme: "dark",
+export const ThemeContext = createContext({
+	currentTheme: "normal",
 	setTheme: null,
 });
 
-const CustomThemeProvider = (props) => {
-	const { children } = props;
-	// Read current theme from localStorage
-	const currentTheme = localStorage.getItem("appTheme") || "dark";
+const ThemeContextProvider = (props) => {
+	// Read current theme from localStorage or maybe from an api
+	const currentTheme = localStorage.getItem("appTheme") || "normal";
 
 	// State to hold the selected theme name
 	const [themeName, _setThemeName] = useState(currentTheme);
@@ -31,10 +30,10 @@ const CustomThemeProvider = (props) => {
 	};
 
 	return (
-		<CustomThemeContext.Provider value={contextValue}>
-			<ThemeProvider theme={theme}>{children}</ThemeProvider>
-		</CustomThemeContext.Provider>
+		<ThemeContext.Provider value={contextValue}>
+			<ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+		</ThemeContext.Provider>
 	);
 };
 
-export default CustomThemeProvider;
+export default ThemeContextProvider;

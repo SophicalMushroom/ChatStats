@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { Home } from "./Home";
 import { Vocab } from "./Vocab";
 import { Emojis } from "./Emojis";
 import { Misc } from "./Misc";
 import { Regex } from "./Regex";
+import { NavContext } from "./../Contexts/NavContext";
 
 const renderTabContent = (curTab) => {
 	switch (curTab) {
@@ -19,8 +21,10 @@ const renderTabContent = (curTab) => {
 	}
 };
 
-const Main = (props) => {
-	return <div>{renderTabContent(props.curTab)}</div>;
-};
+export const Main = () => {
+	const [curTab, setCurTab, isMobileNavOpen, setIsMobileNavOpen] = useContext(
+		NavContext
+	);
 
-export default Main;
+	return <div>{renderTabContent(curTab)}</div>;
+};

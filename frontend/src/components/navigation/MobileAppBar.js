@@ -4,6 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import { NavContext } from "./../../Contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
 	appBar: {
@@ -40,10 +41,12 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export const MobileAppBar = (props) => {
+export const MobileAppBar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
-
+	const [curTab, setCurTab, isMobileNavOpen, setIsMobileNavOpen] = useContext(
+		NavContext
+	);
 	return (
 		<Fragment>
 			<AppBar position="fixed" className={classes.appBar}>
@@ -51,7 +54,7 @@ export const MobileAppBar = (props) => {
 					<IconButton
 						className={classes.menuButton}
 						edge="start"
-						onClick={() => props.setIsMobileNavOpen(!props.isMobileNavOpen)}
+						onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
 					>
 						<MenuIcon className={classes.menuButtonIcon} />
 					</IconButton>

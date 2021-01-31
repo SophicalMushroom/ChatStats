@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import { NavItems } from "./NavItems";
+import { NavContext } from "./../../Contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
 	drawer: {
@@ -11,12 +13,16 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export const MobileNav = (props) => {
+export const MobileNav = () => {
 	const classes = useStyles();
 	const theme = useTheme();
+	const [curTab, setCurTab, isMobileNavOpen, setIsMobileNavOpen] = useContext(
+		NavContext
+	);
+
 	const HandleNavItemClick = (text) => {
-		props.setCurTab(text);
-		props.setIsMobileNavOpen(!props.isMobileNavOpen);
+		setCurTab(text);
+		setIsMobileNavOpen(!isMobileNavOpen);
 	};
 
 	return (
@@ -30,8 +36,8 @@ export const MobileNav = (props) => {
 			ModalProps={{
 				keepMounted: true, // Better open performance on mobile.
 			}}
-			open={props.isMobileNavOpen}
-			onClose={() => props.setIsMobileNavOpen(!props.isMobileNavOpen)}
+			open={isMobileNavOpen}
+			onClose={() => setIsMobileNavOpen(!isMobileNavOpen)}
 		>
 			<NavItems HandleNavItemClick={HandleNavItemClick} />
 		</Drawer>

@@ -1,13 +1,12 @@
-import { useState, useContext } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import { DesktopNav } from "./components/navigation/DesktopNav";
-import { MobileNav } from "./components/navigation/MobileNav";
-import { MobileAppBar } from "./components/navigation/MobileAppBar";
-import Main from "./components/Main";
+import { DesktopNav } from "./Components/Navigation/DesktopNav";
+import { MobileNav } from "./Components/Navigation/MobileNav";
+import { MobileAppBar } from "./Components/Navigation/MobileAppBar";
+import { Main } from "./Components/Main";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -23,29 +22,20 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-	const [curTab, setCurTab] = useState("Home");
 
 	return (
 		<div className={classes.root}>
 			<Hidden xsDown>
-				<DesktopNav setCurTab={setCurTab} />
+				<DesktopNav />
 			</Hidden>
 
 			<Hidden smUp>
-				<MobileNav
-					isMobileNavOpen={isMobileNavOpen}
-					setIsMobileNavOpen={setIsMobileNavOpen}
-					setCurTab={setCurTab}
-				/>
-				<MobileAppBar
-					isMobileNavOpen={isMobileNavOpen}
-					setIsMobileNavOpen={setIsMobileNavOpen}
-				/>
+				<MobileNav />
+				<MobileAppBar />
 			</Hidden>
 
 			<div className={classes.main}>
-				<Main curTab={curTab} />
+				<Main />
 			</div>
 		</div>
 	);

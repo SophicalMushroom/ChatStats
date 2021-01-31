@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import CustomThemeProvider from "./Theme";
+import GlobalContextProvider from "./Contexts/GlobalProviderComposer";
 
 ReactDOM.render(
-	<CustomThemeProvider>
-		<CssBaseline />
+	<GlobalContextProvider>
 		<React.StrictMode>
+			<CssBaseline />
 			<App />
 		</React.StrictMode>
-	</CustomThemeProvider>,
+	</GlobalContextProvider>,
 	document.getElementById("root")
 );
