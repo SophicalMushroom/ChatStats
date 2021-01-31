@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -20,6 +21,38 @@ const useStyles = makeStyles((theme) => ({
 	},
 	drawerPaper: {
 		width: 240,
+	},
+	appBar: {
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		height: "5%",
+		marginBottom: "50px",
+	},
+	toolbar: {
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "center",
+		alignItems: "center",
+		height: "100%",
+		width: "100%",
+	},
+	mobileLogo: {
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		position: "absolute",
+		width: "20%",
+		height: "100%",
+	},
+	menuButton: {
+		position: "relative",
+		marginLeft: "5px",
+		marginRight: "auto",
+	},
+	menuButtonIcon: {
+		width: "20px",
+		height: "20px",
 	},
 }));
 
@@ -87,16 +120,19 @@ export const MobileAppBar = (props) => {
 	const theme = useTheme();
 
 	return (
-		<AppBar position="fixed">
-			<Toolbar>
-				<IconButton
-					edge="start"
-					onClick={() => props.setIsMobileNavOpen(!props.isMobileNavOpen)}
-				>
-					<MenuIcon />
-				</IconButton>
-				<div style={{ width: "240px", height: "50px" }}>LOGO</div>
-			</Toolbar>
-		</AppBar>
+		<Fragment>
+			<AppBar position="fixed" className={classes.appBar}>
+				<Toolbar className={classes.toolbar}>
+					<IconButton
+						className={classes.menuButton}
+						edge="start"
+						onClick={() => props.setIsMobileNavOpen(!props.isMobileNavOpen)}
+					>
+						<MenuIcon className={classes.menuButtonIcon} />
+					</IconButton>
+					<div className={classes.mobileLogo}>LOGO</div>
+				</Toolbar>
+			</AppBar>
+		</Fragment>
 	);
 };
