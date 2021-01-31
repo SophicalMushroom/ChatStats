@@ -4,7 +4,9 @@ import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import { DesktopNav, MobileNav, MobileAppBar } from "./components/NavBars";
+import { DesktopNav } from "./components/navigation/DesktopNav";
+import { MobileNav } from "./components/navigation/MobileNav";
+import { MobileAppBar } from "./components/navigation/MobileAppBar";
 import Main from "./components/Main";
 
 const useStyles = makeStyles((theme) => ({
