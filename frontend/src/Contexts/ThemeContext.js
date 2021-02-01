@@ -2,13 +2,13 @@ import { useState, createContext } from "react";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 export const ThemeContext = createContext({
-	currentTheme: "normal",
+	currentTheme: "dark",
 	setTheme: null,
 });
 
 const ThemeContextProvider = (props) => {
 	// Read current theme from localStorage or maybe from an api
-	const currentTheme = localStorage.getItem("appTheme") || "normal";
+	const currentTheme = localStorage.getItem("appTheme") || "dark";
 
 	// State to hold the selected theme name
 	const [themeName, _setThemeName] = useState(currentTheme);

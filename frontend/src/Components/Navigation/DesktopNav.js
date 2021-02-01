@@ -2,6 +2,7 @@ import { Fragment, useContext } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import { NavItems } from "./NavItems";
+import { NavLogo } from "./NavLogo";
 import { NavContext } from "./../../Contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +34,7 @@ export const DesktopNav = () => {
 			}}
 			anchor="left"
 		>
-			<div style={{ width: "240px", height: "50px" }}>LOGO</div>
+			<NavLogo />
 			<NavItems HandleNavItemClick={HandleNavItemClick} />
 		</Drawer>
 	);

@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
 		justifyContent: "center",
 		position: "absolute",
-		width: "20%",
+		width: "70%",
 		height: "100%",
 	},
 	menuButton: {
@@ -58,7 +58,7 @@ export const MobileAppBar = () => {
 					>
 						<MenuIcon className={classes.menuButtonIcon} />
 					</IconButton>
-					<div className={classes.mobileLogo}>LOGO</div>
+					<div className={classes.mobileLogo}>Bunch Of Traitors 🔪 > Home</div>
 				</Toolbar>
 			</AppBar>
 		</Fragment>

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import { NavItems } from "./NavItems";
+import { NavLogo } from "./NavLogo";
 import { NavContext } from "./../../Contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +40,7 @@ export const MobileNav = () => {
 			open={isMobileNavOpen}
 			onClose={() => setIsMobileNavOpen(!isMobileNavOpen)}
 		>
+			<NavLogo />
 			<NavItems HandleNavItemClick={HandleNavItemClick} />
 		</Drawer>
 	);
