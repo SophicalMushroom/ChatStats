@@ -17,14 +17,7 @@ import Typography from "@material-ui/core/Typography";
 import { ThemeContext } from "./../../Contexts/ThemeContext";
 import { NavContext } from "./../../Contexts/NavContext";
 import { ChatSelector } from "./ChatSelector";
-
-const navItems = [
-	{ label: "Home", icon: <HomeIcon /> },
-	{ label: "Vocab", icon: <LibraryBooksIcon /> },
-	{ label: "Emojis", icon: <EmojiEmotionsIcon /> },
-	{ label: "Misc", icon: <EqualizerIcon /> },
-	{ label: "Regex", icon: <CodeIcon /> },
-];
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
 	nestedItems: {
@@ -34,12 +27,18 @@ const useStyles = makeStyles((theme) => ({
 		width: "90%",
 		margin: "0 auto 0 auto",
 	},
-	formControl: {
-		margin: theme.spacing(1),
-		minWidth: 120,
+	darkModeSwitcher: {
+		width: "100%",
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "space-around",
+		alignItems: "center",
+		position: "absolute",
+		bottom: 0,
+		paddingBottom: theme.spacing(3),
 	},
-	selectEmpty: {
-		marginTop: theme.spacing(2),
+	icons: {
+		fill: theme.palette.text.secondary,
 	},
 }));
 
@@ -52,6 +51,13 @@ export const NavItems = (props) => {
 		setTheme(currentTheme === "dark" ? "light" : "dark");
 	};
 
+	const navItems = [
+		{ label: "Home", icon: <HomeIcon className={classes.icons} /> },
+		{ label: "Vocab", icon: <LibraryBooksIcon className={classes.icons} /> },
+		{ label: "Emojis", icon: <EmojiEmotionsIcon className={classes.icons} /> },
+		{ label: "Misc", icon: <EqualizerIcon className={classes.icons} /> },
+		{ label: "Regex", icon: <CodeIcon className={classes.icons} /> },
+	];
 	return (
 		<Fragment>
 			<List>
@@ -65,11 +71,26 @@ export const NavItems = (props) => {
 						onClick={() => props.HandleNavItemClick(item.label)}
 					>
 						<ListItemIcon>{item.icon}</ListItemIcon>
-						<ListItemText primary={item.label} />
+						<ListItemText
+							primary={
+								<Typography color="textSecondary" variant="body1">
+									{item.label}
+								</Typography>
+							}
+						/>
 					</ListItem>
 				))}
 			</List>
-			<Switch checked={currentTheme === "dark"} onChange={handleThemeChange} />
+			<div className={classes.darkModeSwitcher}>
+				<Typography color="textSecondary" variant="body1">
+					Dark theme
+				</Typography>
+				<Switch
+					color={currentTheme === "dark" ? "secondary" : "primary"}
+					checked={currentTheme === "dark"}
+					onChange={handleThemeChange}
+				/>
+			</div>
 		</Fragment>
 	);
 };

@@ -13,7 +13,11 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { NavContext } from "./../../Contexts/NavContext";
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({
+	icons: {
+		fill: theme.palette.text.secondary,
+	},
+}));
 
 export const ChatSelector = () => {
 	const classes = useStyles();
@@ -40,20 +44,20 @@ export const ChatSelector = () => {
 	return (
 		<ListItem>
 			<ListItemIcon>
-				<QuestionAnswerIcon />
+				<QuestionAnswerIcon className={classes.icons} />
 			</ListItemIcon>
 
 			<ListItemText
 				secondary
 				primary={
-					<Typography variant="subtitle2" noWrap>
+					<Typography color="textSecondary" variant="subtitle2" noWrap>
 						{curChat}
 					</Typography>
 				}
 			/>
 			<Tooltip title="Select a chat">
 				<IconButton onClick={handleMenuOpen}>
-					<ExpandMore />
+					<ExpandMore className={classes.icons} />
 				</IconButton>
 			</Tooltip>
 			<Menu

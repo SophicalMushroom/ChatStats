@@ -7,7 +7,7 @@ import LogoLight from "./../../Assets/logoLight.svg";
 
 const useStyles = makeStyles((theme) => ({
 	logo: {
-		marginLeft: "3%",
+		marginLeft: theme.spacing(1),
 		width: "15%",
 		height: "auto",
 	},
@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
-		marginTop: "8%",
-		marginBottom: "5%",
+		marginTop: theme.spacing(3),
+		marginBottom: theme.spacing(2),
 	},
 }));
 
@@ -28,7 +28,13 @@ export const NavLogo = () => {
 
 	return (
 		<div className={classes.logoHeader}>
-			<Typography variant="h5"> ChatStats</Typography>
+			<Typography
+				color={currentTheme === "dark" ? "secondary" : "primary"}
+				variant="h5"
+			>
+				{" "}
+				ChatStats
+			</Typography>
 			<img
 				src={currentTheme === "dark" ? LogoLight : LogoDark}
 				className={classes.logo}
