@@ -4,15 +4,15 @@ import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import { DesktopNav } from "./Components/Navigation/DesktopNav";
-import { MobileNav } from "./Components/Navigation/MobileNav";
-import { MobileAppBar } from "./Components/Navigation/MobileAppBar";
-import { Home } from "./Components/Home";
-import { Vocab } from "./Components/Vocab";
-import { Emojis } from "./Components/Emojis";
-import { Misc } from "./Components/Misc";
-import { Regex } from "./Components/Regex";
-import { NavContext } from "./Contexts/NavContext";
+import { DesktopNav } from "./components/navigation/DesktopNav";
+import { MobileNav } from "./components/navigation/MobileNav";
+import { MobileAppBar } from "./components/navigation/MobileAppBar";
+import { Home } from "./components/Home";
+import { Vocab } from "./components/Vocab";
+import { Emojis } from "./components/Emojis";
+import { Misc } from "./components/Misc";
+import { Regex } from "./components/Regex";
+import { NavContext } from "./contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
 	root: {

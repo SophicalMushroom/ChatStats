@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import React, { useState, createContext } from "react";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const darkTheme = {

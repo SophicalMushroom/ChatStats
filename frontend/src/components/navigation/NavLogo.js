@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { ThemeContext } from "./../../Contexts/ThemeContext";
-import LogoDark from "./../../Assets/logoDark.svg";
-import LogoLight from "./../../Assets/logoLight.svg";
+import { ThemeContext } from "./../../contexts/ThemeContext";
+import LogoDark from "./../../assets/logoDark.svg";
+import LogoLight from "./../../assets/logoLight.svg";
 
 const useStyles = makeStyles((theme) => ({
 	logo: {

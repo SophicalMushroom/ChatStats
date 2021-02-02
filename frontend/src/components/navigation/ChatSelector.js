@@ -11,7 +11,7 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import { NavContext } from "./../../Contexts/NavContext";
+import { NavContext } from "./../../contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
 	icons: {

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import GlobalContextProvider from "./Contexts/GlobalProviderComposer";
+import GlobalContextProvider from "./contexts/GlobalProviderComposer";
 
 ReactDOM.render(
 	<GlobalContextProvider>

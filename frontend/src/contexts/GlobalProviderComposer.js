@@ -1,4 +1,4 @@
-import { cloneElement } from "react";
+import React, { cloneElement } from "react";
 import ThemeContextProvider from "./ThemeContext";
 import NavContextProvider from "./NavContext";
 

@@ -14,8 +14,8 @@ import Switch from "@material-ui/core/Switch";
 import Divider from "@material-ui/core/Divider";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
-import { ThemeContext } from "./../../Contexts/ThemeContext";
-import { NavContext } from "./../../Contexts/NavContext";
+import { ThemeContext } from "./../../contexts/ThemeContext";
+import { NavContext } from "./../../contexts/NavContext";
 import { ChatSelector } from "./ChatSelector";
 import Button from "@material-ui/core/Button";
 
