@@ -6,7 +6,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import HomeIcon from "@material-ui/icons/Home";
 import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
-import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
+import LocalLibraryIcon from "@material-ui/icons/LocalLibrary";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import CodeIcon from "@material-ui/icons/Code";
 import IconButton from "@material-ui/core/IconButton";
@@ -15,7 +15,6 @@ import Divider from "@material-ui/core/Divider";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
 import { ThemeContext } from "./../../contexts/ThemeContext";
-import { NavContext } from "./../../contexts/NavContext";
 import { ChatSelector } from "./ChatSelector";
 import Button from "@material-ui/core/Button";
 
@@ -53,7 +52,7 @@ export const NavItems = (props) => {
 
 	const navItems = [
 		{ label: "Home", icon: <HomeIcon className={classes.icons} /> },
-		{ label: "Vocab", icon: <LibraryBooksIcon className={classes.icons} /> },
+		{ label: "Vocab", icon: <LocalLibraryIcon className={classes.icons} /> },
 		{ label: "Emojis", icon: <EmojiEmotionsIcon className={classes.icons} /> },
 		{ label: "Misc", icon: <EqualizerIcon className={classes.icons} /> },
 		{ label: "Regex", icon: <CodeIcon className={classes.icons} /> },

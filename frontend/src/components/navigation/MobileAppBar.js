@@ -1,52 +1,29 @@
 import { Fragment, useContext } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import { NavContext } from "./../../contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
-	appBar: {
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "center",
-		height: "8%",
-		marginBottom: "50px",
-	},
-	toolbar: {
-		display: "flex",
-		flexDirection: "row",
-		justifyContent: "center",
-		alignItems: "center",
-		height: "100%",
-		width: "100%",
-	},
-	mobileLogo: {
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "center",
-		position: "absolute",
-		width: "70%",
-		height: "100%",
-	},
+	appBar: { backgroundColor: theme.palette.background.paper },
+	toolbar: {},
 	menuButton: {
-		position: "relative",
-		marginLeft: "5px",
-		marginRight: "auto",
-	},
-	menuButtonIcon: {
-		width: "20px",
-		height: "20px",
+		paddingRight: theme.spacing(2),
 	},
 }));
 
 export const MobileAppBar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const [curTab, setCurTab, isMobileNavOpen, setIsMobileNavOpen] = useContext(
+	const { curTab, isMobileNavOpen, setIsMobileNavOpen, curChat } = useContext(
 		NavContext
 	);
+
 	return (
 		<Fragment>
 			<AppBar position="fixed" className={classes.appBar}>
@@ -58,7 +35,15 @@ export const MobileAppBar = () => {
 					>
 						<MenuIcon className={classes.menuButtonIcon} />
 					</IconButton>
-					<div className={classes.mobileLogo}>Bunch Of Traitors 🔪 > Home</div>
+
+					<Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
+						<Typography noWrap color="textSecondary">
+							{curChat}
+						</Typography>
+						<Typography noWrap color="textSecondary">
+							{curTab}
+						</Typography>
+					</Breadcrumbs>
 				</Toolbar>
 			</AppBar>
 		</Fragment>

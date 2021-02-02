@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 export const MobileNav = () => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const [curTab, setCurTab, isMobileNavOpen, setIsMobileNavOpen] = useContext(
+	const { isMobileNavOpen, setIsMobileNavOpen, setCurTab } = useContext(
 		NavContext
 	);
 

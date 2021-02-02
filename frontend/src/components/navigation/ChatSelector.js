@@ -28,7 +28,7 @@ export const ChatSelector = () => {
 		"Example Chat name",
 	]);
 	const [menuAnchor, setMenuAnchor] = useState(null);
-	const [_1, _2, _3, _4, curChat, setCurChat] = useContext(NavContext);
+	const { curChat, setCurChat } = useContext(NavContext);
 
 	const handleMenuOpen = (event) => {
 		setMenuAnchor(event.currentTarget);

@@ -17,9 +17,7 @@ const useStyles = makeStyles((theme) => ({
 export const DesktopNav = () => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const [curTab, setCurTab, isMobileNavOpen, setIsMobileNavOpen] = useContext(
-		NavContext
-	);
+	const { setCurTab } = useContext(NavContext);
 
 	const HandleNavItemClick = (text) => {
 		setCurTab(text);

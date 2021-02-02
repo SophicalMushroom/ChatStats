@@ -21,8 +21,10 @@ const useStyles = makeStyles((theme) => ({
 	main: {
 		width: "100vw",
 		height: "100vh",
+		padding: theme.spacing(4),
 		[theme.breakpoints.down("xs")]: {
-			paddingTop: "5vh",
+			padding: theme.spacing(1),
+			paddingTop: "8vh",
 		},
 	},
 }));
@@ -45,7 +47,7 @@ const renderTabContent = (curTab) => {
 const App = () => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const [curTab, setCurTab] = useContext(NavContext);
+	const { curTab, setCurTab } = useContext(NavContext);
 
 	return (
 		<div className={classes.root}>

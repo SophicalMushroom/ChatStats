@@ -6,11 +6,11 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import GlobalContextProvider from "./contexts/GlobalProviderComposer";
 
 ReactDOM.render(
-	<GlobalContextProvider>
-		<React.StrictMode>
+	<React.StrictMode>
+		<GlobalContextProvider>
 			<CssBaseline />
 			<App />
-		</React.StrictMode>
-	</GlobalContextProvider>,
+		</GlobalContextProvider>
+	</React.StrictMode>,
 	document.getElementById("root")
 );

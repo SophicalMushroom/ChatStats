@@ -22,7 +22,7 @@ const darkTheme = {
 		},
 		background: {
 			paper: "#0a1726",
-			default: "#040d17",
+			default: "#010a14",
 		},
 		divider: "rgba(79, 131, 204, 0.18)",
 	},

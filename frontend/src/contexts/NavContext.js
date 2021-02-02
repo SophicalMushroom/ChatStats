@@ -9,14 +9,14 @@ export const NavContextProvider = (props) => {
 
 	return (
 		<NavContext.Provider
-			value={[
+			value={{
 				curTab,
 				setCurTab,
 				isMobileNavOpen,
 				setIsMobileNavOpen,
 				curChat,
 				setCurChat,
-			]}
+			}}
 		>
 			{props.children}
 		</NavContext.Provider>
