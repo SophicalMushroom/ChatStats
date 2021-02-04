@@ -16,7 +16,7 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
 import { ThemeContext } from "./../../contexts/ThemeContext";
 import { ChatSelector } from "./ChatSelector";
-import Button from "@material-ui/core/Button";
+import { Profile } from "./Profile";
 
 const useStyles = makeStyles((theme) => ({
 	nestedItems: {
@@ -60,6 +60,7 @@ export const NavItems = (props) => {
 	return (
 		<Fragment>
 			<List>
+				<Profile />
 				<ChatSelector />
 				<Divider className={classes.mainDivider} />
 				{navItems.map((item) => (

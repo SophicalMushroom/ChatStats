@@ -27,7 +27,6 @@ const darkTheme = {
 		divider: "rgba(79, 131, 204, 0.18)",
 	},
 };
-
 const lightTheme = {
 	type: "light",
 	palette: {
@@ -54,6 +53,7 @@ const lightTheme = {
 		divider: "rgba(79, 131, 204, 0.18)",
 	},
 };
+
 export const ThemeContext = createContext({
 	currentTheme: "dark",
 	setTheme: null,

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Lo",
+				"LocalLibraryIcon"
+			],
+			[
 				"ic",
 				"iconStyles"
 			],
@@ -34,10 +38,6 @@
 			[
 				"Nav",
 				"NavLogo"
-			],
-			[
-				"Lo",
-				"LogoDark"
 			],
 			[
 				"Logo",
@@ -312,31 +312,39 @@
 	"buffers":
 	[
 		{
-			"file": "frontend/src/index.js",
+			"file": "frontend/src/components/navigation/MobileAppBar.js",
 			"settings":
 			{
-				"buffer_size": 415,
+				"buffer_size": 1553,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Microsoft Windows [Version 10.0.19042.746]                                                \n(c) 2020 Microsoft Corporation. All rights reserved.                                      \n                                                                                          \nC:\\Users\\ditta\\Documents\\Code\\ChatStats>git status                                        \nOn branch master                                                                          \nYour branch is up to date with 'origin/master'.                                           \n                                                                                          \nChanges not staged for commit:                                                            \n  (use \"git add <file>...\" to update what will be committed)                              \n  (use \"git restore <file>...\" to discard changes in working directory)                   \n        modified:   ChatStatsProject.sublime-workspace                                    \n        modified:   frontend/public/index.html                                            \n        modified:   frontend/src/App.js                                                   \n        modified:   frontend/src/Assets/logoDark.svg                                      \n        modified:   frontend/src/Components/Navigation/ChatSelector.js                    \n        modified:   frontend/src/Components/Navigation/DesktopNav.js                      \n        modified:   frontend/src/Components/Navigation/MobileAppBar.js                    \n        modified:   frontend/src/Components/Navigation/MobileNav.js                       \n        modified:   frontend/src/Components/Navigation/NavItems.js                        \n        modified:   frontend/src/Components/Navigation/NavLogo.js                         \n        modified:   frontend/src/Contexts/GlobalProviderComposer.js                       \n        modified:   frontend/src/Contexts/ThemeContext.js                                 \n        modified:   frontend/src/index.js                                                 \n                                                                                          \nno changes added to commit (use \"git add\" and/or \"git commit -a\")                         \n                                                                                          \nC:\\Users\\ditta\\Documents\\Code\\ChatStats>git config core.ignorecase false                  \n                                                                                          \nC:\\Users\\ditta\\Documents\\Code\\ChatStats>git status                                        \nOn branch master                                                                          \nYour branch is up to date with 'origin/master'.                                           \n                                                                                          \nChanges not staged for commit:                                                            \n  (use \"git add <file>...\" to update what will be committed)                              \n  (use \"git restore <file>...\" to discard changes in working directory)                   \n        modified:   ChatStatsProject.sublime-workspace                                    \n        modified:   frontend/public/index.html                                            \n        modified:   frontend/src/App.js                                                   \n        modified:   frontend/src/Assets/logoDark.svg                                      \n        modified:   frontend/src/Components/Navigation/ChatSelector.js                    \n        modified:   frontend/src/Components/Navigation/DesktopNav.js                      \n        modified:   frontend/src/Components/Navigation/MobileAppBar.js                    \n        modified:   frontend/src/Components/Navigation/MobileNav.js                       \n        modified:   frontend/src/Components/Navigation/NavItems.js                        \n        modified:   frontend/src/Components/Navigation/NavLogo.js                         \n        modified:   frontend/src/Contexts/GlobalProviderComposer.js                       \n        modified:   frontend/src/Contexts/ThemeContext.js                                 \n        modified:   frontend/src/index.js                                                 \n                                                                                          \nUntracked files:                                                                          \n  (use \"git add <file>...\" to include in what will be committed)                          \n        frontend/src/assets/                                                              \n        frontend/src/components/                                                          \n        frontend/src/contexts/                                                            \n                                                                                          \nno changes added to commit (use \"git add\" and/or \"git commit -a\")                         \n                                                                                          \nC:\\Users\\ditta\\Documents\\Code\\ChatStats>git mv frontend/src/Assets frontend/src/assets    \nRename from 'frontend/src/Assets' to 'frontend/src/assets/Assets' failed. Should I try aga​‌​\nin? (y/n) y                                                                               \nRename from 'frontend/src/Assets' to 'frontend/src/assets/Assets' failed. Should I try aga​‌​\nin? (y/n) n                                                                               \nfatal: renaming 'frontend/src/Assets' failed: Permission denied                           \n                                                                                          \nC:\\Users\\ditta\\Documents\\Code\\ChatStats>",
+			"file": "frontend/src/App.js",
 			"settings":
 			{
-				"buffer_size": 5870,
-				"line_ending": "Windows",
-				"name": " ",
-				"scratch": true
+				"buffer_size": 1676,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Microsoft Windows [Version 10.0.19042.746]                                                \n(c) 2020 Microsoft Corporation. All rights reserved.                                      \n                                                                                          \nC:\\Users\\ditta\\Documents\\Code\\ChatStats>cd frontend                                       \n                                                                                          \nC:\\Users\\ditta\\Documents\\Code\\ChatStats\\frontend>npm start                                \n                                                                                          \n> frontend@0.1.0 start C:\\Users\\ditta\\Documents\\Code\\ChatStats\\frontend                   \n> react-scripts start                                                                     \n                                                                                          \ni ｢wds｣: Project is running at http://192.168.0.27/                                       \ni ｢wds｣: webpack output is served from                                                    \ni ｢wds｣: Content not from webpack is served from C:\\Users\\ditta\\Documents\\Code\\ChatStats\\f​‌​\nrontend\\public                                                                            \ni ｢wds｣: 404s will fallback to /                                                          \nStarting the development server...                                                        \nFailed to compile.                                                                        \n                                                                                          \n./src/index.js                                                                            \nCannot find file: 'GlobalProviderComposer.js' does not match the corresponding name on dis\ndoes not match the corresponding name on disk:                                            ​‌​\n '.\\src\\Contexts\\contexts'.                                                               \nCompiling...                                                                              \nCompiled with warnings.                                                                   \n                                                                                          \nsrc\\App.js                                                                                \n  Line 3:8:    'Typography' is defined but nev                                            ​‌​\ner used          no-unused-vars                                                           \n  Line 5:8:    'IconButton' is defined but nev                                            ​‌​\ner used          no-unused-vars                                                           \n  Line 6:8:    'MenuIcon' is defined but never                                            ​‌​\n used            no-unused-vars                                                           \n  Line 31:2:   Expected a default case                                                    \n                 default-case                                                             \n  Line 47:8:   'theme' is assigned a value but                                            ​‌​\n never used      no-unused-vars                                                           \n  Line 48:17:  'setCurTab' is assigned a value                                            ​‌​\n but never used  no-unused-vars                                                           \n                                                                                          \nsrc\\components\\Emojis.js                                                                  \n  Line 1:10:  'useState' is defined but never                                             \nused    no-unused-vars                                                                    \n  Line 1:20:  'useContext' is defined but neve                                            ​‌​\nr used  no-unused-vars                                                                    \n                                                                                          \nsrc\\components\\Home.js                                                                    \n  Line 1:10:  'useState' is defined but never                                             \nused        no-unused-vars                                                                \n  Line 1:20:  'useContext' is defined but neve                                            ​‌​\nr used      no-unused-vars                                                                \n  Line 14:8:  'theme' is assigned a value but                                             \nnever used  no-unused-vars                                                                \n                                                                                          \nsrc\\components\\Misc.js                                                                    \n  Line 1:10:  'useState' is defined but never                                             \nused    no-unused-vars                                                                    \n  Line 1:20:  'useContext' is defined but neve                                            ​‌​\nr used  no-unused-vars                                                                    \n                                                                                          \nsrc\\components\\Regex.js                       \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\Vocab.js                       \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\navigation\\ChatSelector.js     \n  Line 3:8:    'List' is defined but never use​‌​\nd                  no-unused-vars             \n  Line 24:8:   'theme' is assigned a value but​‌​\n never used        no-unused-vars             \n  Line 25:19:  'setAllChats' is assigned a val​‌​\nue but never used  no-unused-vars             \n  Line 31:9:   '_1' is assigned a value but ne​‌​\nver used           no-unused-vars             \n  Line 31:13:  '_2' is assigned a value but ne​‌​\nver used           no-unused-vars             \n  Line 31:17:  '_3' is assigned a value but ne​‌​\nver used           no-unused-vars             \n  Line 31:21:  '_4' is assigned a value but ne​‌​\nver used           no-unused-vars             \n                                              \nsrc\\components\\navigation\\DesktopNav.js       \n  Line 1:10:   'Fragment' is defined but never​‌​\n used                     no-unused-vars      \n  Line 19:8:   'theme' is assigned a value but​‌​\n never used               no-unused-vars      \n  Line 20:9:   'curTab' is assigned a value bu​‌​\nt never used              no-unused-vars      \n  Line 20:28:  'isMobileNavOpen' is assigned a​‌​\n value but never used     no-unused-vars      \n  Line 20:45:  'setIsMobileNavOpen' is assigne​‌​\nd a value but never used  no-unused-vars      \n                                              \nsrc\\components\\navigation\\MobileAppBar.js     \n  Line 46:8:   'theme' is assigned a value but​‌​\n never used      no-unused-vars               \n  Line 47:9:   'curTab' is assigned a value bu​‌​\nt never used     no-unused-vars               \n  Line 47:17:  'setCurTab' is assigned a value​‌​\n but never used  no-unused-vars               \n                                              \nsrc\\components\\navigation\\MobileNav.js        \n  Line 19:8:  'theme' is assigned a value but \nnever used   no-unused-vars                   \n  Line 20:9:  'curTab' is assigned a value but​‌​\n never used  no-unused-vars                   \n                                              \nsrc\\components\\navigation\\NavItems.js         \n  Line 1:32:   'useState' is defined but never​‌​\n used        no-unused-vars                   \n  Line 12:8:   'IconButton' is defined but nev​‌​\ner used      no-unused-vars                   \n  Line 15:8:   'ExpandMore' is defined but nev​‌​\ner used      no-unused-vars                   \n  Line 18:10:  'NavContext' is defined but nev​‌​\ner used      no-unused-vars                   \n  Line 20:8:   'Button' is defined but never u​‌​\nsed          no-unused-vars                   \n  Line 47:8:   'theme' is assigned a value but​‌​\n never used  no-unused-vars                   \n                                              \nsrc\\components\\navigation\\NavLogo.js          \n  Line 26:8:   'theme' is assigned a value but​‌​\n never used                                   \n                              no-unused-vars  \n  Line 27:24:  'setTheme' is assigned a value \nbut never used                                \n                              no-unused-vars  \n  Line 38:4:   img elements must have an alt p​‌​\nrop, either with meaningful text, or an empty \nstring for decorative images  jsx-a11y/alt-tex​‌​\nt                                             \n                                              \nSearch for the keywords to learn more about ea​‌​\nch warning.                                   \nTo ignore, add // eslint-disable-next-line to \nthe line before.                              \n                                              \nTerminate batch job (Y/N)? y                  \n                                              \nC:\\Users\\ditta\\Documents\\Code\\ChatStats\\fronte​‌​\nnd>",
+			"file": "frontend/src/contexts/ThemeContext.js",
 			"settings":
 			{
-				"buffer_size": 9625,
+				"buffer_size": 1953,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Microsoft Windows [Version 10.0.19042.746]                                                \n(c) 2020 Microsoft Corporation. All rights reserved.                                      ​‌​\nerved.                                                                                    \n                                              ntend                                       \nC:\\Users\\ditta\\Documents\\Code\\ChatStats>cd fro                                            ​‌​\nntend                                         nd>npm starrt                               \n                                                                                          \nC:\\Users\\ditta\\Documents\\Code\\ChatStats\\fronte                                            ​‌​\nnd>npm starrt                                                                             \n                                                                                          \nUsage: npm <command>                          e, ci, cit,                                 \n                                              ion, config,                                \nwhere <command> is one of:                    docs, doctor,                               \n    access, adduser, audit, bin, bugs, c, cachh, hook, i, init,                           ​‌​\ne, ci, cit,                                   , link, list, ln,                           \n    clean-install, clean-install-test, completack, ping, prefix,                          ​‌​\nion, config,                                  , restart, root,                            \n    create, ddp, dedupe, deprecate, dist-tag, kwrap, star,                                \ndocs, doctor,                                 tst, un,                                    \n    edit, explore, fund, get, help, help-searcv, version, view,                           ​‌​\nh, hook, i, init,                                                                         \n    install, install-ci-test, install-test, it                                            ​‌​\n, link, list, ln,                                                                         \n    login, logout, ls, org, outdated, owner, p                                            ​‌​\nack, ping, prefix,                                                                        \n    profile, prune, publish, rb, rebuild, repo                                            ​‌​\n, restart, root,                                                                          \n    run, run-script, s, se, search, set, shrin                                            ​‌​\nkwrap, star,                                                                              \n    stars, start, stop, t, team, test, token, y value                                     \ntst, un,                                                                                  \n    uninstall, unpublish, unstar, up, update,                                             \nv, version, view,                             es\\npm                                      \n    whoami                                                                                \n                                                                                          \nnpm <command> -h  quick help on <command>                                                 \nnpm -l            display full usage info                                                 \nnpm help <term>   search for help on <term>                                               \nnpm help npm      involved overview                                                       \n                                              nd>npm start                                \nSpecify configs in the ini-formatted file:                                                \n    C:\\Users\\ditta\\.npmrc                     s\\Code\\ChatStats\\frontend                   \nor on the command line via: npm <command> --ke                                            ​‌​\ny value                                                                                   \nConfig info can be viewed via: npm help config​‌​\n                                              \n                                              \nnpm@6.14.10 C:\\Program Files\\nodejs\\node_modul​‌​\nes\\npm                                        \n                                              \nDid you mean one of these?                    \n    start                                     \n    star                                      \n    stars                                     \n                                              \nC:\\Users\\ditta\\Documents\\Code\\ChatStats\\fronte​‌​\nnd>npm start                                  \n                                              \n> frontend@0.1.0 start C:\\Users\\ditta\\Document​‌​\ns\\Code\\ChatStats\\frontend                     \n> react-scripts start                         \n                                              \ni ｢wds｣: Project is running at http://192.168.​‌​\n0.27/                                         \ni ｢wds｣: webpack output is served from        \ni ｢wds｣: Content not from webpack is served fr​‌​\nom C:\\Users\\ditta\\Documents\\Code\\ChatStats\\fro​‌​\nntend\\public                                  \ni ｢wds｣: 404s will fallback to /              \nStarting the development server...            \nCompiled with warnings.                       \n                                              \nsrc\\App.js                                    \n  Line 3:8:    'Typography' is defined but nev​‌​\ner used          no-unused-vars               \n  Line 5:8:    'IconButton' is defined but nev​‌​\ner used          no-unused-vars               \n  Line 6:8:    'MenuIcon' is defined but never​‌​\n used            no-unused-vars               \n  Line 33:2:   Expected a default case        \n                 default-case                 \n  Line 49:8:   'theme' is assigned a value but​‌​\n never used      no-unused-vars               \n  Line 50:18:  'setCurTab' is assigned a value​‌​\n but never used  no-unused-vars               \n                                              \nsrc\\components\\Emojis.js                      \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\Home.js                        \n  Line 1:10:  'useState' is defined but never \nused        no-unused-vars                    \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used      no-unused-vars                    \n  Line 14:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\Misc.js                        \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\Regex.js                       \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\Vocab.js                       \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\navigation\\ChatSelector.js     \n  Line 3:8:    'List' is defined but never use​‌​\nd                  no-unused-vars             \n  Line 24:8:   'theme' is assigned a value but​‌​\n never used        no-unused-vars             \n  Line 25:19:  'setAllChats' is assigned a val​‌​\nue but never used  no-unused-vars             \n                                              \nsrc\\components\\navigation\\DesktopNav.js       \n  Line 1:10:  'Fragment' is defined but never \nused        no-unused-vars                    \n  Line 19:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\navigation\\MobileAppBar.js     \n  Line 22:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\navigation\\MobileNav.js        \n  Line 19:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\navigation\\NavItems.js         \n  Line 1:32:  'useState' is defined but never \nused        no-unused-vars                    \n  Line 12:8:  'IconButton' is defined but neve​‌​\nr used      no-unused-vars                    \n  Line 15:8:  'ExpandMore' is defined but neve​‌​\nr used      no-unused-vars                    \n  Line 19:8:  'Button' is defined but never us​‌​\ned          no-unused-vars                    \n  Line 46:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\navigation\\NavLogo.js          \n  Line 26:8:   'theme' is assigned a value but​‌​\n never used                                   \n                              no-unused-vars  \n  Line 27:24:  'setTheme' is assigned a value \nbut never used                                \n                              no-unused-vars  \n  Line 38:4:   img elements must have an alt p​‌​\nrop, either with meaningful text, or an empty \nstring for decorative images  jsx-a11y/alt-tex​‌​\nt                                             \n                                              \nSearch for the keywords to learn more about ea​‌​\nch warning.                                   \nTo ignore, add // eslint-disable-next-line to \nthe line before.                              \n                                              \nTerminate batch job (Y/N)? y                  \n                                              \nC:\\Users\\ditta\\Documents\\Code\\ChatStats\\fronte​‌​\nnd>\nMicrosoft Windows [Version 10.0.19042.746]    ​‌​\n 10.0.19042.746]          tion. All rights res\n(c) 2020 Microsoft Corpora                    ​‌​\ntion. All rights reserved.                    ​‌​\n                          ode\\ChatStats>      \n                          \nC:\\Users\\ditta\\Documents\\C​‌​\node\\ChatStats>\nMicrosoft Windows [Version 10.0.19042.746]    \n(c) 2020 Microsoft Corporation. All rights res​‌​\nerved.                                        \n                                              \nC:\\Users\\ditta\\Documents\\Code\\ChatStats>cd fro​‌​\nntend                                         \n                                              \nC:\\Users\\ditta\\Documents\\Code\\ChatStats\\fronte​‌​\nnd>npm start                                  \n                                              \n> frontend@0.1.0 start C:\\Users\\ditta\\Document​‌​\ns\\Code\\ChatStats\\frontend                     \n> react-scripts start                         \n                                              \ni ｢wds｣: Project is running at http://192.168.​‌​\n0.27/                                         \ni ｢wds｣: webpack output is served from        \ni ｢wds｣: Content not from webpack is served fr​‌​\nom C:\\Users\\ditta\\Documents\\Code\\ChatStats\\fro​‌​\nntend\\public                                  \ni ｢wds｣: 404s will fallback to /              \nStarting the development server...            \nCompiled with warnings.                       \n                                              \nsrc\\App.js                                    \n  Line 3:8:    'Typography' is defined but nev​‌​\ner used          no-unused-vars               \n  Line 5:8:    'IconButton' is defined but nev​‌​\ner used          no-unused-vars               \n  Line 6:8:    'MenuIcon' is defined but never​‌​\n used            no-unused-vars               \n  Line 33:2:   Expected a default case        \n                 default-case                 \n  Line 49:8:   'theme' is assigned a value but​‌​\n never used      no-unused-vars               \n  Line 50:18:  'setCurTab' is assigned a value​‌​\n but never used  no-unused-vars               \n                                              \nsrc\\components\\Emojis.js                      \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\Home.js                        \n  Line 1:10:  'useState' is defined but never \nused        no-unused-vars                    \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used      no-unused-vars                    \n  Line 14:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\Misc.js                        \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\Regex.js                       \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\Vocab.js                       \n  Line 1:10:  'useState' is defined but never \nused    no-unused-vars                        \n  Line 1:20:  'useContext' is defined but neve​‌​\nr used  no-unused-vars                        \n                                              \nsrc\\components\\navigation\\ChatSelector.js     \n  Line 3:8:    'List' is defined but never use​‌​\nd                  no-unused-vars             \n  Line 24:8:   'theme' is assigned a value but​‌​\n never used        no-unused-vars             \n  Line 25:19:  'setAllChats' is assigned a val​‌​\nue but never used  no-unused-vars             \n                                              \nsrc\\components\\navigation\\DesktopNav.js       \n  Line 1:10:  'Fragment' is defined but never \nused        no-unused-vars                    \n  Line 19:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\navigation\\MobileAppBar.js     \n  Line 22:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\navigation\\MobileNav.js        \n  Line 19:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\navigation\\NavItems.js         \n  Line 1:32:  'useState' is defined but never \nused        no-unused-vars                    \n  Line 12:8:  'IconButton' is defined but neve​‌​\nr used      no-unused-vars                    \n  Line 15:8:  'ExpandMore' is defined but neve​‌​\nr used      no-unused-vars                    \n  Line 19:8:  'Button' is defined but never us​‌​\ned          no-unused-vars                    \n  Line 46:8:  'theme' is assigned a value but \nnever used  no-unused-vars                    \n                                              \nsrc\\components\\navigation\\NavLogo.js          \n  Line 26:8:   'theme' is assigned a value but​‌​\n never used                                   \n                              no-unused-vars  \n  Line 27:24:  'setTheme' is assigned a value \nbut never used                                \n                              no-unused-vars  \n  Line 38:4:   img elements must have an alt p​‌​\nrop, either with meaningful text, or an empty \nstring for decorative images  jsx-a11y/alt-tex​‌​\nt                                             \n                                              \nSearch for the keywords to learn more about ea​‌​\nch warning.                                   \nTo ignore, add // eslint-disable-next-line to \nthe line before.                              \n                                              \n",
+			"settings":
+			{
+				"buffer_size": 16225,
 				"line_ending": "Windows",
-				"name": " ",
+				"name": "Command Prompt",
 				"scratch": true
 			}
 		}
@@ -353,11 +361,11 @@
 		"selected_items":
 		[
 			[
-				"term",
+				"ter",
 				"Terminus: Open Default Shell in Tab (View)"
 			],
 			[
-				"ter",
+				"term",
 				"Terminus: Open Default Shell in Tab (View)"
 			],
 			[
@@ -437,21 +445,35 @@
 		"/C/Users/ditta/Documents/Code/ChatStats",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts"
 	],
 	"file_history":
 	[
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopNav.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileNav.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/ChatSelector.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavLogo.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/assets/logoLight.svg",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/assets/logoDark.svg",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/index.html",
+		"/C/Users/ditta/Desktop/logoLight.svg",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/favicon.ico",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Navigation/NavLogo.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Navigation/NavItems.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Navigation/MobileNav.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Navigation/MobileAppBar.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Navigation/ChatSelector.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Navigation/DesktopNav.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Contexts/ThemeContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Components/Navigation/MobileAppBar.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Assets/logoDark.svg",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/index.html",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Components/Navigation/NavItems.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Components/Navigation/ChatSelector.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Components/Home.js",
@@ -464,13 +486,9 @@
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/MessagesPanelButtonBar.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/.gitignore",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Contexts/NavContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Components/Misc.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Contexts/GlobalProviderComposer.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Components/ProviderComposer.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopNav.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileNav.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/MobileNav.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/NavBars.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavList.js",
@@ -560,19 +578,11 @@
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelLogicTab.js",
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelDataTab.js",
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelDetailsTab.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/FleetTab/FleetTab.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/MessagesTab.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/index.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/FleetTab/FleetTab.css",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/RawDataTab/FiltersPanel.js",
-		"/C/Users/ditta/Documents/Work/ChronicXOLD.lnk",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/RawDataTab/DataUploadPanel.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/RawDataTab/FilesTablePanel.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/utils/eqIDDummy.js"
+		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/FleetTab/FleetTab.js"
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
@@ -587,6 +597,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"curChatName",
+			"NavContext",
+			"mobileLogo",
 			"iconStyles",
 			"272727",
 			"01579b",
@@ -633,19 +646,47 @@
 			[
 				{
 					"buffer": 0,
-					"file": "frontend/src/index.js",
+					"file": "frontend/src/components/navigation/MobileAppBar.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 415,
+						"buffer_size": 1553,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								415,
-								415
+								641,
+								646
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 66.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "frontend/src/App.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								773,
+								773
 							]
 						],
 						"settings":
@@ -656,89 +697,35 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 2,
+					"file": "frontend/src/contexts/ThemeContext.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5870,
+						"buffer_size": 1953,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5870,
-								5870
+								513,
+								513
 							]
 						],
 						"settings":
 						{
-							"__vi_external_disable": true,
-							"auto_complete": false,
-							"auto_complete_commit_on_tab": false,
-							"bracket_highlighter.clone_locations":
-							{
-							},
-							"bracket_highlighter.ignore": true,
-							"color_scheme": "Terminus.hidden-color-scheme",
-							"draw_centered": false,
-							"draw_indent_guides": false,
-							"draw_unicode_white_space": false,
-							"draw_white_space": "none",
-							"gutter": false,
-							"highlight_line": false,
-							"is_widget": true,
-							"result_base_dir": "C:\\Users\\ditta\\Documents\\Code\\ChatStats",
-							"result_file_regex": null,
-							"result_line_regex": null,
-							"rulers":
-							[
-								500
-							],
-							"scroll_past_end": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"terminus.highlight_counter": 135,
-							"terminus_view": true,
-							"terminus_view.args":
-							{
-								"auto_close": true,
-								"cancellable": false,
-								"cmd":
-								[
-									"cmd.exe"
-								],
-								"config_name": "Command Prompt",
-								"cwd": "C:\\Users\\ditta\\Documents\\Code\\ChatStats",
-								"env":
-								{
-									"TERMINUS_SUBLIME": "1",
-									"TERM_PROGRAM": "Terminus-Sublime"
-								},
-								"file_regex": null,
-								"line_regex": null,
-								"panel_name": null,
-								"tag": null,
-								"timeit": false,
-								"title": null
-							},
-							"terminus_view.cancellable": false,
-							"terminus_view.key.ctrl+k": true,
-							"terminus_view.key.ctrl+p": true,
-							"terminus_view.natural_keyboard": true,
-							"terminus_view.panel_name": null,
-							"terminus_view.tag": null,
-							"terminus_view.viewport_y": 462.0,
-							"word_wrap": false
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 594.0,
+						"translation.y": 132.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -748,19 +735,19 @@
 			"sheets":
 			[
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9625,
+						"buffer_size": 16225,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9625,
-								9625
+								16225,
+								16225
 							]
 						],
 						"settings":
@@ -789,7 +776,7 @@
 							],
 							"scroll_past_end": true,
 							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"terminus.highlight_counter": 78,
+							"terminus.highlight_counter": 46,
 							"terminus_view": true,
 							"terminus_view.args":
 							{
@@ -819,11 +806,11 @@
 							"terminus_view.natural_keyboard": true,
 							"terminus_view.panel_name": null,
 							"terminus_view.tag": null,
-							"terminus_view.viewport_y": 2310.0,
+							"terminus_view.viewport_y": 5720.0,
 							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2310.0,
+						"translation.y": 5720.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -896,12 +883,16 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"C:\\Users\\ditta\\Documents\\Work\\Maintenance Diagnostic Platform\\MaintenanceDiagnosticPlatformProject.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{

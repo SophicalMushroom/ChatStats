@@ -48,7 +48,6 @@ export const ChatSelector = () => {
 			</ListItemIcon>
 
 			<ListItemText
-				secondary
 				primary={
 					<Typography color="textSecondary" variant="subtitle2" noWrap>
 						{curChat}
