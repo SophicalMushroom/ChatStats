@@ -6,19 +6,16 @@ const baseTheme = {
 		divider: "rgba(79, 131, 204, 0.28)",
 	},
 	typography: {
+		fontFamily: "Montserrat, sans-serif",
 		subtitle3: {
-			fontFamily: "Roboto, Helvetica, Arial, sans-serif",
-			fontWeight: 500,
+			fontWeight: 300,
 			fontSize: "0.775rem",
 			lineHeight: 1.57,
-			letterSpacing: "0.00714em",
 		},
 		h4: {
-			fontFamily: "Roboto, Helvetica, Arial, sans-serif",
-			fontWeight: 300,
+			fontWeight: 400,
 			fontSize: "1.7rem",
 			lineHeight: 1.5,
-			letterSpacing: "0em",
 		},
 	},
 };
