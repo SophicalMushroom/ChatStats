@@ -1,8 +1,32 @@
 import React, { useState, createContext } from "react";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
-const darkTheme = {
+const baseTheme = {
 	palette: {
+		divider: "rgba(79, 131, 204, 0.28)",
+	},
+	typography: {
+		subtitle3: {
+			fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+			fontWeight: 500,
+			fontSize: "0.775rem",
+			lineHeight: 1.57,
+			letterSpacing: "0.00714em",
+		},
+		h4: {
+			fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+			fontWeight: 300,
+			fontSize: "1.7rem",
+			lineHeight: 1.5,
+			letterSpacing: "0em",
+		},
+	},
+};
+
+const darkTheme = {
+	...baseTheme,
+	palette: {
+		...baseTheme.palette,
 		type: "dark",
 		primary: {
 			light: "#4f83cc",
@@ -24,12 +48,14 @@ const darkTheme = {
 			paper: "#0a1726",
 			default: "#010a14",
 		},
-		divider: "rgba(79, 131, 204, 0.18)",
 	},
 };
+
 const lightTheme = {
-	type: "light",
+	...baseTheme,
 	palette: {
+		...baseTheme.palette,
+		type: "light",
 		primary: {
 			light: "#4f83cc",
 			main: "#01579b",
@@ -50,7 +76,6 @@ const lightTheme = {
 			paper: "#ffffff",
 			default: "#f9fbfd",
 		},
-		divider: "rgba(79, 131, 204, 0.18)",
 	},
 };
 

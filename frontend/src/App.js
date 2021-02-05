@@ -7,7 +7,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { DesktopNav } from "./components/navigation/DesktopNav";
 import { MobileNav } from "./components/navigation/MobileNav";
 import { MobileAppBar } from "./components/navigation/MobileAppBar";
-import { Home } from "./components/Home";
+import { Overview } from "./components/Overview";
 import { Vocab } from "./components/Vocab";
 import { Emojis } from "./components/Emojis";
 import { Misc } from "./components/Misc";
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 	main: {
 		width: "100vw",
 		height: "100vh",
-		padding: theme.spacing(4),
+		padding: theme.spacing(3),
 		[theme.breakpoints.down("xs")]: {
 			padding: theme.spacing(1),
 			paddingTop: "8vh",
@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
 
 const renderTabContent = (curTab) => {
 	switch (curTab) {
-		case "Home":
-			return <Home />;
+		case "Overview":
+			return <Overview />;
 		case "Vocab":
 			return <Vocab />;
 		case "Emojis":

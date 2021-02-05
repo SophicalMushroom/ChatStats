@@ -51,7 +51,7 @@ export const NavItems = (props) => {
 	};
 
 	const navItems = [
-		{ label: "Home", icon: <HomeIcon className={classes.icons} /> },
+		{ label: "Overview", icon: <HomeIcon className={classes.icons} /> },
 		{ label: "Vocab", icon: <LocalLibraryIcon className={classes.icons} /> },
 		{ label: "Emojis", icon: <EmojiEmotionsIcon className={classes.icons} /> },
 		{ label: "Misc", icon: <EqualizerIcon className={classes.icons} /> },

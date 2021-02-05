@@ -6,7 +6,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import { NavContext } from "./../../contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +35,7 @@ export const MobileAppBar = () => {
 						<MenuIcon className={classes.menuButtonIcon} />
 					</IconButton>
 
-					<Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
+					<Breadcrumbs>
 						<Typography noWrap color="textSecondary">
 							{curChat}
 						</Typography>

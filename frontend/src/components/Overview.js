@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { DesktopAppBar } from "./navigation/DesktopAppBar";
 
 const useStyles = makeStyles((theme) => ({
 	background: {
@@ -9,12 +10,12 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export const Home = (props) => {
+export const Overview = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	return (
 		<div className={classes.background}>
-			<Typography variant="h3">Home</Typography>
+			<DesktopAppBar />
 			<Typography color="textSecondary" paragraph>
 				{" "}
 				ever since the 1500s, when an unknown printer took a galley of type and
