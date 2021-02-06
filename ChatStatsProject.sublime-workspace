@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"Gri",
+				"gridItem"
+			],
+			[
+				"grid",
+				"Grid"
+			],
+			[
+				"cal",
+				"className"
+			],
+			[
 				"user",
 				"setUser"
 			],
@@ -327,6 +339,23 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "frontend/src/components/Overview.js",
+			"settings":
+			{
+				"buffer_size": 2414,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "frontend/src/App.js",
+			"settings":
+			{
+				"buffer_size": 1692,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -340,15 +369,15 @@
 		"selected_items":
 		[
 			[
+				"ter",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
 				"te",
 				"Terminus: Open Default Shell in Tab (View)"
 			],
 			[
 				"term",
-				"Terminus: Open Default Shell in Tab (View)"
-			],
-			[
-				"ter",
 				"Terminus: Open Default Shell in Tab (View)"
 			],
 			[
@@ -428,26 +457,31 @@
 		"/C/Users/ditta/Documents/Code/ChatStats",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components"
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts"
 	],
 	"file_history":
 	[
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/ChatSelector.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileAppBar.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopAppBar.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Regex.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Misc.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Vocab.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/index.html",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/manifest.json",
 		"/C/Users/ditta/Documents/Code/ChatStats/.gitignore",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopAppBar.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/Profile.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileAppBar.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/AuthContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileNav.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopNav.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/ChatSelector.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavLogo.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/assets/logoLight.svg",
@@ -481,11 +515,7 @@
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/NavBars.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavList.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Main.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Misc.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Home.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Vocab.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Regex.js",
 		"/C/Users/ditta/Documents/Work/ChatStats/frontend/src/components/NavBars.js",
 		"/C/Users/ditta/Documents/Work/ChatStats/frontend/src/App.js",
 		"/C/Users/ditta/OneDrive/Python Projects/Miscellaneous/InstaStats.py",
@@ -578,6 +608,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Stat",
+			"md=",
+			"spacing",
+			">\n",
 			"Button",
 			"NavContext",
 			"test",
@@ -626,8 +660,65 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "frontend/src/components/Overview.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1499,
+								1499
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1122.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "frontend/src/App.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1692,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								934,
+								964
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		},
 		{
