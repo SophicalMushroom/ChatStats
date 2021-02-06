@@ -340,19 +340,10 @@
 	"buffers":
 	[
 		{
-			"file": "frontend/src/components/Overview.js",
-			"settings":
-			{
-				"buffer_size": 2414,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "frontend/src/App.js",
 			"settings":
 			{
-				"buffer_size": 1692,
+				"buffer_size": 1777,
 				"line_ending": "Windows"
 			}
 		}
@@ -457,32 +448,32 @@
 		"/C/Users/ditta/Documents/Code/ChatStats",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts"
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components"
 	],
 	"file_history":
 	[
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Misc.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Regex.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Vocab.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/AuthContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.css",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/ChatSelector.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileAppBar.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopAppBar.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Regex.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Misc.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Vocab.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/index.html",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/manifest.json",
 		"/C/Users/ditta/Documents/Code/ChatStats/.gitignore",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/Profile.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/AuthContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileNav.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopNav.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavLogo.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/assets/logoLight.svg",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/assets/logoDark.svg",
@@ -588,8 +579,7 @@
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/FiltersPanel.js",
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/FiltersPanel.js",
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/EqIDLookupTab.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelExpanded.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelDataTabExpanded.js"
+		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelExpanded.js"
 	],
 	"find":
 	{
@@ -665,47 +655,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "frontend/src/components/Overview.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2414,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1499,
-								1499
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1122.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "frontend/src/App.js",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1692,
+						"buffer_size": 1777,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								934,
-								964
+								781,
+								781
 							]
 						],
 						"settings":
@@ -716,7 +678,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
