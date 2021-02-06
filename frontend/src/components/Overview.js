@@ -1,40 +1,92 @@
-import { useState, useContext } from "react";
+import { Fragment, useStatCarde, useContext } from "react";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { DesktopAppBar } from "./navigation/DesktopAppBar";
+import Paper from "@material-ui/core/Paper";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
-	background: {
+	paper: {
+		display: "flex",
+		justifyContent: "flex-start",
+		alignItems: "center",
+		paddingLeft: theme.spacing(2),
 		width: "100%",
-		height: "100%",
+		height: "8vh",
+		[theme.breakpoints.down("lg")]: {
+			height: "10vh",
+		},
+	},
+	paper2: {
+		width: "100%",
+		height: "45vh",
+		padding: theme.spacing(2),
+	},
+	gridItem: { paddingLeft: 0, paddingRight: 0 },
+	subtitle: {
+		...theme.typography.subtitle3,
+		[theme.breakpoints.down("xs")]: {
+			fontSize: "10px",
+		},
+	},
+	value: {
+		...theme.typography.h6,
+		[theme.breakpoints.down("xs")]: {
+			fontSize: "16px",
+		},
 	},
 }));
 
 export const Overview = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+	const StatCard = (props) => {
+		return (
+			<Paper className={classes.paper}>
+				<div>
+					<Typography noWrap color="textSecondary" className={classes.subtitle}>
+						{props.label}
+					</Typography>
+					<Typography noWrap color="textPrimary" className={classes.value}>
+						{props.value}
+					</Typography>
+				</div>
+			</Paper>
+		);
+	};
+
 	return (
-		<div className={classes.background}>
-			<DesktopAppBar />
-			<Typography color="textSecondary" paragraph>
-				{" "}
-				ever since the 1500s, when an unknown printer took a galley of type and
-				scrambled it to make a type specimen book. It has survived not only five
-				centuries, but also the leap into electronic typesetting, remaining
-				essentially unchanged. It was popularised in the 1960s with the release
-				of Letraset sheets containing Lorem Ipsum passages, and more recently
-				with desktop publishing software like Aldus PageMaker including versions
-				of Lorem Ipsum. Why do we use it? It is a long established fact that a
-				reader will be distracted by the readable content of a page when looking
-				at its layout. The point of using Lorem Ipsum is that it has a
-				more-or-less normal distribution of letters, as opposed to using
-				'Content here, content here', making it look like readable English. Many
-				desktop publishing packages and web page editors now use Lorem Ipsum as
-				their default model text, and a search for 'lorem ipsum' will uncover
-				many web sites still in their infancy. Various versions have evolved
-				over the years, sometimes by accident, sometimes on purpose (injected
-				humour and the like).
-			</Typography>
-		</div>
+		<Grid container spacing={isMobile ? 2 : 3}>
+			<Grid item xs={12}>
+				<DesktopAppBar />
+			</Grid>
+			<Grid item xs={12} sm={2} xl={2}>
+				<StatCard label="Total Messages" value="243,012" />
+			</Grid>
+			<Grid item xs={12} sm={2} xl={2}>
+				<StatCard label="Avg. Daily Messages" value="86.23" />
+			</Grid>
+			<Grid item xs={12} sm={2} xl={2}>
+				<StatCard label="Total Members" value="23" />
+			</Grid>
+			<Grid item xs={12} sm={4} xl={3}>
+				<StatCard label="Active For" value="3 years 11 Month 28 days" />
+			</Grid>
+			<Grid item xs={12}>
+				<Paper className={classes.paper2}>hello</Paper>
+			</Grid>
+			<Grid item xs={12} sm={6}>
+				<Paper className={classes.paper2}>hello</Paper>
+			</Grid>
+			<Grid item xs={12} sm={6}>
+				<Paper className={classes.paper2}>hello</Paper>
+			</Grid>
+			<Grid item xs={12}>
+				<Paper className={classes.paper2}>hello</Paper>
+			</Grid>
+		</Grid>
 	);
 };

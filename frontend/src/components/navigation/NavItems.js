@@ -15,6 +15,7 @@ import Divider from "@material-ui/core/Divider";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
 import { ThemeContext } from "./../../contexts/ThemeContext";
+import { NavContext } from "./../../contexts/NavContext";
 import { ChatSelector } from "./ChatSelector";
 import { Profile } from "./Profile";
 
@@ -45,6 +46,7 @@ export const NavItems = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const { currentTheme, setTheme } = useContext(ThemeContext);
+	const { curTab } = useContext(NavContext);
 
 	const handleThemeChange = (event) => {
 		setTheme(currentTheme === "dark" ? "light" : "dark");
@@ -66,6 +68,7 @@ export const NavItems = (props) => {
 				{navItems.map((item) => (
 					<ListItem
 						button
+						selected={item.label === curTab}
 						className={classes.nestedItems}
 						key={item.label}
 						onClick={() => props.HandleNavItemClick(item.label)}

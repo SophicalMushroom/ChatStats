@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
+import { DesktopAppBar } from "./navigation/DesktopAppBar";
 
 export const Regex = (props) => {
-	return <h1>Regex</h1>;
+	return <DesktopAppBar />;
 };

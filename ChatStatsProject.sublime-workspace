@@ -327,23 +327,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "frontend/src/components/navigation/Profile.js",
-			"settings":
-			{
-				"buffer_size": 1404,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/src/components/navigation/NavItems.js",
-			"settings":
-			{
-				"buffer_size": 2966,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -356,6 +339,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"te",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
 			[
 				"term",
 				"Terminus: Open Default Shell in Tab (View)"
@@ -440,26 +427,31 @@
 	[
 		"/C/Users/ditta/Documents/Code/ChatStats",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src"
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components"
 	],
 	"file_history":
 	[
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/AuthContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/Profile.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/index.html",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/manifest.json",
+		"/C/Users/ditta/Documents/Code/ChatStats/.gitignore",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopAppBar.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/Profile.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileAppBar.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/AuthContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileNav.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopNav.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/ChatSelector.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileAppBar.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavLogo.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/assets/logoLight.svg",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/assets/logoDark.svg",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/index.html",
 		"/C/Users/ditta/Desktop/logoLight.svg",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/favicon.ico",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Navigation/NavLogo.js",
@@ -481,7 +473,6 @@
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Components/Navigation/DesktopNav.js",
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/Miscellaneous/CheckBoxSelectACModel.js",
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/MessagesPanelButtonBar.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/.gitignore",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Contexts/NavContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Components/Misc.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/Contexts/GlobalProviderComposer.js",
@@ -568,14 +559,11 @@
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/FiltersPanel.js",
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/EqIDLookupTab.js",
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelExpanded.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelDataTabExpanded.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelDetailsTabExpanded.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelLogicTabExpanded.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanel.js"
+		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelDataTabExpanded.js"
 	],
 	"find":
 	{
-		"height": 44.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
@@ -638,65 +626,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "frontend/src/components/navigation/Profile.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1404,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								935,
-								935
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 396.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "frontend/src/components/navigation/NavItems.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2966,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								259,
-								259
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 66.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		},
 		{

@@ -10,7 +10,9 @@ import { NavContext } from "./../../contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
 	appBar: { backgroundColor: theme.palette.background.paper },
-	toolbar: {},
+	text: {
+		fontSize: "12px",
+	},
 	menuButton: {
 		paddingRight: theme.spacing(2),
 	},
@@ -36,10 +38,10 @@ export const MobileAppBar = () => {
 					</IconButton>
 
 					<Breadcrumbs>
-						<Typography noWrap color="textSecondary">
+						<Typography noWrap color="textSecondary" className={classes.text}>
 							{curChat}
 						</Typography>
-						<Typography noWrap color="textSecondary">
+						<Typography noWrap color="textSecondary" className={classes.text}>
 							{curTab}
 						</Typography>
 					</Breadcrumbs>

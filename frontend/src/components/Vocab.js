@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
+import { DesktopAppBar } from "./navigation/DesktopAppBar";
 
 export const Vocab = (props) => {
-	return <h1>Vocab</h1>;
+	return <DesktopAppBar />;
 };

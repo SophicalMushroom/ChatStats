@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
+import { DesktopAppBar } from "./navigation/DesktopAppBar";
 
 export const Emojis = (props) => {
-	return <h1>Emojis</h1>;
+	return <DesktopAppBar />;
 };
