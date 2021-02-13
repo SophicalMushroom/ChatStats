@@ -70,6 +70,8 @@ export const Filters = (props) => {
 								value={endDate}
 								onChange={(newDate) => setEndDate(newDate)}
 								keyboardIcon={<DateRangeIcon />}
+								minDate={startDate}
+								minDateMessage={"Cannot be before start date"}
 								InputAdornmentProps={{ position: "start" }}
 								InputProps={{
 									disableUnderline: true,
