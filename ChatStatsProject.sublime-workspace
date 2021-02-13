@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"class",
+				"classes2"
+			],
+			[
+				"DateR",
+				"DateRangeIcon"
+			],
+			[
+				"inp",
+				"Inp"
+			],
+			[
 				"Gri",
 				"gridItem"
 			],
@@ -30,10 +42,6 @@
 			[
 				"Butt",
 				"ButtonBase"
-			],
-			[
-				"class",
-				"className"
 			],
 			[
 				"Person",
@@ -340,10 +348,10 @@
 	"buffers":
 	[
 		{
-			"file": "frontend/src/App.js",
+			"file": "frontend/src/components/miscellaneous/Filters.js",
 			"settings":
 			{
-				"buffer_size": 1777,
+				"buffer_size": 2544,
 				"line_ending": "Windows"
 			}
 		}
@@ -448,19 +456,26 @@
 		"/C/Users/ditta/Documents/Code/ChatStats",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components"
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts"
 	],
 	"file_history":
 	[
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Filters.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Card.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/package.json",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/StatCard.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Misc.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Regex.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Vocab.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/AuthContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.css",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.js",
@@ -575,11 +590,7 @@
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/EqIDTablePanel.js",
 		"/C/Users/ditta/AppData/Local/Temp/Rar$DRa9704.10650/javascript-client/src/api/PetApi.js",
 		"/C/Users/ditta/AppData/Local/Temp/Rar$DRa2888.3339/python-client/test/test_pet_api.py",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/EqIDTablePanelButtonBar.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/FiltersPanel.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/FiltersPanel.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/EqIDLookupTab.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/DetailsPanelExpanded.js"
+		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/EqIDTablePanelButtonBar.js"
 	],
 	"find":
 	{
@@ -598,6 +609,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"o",
+			"maxHeight",
+			"height",
+			"Card height",
+			"</Paper>",
+			"<Paper className={classes.paper2}",
+			"subtitle",
 			"Stat",
 			"md=",
 			"spacing",
@@ -655,19 +673,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "frontend/src/App.js",
+					"file": "frontend/src/components/miscellaneous/Filters.js",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1777,
+						"buffer_size": 2544,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								781,
-								781
+								1419,
+								1419
 							]
 						],
 						"settings":
@@ -675,7 +693,7 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 924.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
