@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"set",
+				"setSelectedUsers"
+			],
+			[
+				"ADd",
+				"AddCircleIcon"
+			],
+			[
+				"sets",
+				"setSelectedUsers"
+			],
+			[
+				"chip",
+				"chipData"
+			],
+			[
+				"chi",
+				"chipData"
+			],
+			[
 				"class",
 				"classes2"
 			],
@@ -98,10 +118,6 @@
 			[
 				"icon",
 				"IconButton"
-			],
-			[
-				"set",
-				"setAge"
 			],
 			[
 				"Se",
@@ -351,7 +367,24 @@
 			"file": "frontend/src/components/miscellaneous/Filters.js",
 			"settings":
 			{
-				"buffer_size": 2544,
+				"buffer_size": 2588,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "frontend/src/components/miscellaneous/Card.js",
+			"settings":
+			{
+				"buffer_size": 888,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "frontend/src/contexts/FilterContext.js",
+			"settings":
+			{
+				"buffer_size": 576,
 				"line_ending": "Windows"
 			}
 		}
@@ -372,11 +405,11 @@
 				"Terminus: Open Default Shell in Tab (View)"
 			],
 			[
-				"te",
+				"term",
 				"Terminus: Open Default Shell in Tab (View)"
 			],
 			[
-				"term",
+				"te",
 				"Terminus: Open Default Shell in Tab (View)"
 			],
 			[
@@ -454,28 +487,27 @@
 	"expanded_folders":
 	[
 		"/C/Users/ditta/Documents/Code/ChatStats",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts"
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend"
 	],
 	"file_history":
 	[
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/FilterContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/UserSelection.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/ChipList.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/StatCard.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
+		"/C/Users/ditta/Documents/Code/bunchoftraitors/message_1.json",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Filters.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Card.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/package.json",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/StatCard.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Misc.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Regex.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Vocab.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/AuthContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.css",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.js",
@@ -586,11 +618,7 @@
 		"/C/Users/ditta/Desktop/test.txt",
 		"/C/Users/ditta/OneDrive/Python Projects/Machine Learning Projects/PyChat-LSTMAutoencoder/seleniumBot.py",
 		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/MessagesPanel.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/utils/dummyData.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/EqIDTablePanel.js",
-		"/C/Users/ditta/AppData/Local/Temp/Rar$DRa9704.10650/javascript-client/src/api/PetApi.js",
-		"/C/Users/ditta/AppData/Local/Temp/Rar$DRa2888.3339/python-client/test/test_pet_api.py",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/EqIDLookupTab/EqIDTablePanelButtonBar.js"
+		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/utils/dummyData.js"
 	],
 	"find":
 	{
@@ -609,6 +637,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sm=",
+			"xs=",
+			"sm=",
+			"xs=",
+			"dateValue",
+			"dateLabel",
 			"o",
 			"maxHeight",
 			"height",
@@ -668,24 +702,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
 					"file": "frontend/src/components/miscellaneous/Filters.js",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2544,
+						"buffer_size": 2588,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1419,
-								1419
+								1911,
+								1911
 							]
 						],
 						"settings":
@@ -693,10 +727,66 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 924.0,
+						"translation.y": 484.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "frontend/src/components/miscellaneous/Card.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 888,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "frontend/src/contexts/FilterContext.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								576,
+								576
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -777,7 +867,7 @@
 		[
 			[
 				"",
-				"C:\\Users\\ditta\\Documents\\Work\\Maintenance Diagnostic Platform\\MaintenanceDiagnosticPlatformProject.sublime-project"
+				"C:\\Users\\ditta\\Documents\\Code\\DefaultProject.sublime-project"
 			]
 		],
 		"width": 380.0

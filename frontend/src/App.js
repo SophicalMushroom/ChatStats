@@ -15,54 +15,54 @@ import { Regex } from "./components/Regex";
 import { NavContext } from "./contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  main: {
-    width: "100vw",
-    height: "100vh",
-    padding: theme.spacing(3),
-    [theme.breakpoints.down("xs")]: {
-      padding: theme.spacing(1),
-      paddingTop: "8vh",
-    },
-  },
+	root: {
+		display: "flex",
+	},
+	main: {
+		width: "100vw",
+		height: "100vh",
+		padding: theme.spacing(3),
+		[theme.breakpoints.down("xs")]: {
+			padding: theme.spacing(1),
+			paddingTop: "8vh",
+		},
+	},
 }));
 
 const renderTabContent = (curTab) => {
-  switch (curTab) {
-    case "Overview":
-      return <Overview />;
-    case "Vocab":
-      return <Vocab />;
-    case "Emojis":
-      return <Emojis />;
-    case "Misc":
-      return <Misc />;
-    case "Regex":
-      return <Regex />;
-  }
+	switch (curTab) {
+		case "Overview":
+			return <Overview />;
+		case "Vocabulary":
+			return <Vocab />;
+		case "Emojis":
+			return <Emojis />;
+		case "Miscellaneous":
+			return <Misc />;
+		case "Regex":
+			return <Regex />;
+	}
 };
 
 const App = () => {
-  const classes = useStyles();
-  const theme = useTheme();
-  const { curTab, setCurTab } = useContext(NavContext);
+	const classes = useStyles();
+	const theme = useTheme();
+	const { curTab, setCurTab } = useContext(NavContext);
 
-  return (
-    <div className={classes.root}>
-      <Hidden xsDown>
-        <DesktopNav />
-      </Hidden>
+	return (
+		<div className={classes.root}>
+			<Hidden xsDown>
+				<DesktopNav />
+			</Hidden>
 
-      <Hidden smUp>
-        <MobileNav />
-        <MobileAppBar />
-      </Hidden>
+			<Hidden smUp>
+				<MobileNav />
+				<MobileAppBar />
+			</Hidden>
 
-      <div className={classes.main}>{renderTabContent(curTab)}</div>
-    </div>
-  );
+			<div className={classes.main}>{renderTabContent(curTab)}</div>
+		</div>
+	);
 };
 
 export default App;
