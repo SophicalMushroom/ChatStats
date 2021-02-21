@@ -3,6 +3,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Hidden from "@material-ui/core/Hidden";
 import { StatCard } from "./miscellaneous/StatCard";
 import { DesktopAppBar } from "./navigation/DesktopAppBar";
 import { Card } from "./miscellaneous/Card";
@@ -26,26 +27,71 @@ export const Vocab = (props) => {
 			</Grid>
 
 			<Grid item xs={12} sm={2}>
-				<StatCard label="Total words" value="15,243,012" />
+				<StatCard label="Total Words" value="15,243,012" />
 			</Grid>
 			<Grid item xs={12} sm={2}>
-				<StatCard label="Total chars" value="233,558,156" />
+				<StatCard label="Total Chars" value="233,558,156" />
 			</Grid>
 			<Grid item xs={12} sm={2}>
-				<StatCard label="Avg. words per Day" value="452" />
+				<StatCard label="Avg. Words per Day" value="452" />
 			</Grid>
 			<Grid item xs={12} sm={2}>
-				<StatCard label="Avg. chars per day" value="3014" />
+				<StatCard label="Avg. Chars per Day" value="3014" />
 			</Grid>
 			<Grid item xs={12} sm={2}>
-				<StatCard label="Avg. words per message" value="8" />
+				<StatCard label="Avg. Words per Message" value="8" />
 			</Grid>
 			<Grid item xs={12} sm={2}>
-				<StatCard label="Avg. chars per message" value="37" />
+				<StatCard label="Avg. Chars per Message" value="37" />
 			</Grid>
 
 			<Grid item xs={12} sm={6} xl={5}>
 				<Filters />
+			</Grid>
+
+			<Hidden xsDown>
+				<Grid item sm={6} xl={7}></Grid>
+			</Hidden>
+
+			<Grid item xs={12} sm={4}>
+				<Card title="Word Count per User">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
+					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
+					ornare, o
+				</Card>
+			</Grid>
+			<Grid item xs={12} sm={4}>
+				<Card title="Char Count per User">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
+					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
+					ornare, o
+				</Card>
+			</Grid>
+			<Grid item xs={12} sm={4}>
+				<Card title="Most Used Words">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
+					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
+					ornare, o
+				</Card>
+			</Grid>
+			<Grid item xs={12}>
+				<Card title="Sentiment by User">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
+					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
+					ornare, o
+				</Card>
+			</Grid>
+			<Grid item xs={12}>
+				<Card title="Sentiment Over Time">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
+					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
+					ornare, o
+				</Card>
 			</Grid>
 		</Grid>
 	);
