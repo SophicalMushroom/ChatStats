@@ -4,6 +4,18 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 const baseTheme = {
 	palette: {
 		divider: "rgba(79, 131, 204, 0.28)",
+		primary: {
+			light: "#4f83cc",
+			main: "#01579b",
+			dark: "#002f6c",
+			contrastText: "#e0e0e0",
+		},
+		secondary: {
+			light: "#9be7ff",
+			main: "#64b5f6",
+			dark: "#2286c3",
+			contrastText: "#37474f",
+		},
 	},
 	typography: {
 		fontFamily: "Montserrat, sans-serif",
@@ -28,18 +40,6 @@ const darkTheme = {
 	palette: {
 		...baseTheme.palette,
 		type: "dark",
-		primary: {
-			light: "#4f83cc",
-			main: "#01579b",
-			dark: "#002f6c",
-			contrastText: "#e0e0e0",
-		},
-		secondary: {
-			light: "#9be7ff",
-			main: "#64b5f6",
-			dark: "#2286c3",
-			contrastText: "#37474f",
-		},
 		text: {
 			primary: "#ffffff",
 			secondary: "#8aa8d4",
@@ -56,18 +56,6 @@ const lightTheme = {
 	palette: {
 		...baseTheme.palette,
 		type: "light",
-		primary: {
-			light: "#4f83cc",
-			main: "#01579b",
-			dark: "#002f6c",
-			contrastText: "#e0e0e0",
-		},
-		secondary: {
-			light: "#9be7ff",
-			main: "#64b5f6",
-			dark: "#2286c3",
-			contrastText: "#37474f",
-		},
 		text: {
 			primary: "#002f6c",
 			secondary: "rgba(14, 29, 48, 0.6)",

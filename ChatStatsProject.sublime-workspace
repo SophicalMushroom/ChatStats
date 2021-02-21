@@ -364,27 +364,11 @@
 	"buffers":
 	[
 		{
-			"file": "frontend/src/components/miscellaneous/Filters.js",
-			"settings":
-			{
-				"buffer_size": 2588,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "frontend/src/components/miscellaneous/Card.js",
 			"settings":
 			{
-				"buffer_size": 888,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/src/contexts/FilterContext.js",
-			"settings":
-			{
-				"buffer_size": 576,
+				"buffer_size": 1271,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -491,33 +475,33 @@
 	],
 	"file_history":
 	[
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Vocab.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/.gitignore",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/StatCard.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/FilterContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Filters.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/FilterContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/UserSelection.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/ChipList.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/StatCard.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
 		"/C/Users/ditta/Documents/Code/bunchoftraitors/message_1.json",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Filters.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Card.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/package.json",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Misc.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Regex.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Vocab.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/AuthContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.css",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/ChatSelector.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileAppBar.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopAppBar.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/index.html",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/public/manifest.json",
-		"/C/Users/ditta/Documents/Code/ChatStats/.gitignore",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/Profile.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileNav.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopNav.js",
@@ -637,6 +621,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"5",
 			"sm=",
 			"xs=",
 			"sm=",
@@ -702,52 +687,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "frontend/src/components/miscellaneous/Filters.js",
+					"file": "frontend/src/components/miscellaneous/Card.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2588,
+						"buffer_size": 1271,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1911,
-								1911
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 484.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "frontend/src/components/miscellaneous/Card.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 888,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								278,
+								279
 							]
 						],
 						"settings":
@@ -759,34 +716,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "frontend/src/contexts/FilterContext.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 576,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								576,
-								576
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
