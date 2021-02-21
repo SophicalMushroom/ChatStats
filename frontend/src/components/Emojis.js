@@ -1,4 +1,4 @@
-import { Fragment, useStatCarde, useContext } from "react";
+import { Fragment, useContext } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -8,11 +8,20 @@ import { StatCard } from "./miscellaneous/StatCard";
 import { DesktopAppBar } from "./navigation/DesktopAppBar";
 import { Card } from "./miscellaneous/Card";
 import { Filters } from "./miscellaneous/Filters";
+import { Footer } from "./miscellaneous/Footer";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		paddingBottom: theme.spacing(2),
 	},
+	footer: {
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		width: "100%",
+		height: "100%",
+	},
+	footerText: theme.typography.subtitle3,
 }));
 
 export const Emojis = (props) => {
@@ -65,6 +74,9 @@ export const Emojis = (props) => {
 					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
 					ornare, o
 				</Card>
+			</Grid>
+			<Grid item xs={12}>
+				<Footer date="May 20, 2020" />
 			</Grid>
 		</Grid>
 	);
