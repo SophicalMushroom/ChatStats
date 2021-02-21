@@ -4,10 +4,10 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import Menu from "@material-ui/core/Menu";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { Picker, Emoji } from "emoji-mart";
 import { FilterContext } from "./../../contexts/FilterContext";
 import "emoji-mart/css/emoji-mart.css";
-
 const useStyles = makeStyles((theme) => ({
 	root: {
 		width: "100%",
@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
 	},
 	content: {
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
 		padding: theme.spacing(1.5),
 	},
 	divider: {
@@ -27,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	emojiPicker: {
 		display: "flex",
-		justifyContent: "space-between",
+		justifyContent: "center",
 		alignItems: "center",
 		border: "1px solid",
 		borderRadius: theme.shape.borderRadius,
@@ -85,7 +88,13 @@ export const Card = (props) => {
 
 			<Divider className={classes.divider} />
 
-			<div className={classes.content}>{props.children}</div>
+			<div className={classes.content}>
+				{props.isLoading ? (
+					<CircularProgress color="secondary" size={30} />
+				) : (
+					props.children
+				)}
+			</div>
 		</Paper>
 	);
 };
