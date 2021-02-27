@@ -4,8 +4,24 @@
 		"selected_items":
 		[
 			[
+				"foot",
+				"footerText"
+			],
+			[
 				"set",
-				"setSelectedUsers"
+				"setSelectedEmoji"
+			],
+			[
+				"Hand",
+				"handleEmojiSelect"
+			],
+			[
+				"hand",
+				"handleEmojiOpen"
+			],
+			[
+				"fle",
+				"flex"
 			],
 			[
 				"ADd",
@@ -308,10 +324,6 @@
 				"font-size\tproperty"
 			],
 			[
-				"fle",
-				"flex-start\talign-items"
-			],
-			[
 				"text",
 				"text-align\tproperty"
 			],
@@ -364,11 +376,10 @@
 	"buffers":
 	[
 		{
-			"file": "frontend/src/components/miscellaneous/Card.js",
+			"file": "frontend/src/components/Overview.js",
 			"settings":
 			{
-				"buffer_size": 1271,
-				"encoding": "UTF-8",
+				"buffer_size": 2774,
 				"line_ending": "Windows"
 			}
 		}
@@ -385,11 +396,11 @@
 		"selected_items":
 		[
 			[
-				"ter",
+				"term",
 				"Terminus: Open Default Shell in Tab (View)"
 			],
 			[
-				"term",
+				"ter",
 				"Terminus: Open Default Shell in Tab (View)"
 			],
 			[
@@ -471,28 +482,32 @@
 	"expanded_folders":
 	[
 		"/C/Users/ditta/Documents/Code/ChatStats",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend"
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components"
 	],
 	"file_history":
 	[
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Vocab.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Misc.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Emojis.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Footer.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Card.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavLogo.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/FilterContext.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Filters.js",
+		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/NavContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/.gitignore",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/App.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavItems.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/StatCard.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/FilterContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Filters.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/ThemeContext.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Overview.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/UserSelection.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/ChipList.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/GlobalProviderComposer.js",
 		"/C/Users/ditta/Documents/Code/bunchoftraitors/message_1.json",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/miscellaneous/Card.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/package.json",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Misc.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/Regex.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/contexts/AuthContext.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/index.css",
@@ -505,7 +520,6 @@
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/Profile.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/MobileNav.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/DesktopNav.js",
-		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/components/navigation/NavLogo.js",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/assets/logoLight.svg",
 		"/C/Users/ditta/Documents/Code/ChatStats/frontend/src/assets/logoDark.svg",
 		"/C/Users/ditta/Desktop/logoLight.svg",
@@ -601,8 +615,7 @@
 		"/C/Users/ditta/Desktop/tests.txt",
 		"/C/Users/ditta/Desktop/test.txt",
 		"/C/Users/ditta/OneDrive/Python Projects/Machine Learning Projects/PyChat-LSTMAutoencoder/seleniumBot.py",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/MessagesPanel.js",
-		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/utils/dummyData.js"
+		"/C/Users/ditta/Documents/Work/Maintenance Diagnostic Platform/frontend/src/components/MessagesTab/MessagesPanel.js"
 	],
 	"find":
 	{
@@ -621,6 +634,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"marginLeft",
+			"handleClick",
+			"handleClose",
 			"5",
 			"sm=",
 			"xs=",
@@ -692,19 +708,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "frontend/src/components/miscellaneous/Card.js",
-					"semi_transient": false,
+					"file": "frontend/src/components/Overview.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1271,
+						"buffer_size": 2774,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								278,
-								279
+								2003,
+								2003
 							]
 						],
 						"settings":
@@ -712,7 +728,7 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 858.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -796,7 +812,7 @@
 		[
 			[
 				"",
-				"C:\\Users\\ditta\\Documents\\Code\\DefaultProject.sublime-project"
+				"C:\\Users\\ditta\\Documents\\Work\\Maintenance Diagnostic Platform\\MaintenanceDiagnosticPlatformProject.sublime-project"
 			]
 		],
 		"width": 380.0

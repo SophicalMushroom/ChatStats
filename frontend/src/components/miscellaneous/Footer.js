@@ -20,7 +20,7 @@ export const Footer = (props) => {
 	return (
 		<div className={classes.footer}>
 			<Typography color="textSecondary" className={classes.footerText}>
-				Last updated {props.date}
+				Data last updated {props.date}
 			</Typography>
 		</div>
 	);

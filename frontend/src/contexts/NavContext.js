@@ -4,7 +4,7 @@ export const NavContext = createContext();
 
 export const NavContextProvider = (props) => {
 	const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-	const [curTab, setCurTab] = useState("Emojis");
+	const [curTab, setCurTab] = useState("Regex");
 	const [curChat, setCurChat] = useState("Bunch Of Traitors 🔪");
 
 	return (
