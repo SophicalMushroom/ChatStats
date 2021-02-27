@@ -92,14 +92,14 @@ export const Regex = (props) => {
 			</Hidden>
 
 			<Grid item xs={12} sm={2}>
-				<StatCard label="Total Kicks" value="42" />
+				<StatCard label="Total occurrences" value="42" />
 			</Grid>
 			<Hidden xsDown>
 				<Grid item sm={10}></Grid>
 			</Hidden>
 
 			<Grid item xs={12} sm={4}>
-				<Card title="Messge count by type">
+				<Card title="Count per user">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
 					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
 					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
@@ -107,7 +107,7 @@ export const Regex = (props) => {
 				</Card>
 			</Grid>
 			<Grid item xs={12}>
-				<Card title="Message count by type per user">
+				<Card title="Use over time">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
 					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
 					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
