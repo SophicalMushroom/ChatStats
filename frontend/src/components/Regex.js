@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		alignItems: "center",
 		width: "100%",
+		[theme.breakpoints.up("sm")]: {
+			marginBottom: theme.spacing(3),
+		},
 	},
 	searchBarInput: {
 		marginLeft: theme.spacing(1),

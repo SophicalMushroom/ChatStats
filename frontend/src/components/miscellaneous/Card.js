@@ -9,9 +9,7 @@ import { Picker, Emoji } from "emoji-mart";
 import { FilterContext } from "./../../contexts/FilterContext";
 import "emoji-mart/css/emoji-mart.css";
 const useStyles = makeStyles((theme) => ({
-	root: {
-		width: "100%",
-	},
+	root: {},
 	title: {
 		padding: theme.spacing(1.5),
 		display: "flex",

@@ -52,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
 	chip: {
 		margin: theme.spacing(0.3),
 	},
+	chipStyles: {
+		// borderColor: theme.palette.secondary.main,
+	},
 }));
 
 export const UserSelection = (props) => {
@@ -122,6 +125,7 @@ export const UserSelection = (props) => {
 						label={chip.label}
 						size="small"
 						onDelete={handleDelete(chip)}
+						classes={{ outlined: classes.chipStyles }}
 					/>
 				))}
 			</Paper>
