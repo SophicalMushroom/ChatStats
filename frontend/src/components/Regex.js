@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
@@ -14,6 +14,9 @@ import { DesktopAppBar } from "./navigation/DesktopAppBar";
 import { Card } from "./miscellaneous/Card";
 import { Filters } from "./miscellaneous/Filters";
 import { Footer } from "./miscellaneous/Footer";
+import { LineChart } from "./charts/LineChart";
+import { DoughnutChart } from "./charts/DoughnutChart";
+import { BarChart } from "./charts/BarChart";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -74,6 +77,11 @@ export const Regex = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+	const [showCharts, setShowCharts] = useState(false);
+
+	useEffect(() => {
+		setShowCharts(true);
+	}, []);
 
 	return (
 		<Grid container spacing={isMobile ? 2 : 3} className={classes.root}>
@@ -102,21 +110,11 @@ export const Regex = (props) => {
 				<Grid item sm={10}></Grid>
 			</Hidden>
 
-			<Grid item xs={12} sm={4}>
-				<Card title="Count per user">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
-					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
-					ornare, o
-				</Card>
+			<Grid item xs={12} sm={3}>
+				<Card title="Count per user">{showCharts && <DoughnutChart />}</Card>
 			</Grid>
-			<Grid item xs={12}>
-				<Card title="Use over time">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
-					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
-					ornare, o
-				</Card>
+			<Grid item xs={12} sm={9}>
+				<Card title="Use over time">{showCharts && <LineChart />}</Card>
 			</Grid>
 
 			<Grid item xs={12}>

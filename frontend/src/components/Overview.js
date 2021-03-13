@@ -25,8 +25,8 @@ export const Overview = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-	const [showCharts, setShowCharts] = useState(false);
 	const [selectedMessageCount, setSelectedMessageCount] = useState("Total");
+	const [showCharts, setShowCharts] = useState(false);
 
 	useEffect(() => {
 		setShowCharts(true);

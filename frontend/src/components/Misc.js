@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -9,6 +9,9 @@ import { DesktopAppBar } from "./navigation/DesktopAppBar";
 import { Card } from "./miscellaneous/Card";
 import { Filters } from "./miscellaneous/Filters";
 import { Footer } from "./miscellaneous/Footer";
+import { LineChart } from "./charts/LineChart";
+import { DoughnutChart } from "./charts/DoughnutChart";
+import { BarChart } from "./charts/BarChart";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -20,6 +23,11 @@ export const Misc = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+	const [showCharts, setShowCharts] = useState(false);
+
+	useEffect(() => {
+		setShowCharts(true);
+	}, []);
 
 	return (
 		<Grid container spacing={isMobile ? 2 : 3} className={classes.root}>
@@ -45,37 +53,21 @@ export const Misc = (props) => {
 
 			<Grid item xs={12} sm={4}>
 				<Card title="Kicks Received per User">
-					Lorem ipsum dolor sit amet, consecdtetur adipiscing elit. Quisque
-					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
-					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
-					ornare, o
+					{showCharts && <DoughnutChart />}
 				</Card>
 			</Grid>
 			<Grid item xs={12} sm={4}>
 				<Card title="Kicks Given per User">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
-					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
-					ornare, o
+					{showCharts && <DoughnutChart />}
 				</Card>
 			</Grid>
 
 			<Grid item xs={12}>
-				<Card title="Kicks Over Time">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
-					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
-					ornare, o
-				</Card>
+				<Card title="Kicks Over Time">{showCharts && <LineChart />}</Card>
 			</Grid>
 
 			<Grid item xs={12}>
-				<Card title="Nicknames Over Time">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
-					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
-					ornare, o
-				</Card>
+				<Card title="Nicknames">{showCharts && <LineChart />}</Card>
 			</Grid>
 
 			<Grid item xs={12}>

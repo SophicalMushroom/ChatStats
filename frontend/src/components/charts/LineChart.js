@@ -26,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
 		paddingBottom: theme.spacing(2),
 	},
 	chart: {
-		height: "50vh",
+		height: "45vh",
 		width: "100%",
 		[theme.breakpoints.down("xs")]: {
-			height: "75vh",
+			height: "70vh",
 		},
 	},
 }));
@@ -72,6 +72,9 @@ export const LineChart = (props) => {
 								width: 1,
 							},
 							zoom: {
+								enabled: false,
+							},
+							sync: {
 								enabled: false,
 							},
 						},
