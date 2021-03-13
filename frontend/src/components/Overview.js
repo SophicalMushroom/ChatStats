@@ -10,6 +10,7 @@ import { DesktopAppBar } from "./navigation/DesktopAppBar";
 import { Card } from "./miscellaneous/Card";
 import { Filters } from "./miscellaneous/Filters";
 import { Footer } from "./miscellaneous/Footer";
+import { ToggleButtons } from "./miscellaneous/ToggleButtons";
 import { LineChart } from "./charts/LineChart";
 import { DoughnutChart } from "./charts/DoughnutChart";
 import { BarChart } from "./charts/BarChart";
@@ -25,6 +26,7 @@ export const Overview = (props) => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 	const [showCharts, setShowCharts] = useState(false);
+	const [selectedMessageCount, setSelectedMessageCount] = useState("Total");
 
 	useEffect(() => {
 		setShowCharts(true);
@@ -57,7 +59,20 @@ export const Overview = (props) => {
 			</Grid>
 
 			<Grid item xs={12}>
-				<Card title="Message Count">{showCharts && <LineChart />}</Card>
+				<Card
+					title="Message Count"
+					headerButtons={
+						<ToggleButtons
+							exclusive
+							selected={selectedMessageCount}
+							setSelected={setSelectedMessageCount}
+							options={["Total", "Users"]}
+						/>
+					}
+				>
+					{showCharts && selectedMessageCount === "Total" && <LineChart />}
+					{showCharts && selectedMessageCount === "Users" && <p>hello</p>}
+				</Card>
 			</Grid>
 			<Grid item xs={12} sm={6}>
 				<Card title="Messge count per user">

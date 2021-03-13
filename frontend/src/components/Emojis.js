@@ -9,6 +9,7 @@ import { DesktopAppBar } from "./navigation/DesktopAppBar";
 import { Card } from "./miscellaneous/Card";
 import { Filters } from "./miscellaneous/Filters";
 import { Footer } from "./miscellaneous/Footer";
+import { EmojiPicker } from "./miscellaneous/EmojiPicker";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -68,7 +69,7 @@ export const Emojis = (props) => {
 				</Card>
 			</Grid>
 			<Grid item xs={12}>
-				<Card title="Reacts per User by Emoji" emojiPicker>
+				<Card title="Reacts per User by Emoji" headerButtons={<EmojiPicker />}>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
 					mattis nunc tempor scelerisque congue. Nullam ultrices lacinia ex, in
 					pretium nibh maximus eu. Phasellus mi felis, maximus lacinia efficitur
