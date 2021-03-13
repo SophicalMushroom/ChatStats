@@ -2,7 +2,7 @@ import react from "react";
 import { Line, Chart } from "react-chartjs-2";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { hex2rgb } from "./../../utils/hex2rgb";
-// import "chartjs-plugin-crosshair";
+import "chartjs-plugin-crosshair";
 
 const dummyData = {
 	"data set 1": [3, 10, 5, 2, 20, 30, 45],
@@ -61,12 +61,18 @@ export const LineChart = (props) => {
 				data={dataObject}
 				options={{
 					maintainAspectRatio: false,
-
+					tooltips: {
+						mode: "interpolate",
+						intersect: false,
+					},
 					plugins: {
 						crosshair: {
 							line: {
-								color: "#F66",
+								color: theme.palette.text.primary,
 								width: 1,
+							},
+							zoom: {
+								enabled: false,
 							},
 						},
 					},

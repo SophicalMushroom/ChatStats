@@ -60,7 +60,15 @@ export const BarChart = (props) => {
 
 	return (
 		<div className={classes.chart}>
-			<Bar data={dataObject} options={{ maintainAspectRatio: false }} />
+			<Bar
+				data={dataObject}
+				options={{
+					maintainAspectRatio: false,
+					plugins: {
+						crosshair: false,
+					},
+				}}
+			/>
 		</div>
 	);
 };

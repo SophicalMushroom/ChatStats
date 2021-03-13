@@ -55,7 +55,13 @@ export const DoughnutChart = (props) => {
 		<div className={classes.chart}>
 			<Doughnut
 				data={dataObject}
-				options={{ maintainAspectRatio: false, cutoutPercentage: 70 }}
+				options={{
+					maintainAspectRatio: false,
+					cutoutPercentage: 70,
+					plugins: {
+						crosshair: false,
+					},
+				}}
 			/>
 		</div>
 	);
