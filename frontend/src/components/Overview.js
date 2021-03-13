@@ -2,64 +2,24 @@ import { Fragment, useContext, useEffect, useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import Hidden from "@material-ui/core/Hidden";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { Doughnut, Bar } from "react-chartjs-2";
 import { StatCard } from "./miscellaneous/StatCard";
 import { DesktopAppBar } from "./navigation/DesktopAppBar";
 import { Card } from "./miscellaneous/Card";
 import { Filters } from "./miscellaneous/Filters";
 import { Footer } from "./miscellaneous/Footer";
-import { Line, Doughnut, Bar } from "react-chartjs-2";
+import { LineChart } from "./charts/LineChart";
+import { DoughnutChart } from "./charts/DoughnutChart";
+import { BarChart } from "./charts/BarChart";
 
-const dataLine = {
-	labels: ["January", "February", "March", "April", "May", "June", "July"],
-	datasets: [
-		{
-			label: "My First dataset",
-			backgroundColor: "rgb(255, 99, 132)",
-			borderColor: "rgb(255, 99, 132)",
-			data: [3, 10, 5, 2, 20, 30, 45],
-		},
-	],
-};
-const dataPie1 = {
-	labels: [
-		"Gilbert Chui",
-		"Smit Patel",
-		"Chedy Sankar",
-		"Alex Greff",
-		"Tony Attalla",
-		"Alex Andros",
-	],
-	datasets: [
-		{
-			data: [10, 5, 18, 12, 23, 15],
-			backgroundColor: ["Red", "Yellow", "Blue", "Green", "Orange", "Purple"],
-			borderColor: "rgba(0,0,0,0)",
-		},
-	],
-};
-const dataPie2 = {
-	labels: [
-		"Gilbert Chui",
-		"Smit Patel",
-		"Chedy Sankar",
-		"Alex Greff",
-		"Tony Attalla",
-		"Alex Andros",
-	],
-	datasets: [
-		{
-			data: [50, 42, 36, 61, 28, 27],
-			backgroundColor: ["Red", "Yellow", "Blue", "Green", "Orange", "Purple"],
-			borderColor: "rgba(0,0,0,0)",
-		},
-	],
-};
 const useStyles = makeStyles((theme) => ({
 	root: {
 		paddingBottom: theme.spacing(2),
 	},
 }));
+
 export const Overview = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
@@ -88,49 +48,30 @@ export const Overview = (props) => {
 			<Grid item xs={12} sm={4} xl={3}>
 				<StatCard label="Active For" value="3 years 11 Month 28 days" />
 			</Grid>
-			<Grid item xs={12} sm={6} xl={5}>
+			<Hidden xsDown>
+				<Grid item sm={2} xl={1}></Grid>
+			</Hidden>
+
+			<Grid item xs={12} sm={4} xl={3}>
 				<Filters />
 			</Grid>
+
 			<Grid item xs={12}>
-				<Card title="Message Count">
-					<div style={{ height: "400px", width: "100%" }}>
-						{showCharts && (
-							<Line data={dataLine} options={{ maintainAspectRatio: false }} />
-						)}
-					</div>
-				</Card>
+				<Card title="Message Count">{showCharts && <LineChart />}</Card>
 			</Grid>
-			<Grid item xs={12} sm={4}>
+			<Grid item xs={12} sm={6}>
 				<Card title="Messge count per user">
-					<div style={{ height: "400px", width: "100%" }}>
-						{showCharts && (
-							<Doughnut
-								data={dataPie1}
-								options={{ maintainAspectRatio: false, cutoutPercentage: 70 }}
-							/>
-						)}
-					</div>
+					{showCharts && <DoughnutChart />}
 				</Card>
 			</Grid>
-			<Grid item xs={12} sm={4}>
+			<Grid item xs={12} sm={6}>
 				<Card title="Message count per type">
-					<div style={{ height: "400px", width: "100%" }}>
-						{showCharts && (
-							<Doughnut
-								data={dataPie2}
-								options={{ maintainAspectRatio: false, cutoutPercentage: 70 }}
-							/>
-						)}
-					</div>
+					{showCharts && <DoughnutChart />}
 				</Card>
 			</Grid>
 			<Grid item xs={12}>
 				<Card title="Message count by type per user">
-					<div style={{ height: "400px", width: "100%" }}>
-						{showCharts && (
-							<Bar data={dataLine} options={{ maintainAspectRatio: false }} />
-						)}
-					</div>
+					{showCharts && <BarChart />}
 				</Card>
 			</Grid>
 			<Grid item xs={12}>

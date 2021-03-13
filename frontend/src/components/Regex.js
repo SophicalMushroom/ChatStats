@@ -87,11 +87,12 @@ export const Regex = (props) => {
 				</Grid>
 			</Grid>
 
-			<Grid item xs={12} sm={6} xl={5}>
+			<Grid item xs={12} sm={4} xl={3}>
 				<Filters />
 			</Grid>
+
 			<Hidden xsDown>
-				<Grid item sm={6} xl={7}></Grid>
+				<Grid item sm={8} xl={9}></Grid>
 			</Hidden>
 
 			<Grid item xs={12} sm={2}>

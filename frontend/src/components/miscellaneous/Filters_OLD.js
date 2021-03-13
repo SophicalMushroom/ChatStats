@@ -10,6 +10,7 @@ import {
 	KeyboardDatePicker,
 } from "@material-ui/pickers";
 import { Card } from "./Card";
+import { UserSelection } from "./UserSelection";
 import { FilterContext } from "./../../contexts/FilterContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,41 +43,46 @@ export const Filters = (props) => {
 				{/* root container*/}
 				<Grid item container xs={12} spacing={1}>
 					{/* date filters*/}
-
-					<Grid item xs={6}>
-						<KeyboardDatePicker
-							autoOk
-							className={classes.dateRoot}
-							variant={isMobile ? "dialog" : "inline"}
-							format="MM/dd/yyyy"
-							label="Start Date"
-							value={startDate}
-							onChange={(newDate) => setStartDate(newDate)}
-							keyboardIcon={<DateRangeIcon />}
-							InputAdornmentProps={{ position: "start" }}
-							InputProps={{
-								disableUnderline: true,
-							}}
-						/>
+					<Grid item container xs={12} lg={4} spacing={1}>
+						<Grid item xs={6} lg={12}>
+							<KeyboardDatePicker
+								autoOk
+								className={classes.dateRoot}
+								variant={isMobile ? "dialog" : "inline"}
+								format="MM/dd/yyyy"
+								label="Start Date"
+								value={startDate}
+								onChange={(newDate) => setStartDate(newDate)}
+								keyboardIcon={<DateRangeIcon />}
+								InputAdornmentProps={{ position: "start" }}
+								InputProps={{
+									disableUnderline: true,
+								}}
+							/>
+						</Grid>
+						<Grid item xs={6} lg={12}>
+							<KeyboardDatePicker
+								autoOk
+								className={classes.dateRoot}
+								variant={isMobile ? "dialog" : "inline"}
+								format="MM/dd/yyyy"
+								label="End Date"
+								value={endDate}
+								onChange={(newDate) => setEndDate(newDate)}
+								keyboardIcon={<DateRangeIcon />}
+								minDate={startDate}
+								minDateMessage={"Cannot be before start date"}
+								InputAdornmentProps={{ position: "start" }}
+								InputProps={{
+									disableUnderline: true,
+									marginLeft: "0px",
+								}}
+							/>
+						</Grid>
 					</Grid>
-					<Grid item xs={6}>
-						<KeyboardDatePicker
-							autoOk
-							className={classes.dateRoot}
-							variant={isMobile ? "dialog" : "inline"}
-							format="MM/dd/yyyy"
-							label="End Date"
-							value={endDate}
-							onChange={(newDate) => setEndDate(newDate)}
-							keyboardIcon={<DateRangeIcon />}
-							minDate={startDate}
-							minDateMessage={"Cannot be before start date"}
-							InputAdornmentProps={{ position: "start" }}
-							InputProps={{
-								disableUnderline: true,
-								marginLeft: "0px",
-							}}
-						/>
+					{/* other filters*/}
+					<Grid item xs={12} lg={8}>
+						<UserSelection />
 					</Grid>
 				</Grid>
 			</Card>
