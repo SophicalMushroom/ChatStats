@@ -26,6 +26,22 @@ const useStyles = makeStyles((theme) => ({
 	divider: {
 		backgroundColor: "rgba(79, 131, 204, 0.15)",
 	},
+	noCharts: {
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		height: "45vh",
+		[theme.breakpoints.down("xs")]: {
+			height: "70vh",
+		},
+	},
+	noChartsText: {
+		...theme.typography.subtitle3,
+		fontStyle: "italic",
+		fontWeight: "500",
+		fontSize: "14px",
+		opacity: "0.6",
+	},
 }));
 
 export const Card = (props) => {
@@ -42,11 +58,19 @@ export const Card = (props) => {
 			<Divider className={classes.divider} />
 
 			<div className={classes.content}>
-				{props.isLoading ? (
-					<CircularProgress color="secondary" size={30} />
-				) : (
-					props.children
+				{props.isLoading && (
+					<div className={classes.noCharts}>
+						<CircularProgress color="secondary" size={30} />{" "}
+					</div>
 				)}
+				{props.isEmpty && (
+					<div className={classes.noCharts}>
+						<Typography color="textSecondary" className={classes.noChartsText}>
+							No data
+						</Typography>
+					</div>
+				)}
+				{!props.isLoading && !props.isEmpty && props.children}
 			</div>
 		</Paper>
 	);
