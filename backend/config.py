@@ -5,7 +5,7 @@ config = {
     "rootDataDir": "C:/Users/ditta/Documents/Code/inbox",
     "sentimentModelPath": "src/sentimentClassifier/MultinomialNB_Sklearn_Accuracy76.pkl",
     "dbConfig": {
-        "connectionStr": "mongodb+srv://chatstatsadmin:BgOXkdIpyXrtZtHN@cluster0.iosd4.mongodb.net/chatstatsdb?retryWrites=true&w=majority",
+        "connectionStr": "",
         "dbName": "chatstatsdb",
     },
     "cacheConfig": {

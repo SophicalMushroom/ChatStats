@@ -10,6 +10,7 @@ import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import ClearIcon from "@material-ui/icons/Clear";
 import DeleteIcon from "@material-ui/icons/Delete";
 import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
 import Check from "@material-ui/icons/Check";
@@ -20,7 +21,6 @@ import Typography from "@material-ui/core/Typography";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { useDropzone } from "react-dropzone";
 import { config } from "./../config";
-
 const useStyles = makeStyles((theme) => ({
 	root: {
 		paddingBottom: theme.spacing(2),
@@ -79,6 +79,7 @@ export const UploadData = (props) => {
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 	// files that are being uploaded
 	const [uploadedFiles, setUploadedFiles] = useState([]);
+	const [error, setError] = useState(false);
 	// progres of the upload out of 100%
 	const [uploadedProgress, setUploadedProgress] = useState(0);
 	const [processingFiles, setProcessingFiles] = useState(false);
@@ -143,7 +144,11 @@ export const UploadData = (props) => {
 		// upload to backend
 		axios
 			.post(`${config.apiURL}/rawdata`, formData, options)
-			.then((res) => setProcessingFiles(false));
+			.then((res) => setProcessingFiles(false))
+			.catch((err) => {
+				console.log(err);
+				setError(true);
+			});
 	};
 
 	return (
@@ -191,26 +196,45 @@ export const UploadData = (props) => {
 												{`${Math.ceil(
 													uploadedFiles.reduce((a, b) => a + b.size, 0) / 1024
 												)} KB`}
-												{uploadedProgress > 0 && uploadedProgress < 100 && (
-													<LinearProgress
-														className={classes.uploadStatusBar}
-														variant={"determinate"}
-														value={uploadedProgress}
-													/>
-												)}
-												{processingFiles && uploadedProgress === 100 && (
-													<LinearProgress className={classes.uploadStatusBar} />
-												)}
+												{uploadedProgress > 0 &&
+													uploadedProgress < 100 &&
+													!error && (
+														<LinearProgress
+															className={classes.uploadStatusBar}
+															variant={"determinate"}
+															value={uploadedProgress}
+														/>
+													)}
+												{processingFiles &&
+													uploadedProgress === 100 &&
+													!error && (
+														<LinearProgress
+															className={classes.uploadStatusBar}
+														/>
+													)}
 											</div>
 										}
 									/>
-
-									{uploadedProgress === 0 && (
+									{error && (
+										<Fragment>
+											<Typography
+												style={{ paddingRight: "10px" }}
+												variant="subtitle2"
+											>
+												Upload Failed
+											</Typography>
+										</Fragment>
+									)}
+									{(uploadedProgress === 0 || error) && (
 										<IconButton
 											className={classes.iconButtons}
 											onClick={() => setUploadedFiles([])}
 										>
-											<DeleteIcon className={classes.buttonIcons} />
+											{error ? (
+												<ClearIcon className={classes.buttonIcons} />
+											) : (
+												<DeleteIcon className={classes.buttonIcons} />
+											)}
 										</IconButton>
 									)}
 

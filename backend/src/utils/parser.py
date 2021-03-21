@@ -3,6 +3,7 @@ from ..sentimentClassifier.naiveBayesClassifierPredict import loadClassifierMode
 from datetime import datetime
 from functools import partial
 from config import config
+import pymongo
 import time
 import json
 import csv
