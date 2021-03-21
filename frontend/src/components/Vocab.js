@@ -54,14 +54,6 @@ export const Vocab = (props) => {
 				<StatCard label="Avg. Chars per Message" value="37" />
 			</Grid>
 
-			<Grid item xs={12} sm={4} xl={3}>
-				<Filters />
-			</Grid>
-
-			<Hidden xsDown>
-				<Grid item sm={8} xl={9}></Grid>
-			</Hidden>
-
 			<Grid item xs={12} sm={4}>
 				<Card title="Word Count per User">
 					{showCharts && <DoughnutChart />}
@@ -75,6 +67,15 @@ export const Vocab = (props) => {
 			<Grid item xs={12} sm={4}>
 				<Card title="Most Used Words">{showCharts && <DoughnutChart />}</Card>
 			</Grid>
+
+			<Grid item xs={12} sm={4} xl={3}>
+				<Filters />
+			</Grid>
+
+			<Hidden xsDown>
+				<Grid item sm={8} xl={9}></Grid>
+			</Hidden>
+
 			<Grid item xs={12}>
 				<Card title="Sentiment by User">{showCharts && <BarChart />}</Card>
 			</Grid>

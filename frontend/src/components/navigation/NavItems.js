@@ -4,11 +4,12 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import HomeIcon from "@material-ui/icons/Home";
+import DataUsageIcon from "@material-ui/icons/DataUsage";
 import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
 import LocalLibraryIcon from "@material-ui/icons/LocalLibrary";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import CodeIcon from "@material-ui/icons/Code";
+import PublishIcon from "@material-ui/icons/Publish";
 import IconButton from "@material-ui/core/IconButton";
 import Switch from "@material-ui/core/Switch";
 import Divider from "@material-ui/core/Divider";
@@ -53,7 +54,7 @@ export const NavItems = (props) => {
 	};
 
 	const navItems = [
-		{ label: "Overview", icon: <HomeIcon className={classes.icons} /> },
+		{ label: "Overview", icon: <DataUsageIcon className={classes.icons} /> },
 		{
 			label: "Vocabulary",
 			icon: <LocalLibraryIcon className={classes.icons} />,
@@ -64,7 +65,13 @@ export const NavItems = (props) => {
 			icon: <EqualizerIcon className={classes.icons} />,
 		},
 		{ label: "Regex", icon: <CodeIcon className={classes.icons} /> },
+		{
+			label: "Upload Data",
+			icon: <PublishIcon className={classes.icons} />,
+			disabled: props.diableDataUpload,
+		},
 	];
+
 	return (
 		<Fragment>
 			<List>
@@ -74,6 +81,7 @@ export const NavItems = (props) => {
 				{navItems.map((item) => (
 					<ListItem
 						button
+						disabled={item.disabled}
 						selected={item.label === curTab}
 						className={classes.nestedItems}
 						key={item.label}

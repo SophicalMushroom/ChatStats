@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export const MobileNav = () => {
+export const MobileNav = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const { isMobileNavOpen, setIsMobileNavOpen, setCurTab } = useContext(
@@ -41,7 +41,10 @@ export const MobileNav = () => {
 			onClose={() => setIsMobileNavOpen(!isMobileNavOpen)}
 		>
 			<NavLogo />
-			<NavItems HandleNavItemClick={HandleNavItemClick} />
+			<NavItems
+				HandleNavItemClick={HandleNavItemClick}
+				diableDataUpload={props.diableDataUpload}
+			/>
 		</Drawer>
 	);
 };

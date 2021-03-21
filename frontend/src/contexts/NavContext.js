@@ -6,6 +6,7 @@ export const NavContextProvider = (props) => {
 	const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 	const [curTab, setCurTab] = useState("Overview");
 	const [curChat, setCurChat] = useState("Bunch Of Traitors 🔪");
+	const [diableDataUpload, setDiableDataUpload] = useState(false);
 
 	return (
 		<NavContext.Provider
@@ -16,6 +17,8 @@ export const NavContextProvider = (props) => {
 				setIsMobileNavOpen,
 				curChat,
 				setCurChat,
+				diableDataUpload,
+				setDiableDataUpload,
 			}}
 		>
 			{props.children}

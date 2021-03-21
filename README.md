@@ -14,7 +14,6 @@ Get statistics on your facebook group chats.
 ```
 $ cd ChatStats\frontend
 $ npm install
-$ npm start
 ```
 
 ### Running the frontend locally
@@ -35,4 +34,80 @@ $ pip install -r requirements.txt
 ```
 $ cd ChatStats\backend
 $ python app.py
+```
+
+### Database Schema
+```
+chat: [DONE]
+{
+	_id:,
+	chatName:<string>,
+	firstMessageDate:<DateTime>,
+	lastMessageDate:<DateTime>,
+	days_active:<int>,
+	participants:<list><string>,
+	totalMessages:<int>,
+	totalWords:<int>,
+	totalCharacters:<int>,
+  totalReacts:<int>,
+  totalKicks:<int>,
+  totalJoins:<int>
+}
+
+vocabulary: [DONE]
+{
+	_id:,
+  chatName:<string>,
+  word:<string>,
+  occurrences:<int>
+}
+
+messages: [DONE]
+{ 
+  _id:,
+  chatName:<string>,
+  senderName: <string>,
+  timestamp: <DateTime>,
+  totalWords:<int>,
+  totalCharacters:<int>,
+  sentiment:<float>,
+  content: <string>,
+  photos: [
+            {
+              uri:<string>,
+            	creation_timestamp:<DateTime>
+            }
+          ],
+  gifs: [
+          {
+             uri:<string>,
+             creation_timestamp:<DateTime>,
+             thumbnail:{
+               uri:<string>
+             },
+          }
+        ],
+  videos: [
+            {
+              uri:<string>
+            }
+          ],
+
+  share: {
+        link: <string>
+      },
+  reactions:[
+  	{
+      reaction: <string>,
+      actor: <string>
+    },
+  ],
+  type: <string> Generic || Shared || Unsubscribed || Subscribe,
+  users:(usersRemoved) [
+        {
+          name: <string>
+        }
+      ],
+  isUnsent: <bool>,
+},
 ```

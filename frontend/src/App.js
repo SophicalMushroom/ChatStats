@@ -12,6 +12,7 @@ import { Vocab } from "./components/Vocab";
 import { Emojis } from "./components/Emojis";
 import { Misc } from "./components/Misc";
 import { Regex } from "./components/Regex";
+import { UploadData } from "./components/UploadData";
 import { NavContext } from "./contexts/NavContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -41,22 +42,24 @@ const renderTabContent = (curTab) => {
 			return <Misc />;
 		case "Regex":
 			return <Regex />;
+		case "Upload Data":
+			return <UploadData />;
 	}
 };
 
 const App = () => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const { curTab, setCurTab } = useContext(NavContext);
+	const { curTab, setCurTab, diableDataUpload } = useContext(NavContext);
 
 	return (
 		<div className={classes.root}>
 			<Hidden xsDown>
-				<DesktopNav />
+				<DesktopNav diableDataUpload={diableDataUpload} />
 			</Hidden>
 
 			<Hidden smUp>
-				<MobileNav />
+				<MobileNav diableDataUpload={diableDataUpload} />
 				<MobileAppBar />
 			</Hidden>
 

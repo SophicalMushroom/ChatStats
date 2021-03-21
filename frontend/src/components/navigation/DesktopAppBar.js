@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 	subtitle: theme.typography.subtitle3,
 }));
 
-export const DesktopAppBar = () => {
+export const DesktopAppBar = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const { curTab, curChat } = useContext(NavContext);
@@ -22,9 +22,11 @@ export const DesktopAppBar = () => {
 	return (
 		<Hidden xsDown>
 			<div>
-				<Typography noWrap color="textSecondary" className={classes.subtitle}>
-					{curChat}
-				</Typography>
+				{!props.disableChatTitle && (
+					<Typography noWrap color="textSecondary" className={classes.subtitle}>
+						{curChat}
+					</Typography>
+				)}
 				<Typography noWrap color="textPrimary" variant="h4">
 					{curTab}
 				</Typography>

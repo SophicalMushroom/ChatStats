@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export const DesktopNav = () => {
+export const DesktopNav = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const { setCurTab } = useContext(NavContext);
@@ -33,7 +33,10 @@ export const DesktopNav = () => {
 			anchor="left"
 		>
 			<NavLogo />
-			<NavItems HandleNavItemClick={HandleNavItemClick} />
+			<NavItems
+				HandleNavItemClick={HandleNavItemClick}
+				diableDataUpload={props.diableDataUpload}
+			/>
 		</Drawer>
 	);
 };

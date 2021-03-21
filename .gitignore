@@ -24,5 +24,8 @@ frontend/.eslintcache
 
 backend/venv/
 backend/__pycache__/
+backend/src/__pycache__/
+backend/src/resources/__pycache__/
+backend/src/utils/__pycache__/
 ChatStatsProject.sublime-project
 ChatStatsProject.sublime-workspace
