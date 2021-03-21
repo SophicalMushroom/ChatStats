@@ -12,27 +12,27 @@ Get statistics on your facebook group chats.
 # Setup
 ### Install frontend dependencies 
 ```
-$ cd ChatStats\frontend
+$ cd ChatStats/frontend
 $ npm install
 ```
 
 ### Running the frontend locally
 ```
-$ cd ChatStats\frontend
+$ cd ChatStats/frontend
 $ npm start
 ```
 
 ### Install backend dependencies 
 ```
-$ cd ChatStats\backend
+$ cd ChatStats/backend
 $ python -m venv venv
-$ venv\Scripts\activate
+$ venv/Scripts/activate
 $ pip install -r requirements.txt
 ```
 
 ### Running the backend locally
 ```
-$ cd ChatStats\backend
+$ cd ChatStats/backend
 $ python app.py
 ```
 
