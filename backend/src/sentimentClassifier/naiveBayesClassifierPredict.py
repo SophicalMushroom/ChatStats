@@ -1,6 +1,5 @@
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
-from ..utils.cleanData import cleanText
 import pickle
 
 # ---INCORPORATE EMOJI REACTIONS INTO MESSAGES---
@@ -20,23 +19,23 @@ def loadClassifierModel(path):
   return classifier, vectorizer
 
 
-def predictSentiment(messageObj, classifier, vectorizer):
+def predictSentiment(messageObj, cleanedText, classifier, vectorizer):
 
-  messageText = cleanText(messageObj["content"])
   # convert emoji to words and append to message text
   try:
     for reaction in messageObj["reactions"]:
-      messageText += convert[reaction["reaction"]]
+      cleanedText += convert[reaction["reaction"]]
   except KeyError:
     pass
 
-  predProbablity = classifier.predict(vectorizer.transform([messageText]))
+  predProbablity = classifier.predict_proba(
+      vectorizer.transform([cleanedText]))
 
   # convert probabilities into labels
-  if predProbablity > 0.60:
+  if predProbablity[0][1] > 0.6:
     # positve
     return 1
-  elif predProbablity < 0.40:
+  elif predProbablity[0][1] < 0.4:
     # negative
     return -1
   else:

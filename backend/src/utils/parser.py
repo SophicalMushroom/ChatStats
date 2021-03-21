@@ -3,6 +3,7 @@ from ..sentimentClassifier.naiveBayesClassifierPredict import loadClassifierMode
 from datetime import datetime
 from functools import partial
 from config import config
+from src.utils.cleanData import cleanText
 import pymongo
 import time
 import json
@@ -32,49 +33,49 @@ def parseChats(rawDataPath, classifier, vectorizer):
       data = json.loads(repaired.decode('utf8'))
 
       for message in data["messages"]:
-        try:
-          # convert timestamp_ms to python datetime object
-          message["date"] = datetime.strptime(datetime.fromtimestamp(
-              message["timestamp_ms"] / 1000).strftime("%Y-%m-%d %H:%M:%S"),
-              "%Y-%m-%d %H:%M:%S")
-          del message["timestamp_ms"]
-          message["chat_name"] = data["title"]
+   
+        # convert timestamp_ms to python datetime object
+        message["date"] = datetime.strptime(datetime.fromtimestamp(
+            message["timestamp_ms"] / 1000).strftime("%Y-%m-%d %H:%M:%S"),
+            "%Y-%m-%d %H:%M:%S")
+        del message["timestamp_ms"]
+        message["chat_name"] = data["title"]
 
-          # if message has text count words, chars and generate vocab
-          if "content" in message.keys():
-            tokenized = message["content"].split(" ")
-            message["total_words"] = len(tokenized)
-            message["total_chars"] = len(message["content"])
+        # if message has text count words, chars and generate vocab
+        if "content" in message.keys():
+          cleanedText = cleanText(message["content"])
+          tokenized = cleanedText.split(" ")
+          message["total_words"] = len(tokenized)
+          message["total_chars"] = len(message["content"])
 
-            # generate vocabulary
-            for word in tokenized:
-              try:
-                chatVocab[word] += 1
-              except KeyError:
-                chatVocab[word] = 1
+          # generate vocabulary
+          for word in tokenized:
+            try:
+              chatVocab[word] += 1
+            except KeyError:
+              chatVocab[word] = 1
 
-            # predict message sentiment
-            message["sentiment"] = predictSentiment(
-                message, classifier, vectorizer)
+          # predict message sentiment
+          message["sentiment"] = predictSentiment(
+              message, cleanedText, classifier, vectorizer)
 
-          else:
-            message["total_words"] = 0
-            message["total_chars"] = 0
+        else:
+          message["total_words"] = 0
+          message["total_chars"] = 0
 
-          # if message has reactions then count reactions
-          if "reactions" in message.keys():
-            totalReacts += len(message["reactions"])
+        # if message has reactions then count reactions
+        if "reactions" in message.keys():
+          totalReacts += len(message["reactions"])
 
-          # update running total word/char/message count for current chat
-          totalWords += message["total_words"]
-          totalChars += message["total_chars"]
-          totalMessages += 1
+        # update running total word/char/message count for current chat
+        totalWords += message["total_words"]
+        totalChars += message["total_chars"]
+        totalMessages += 1
 
-          participants.add(message["sender_name"])
-          parsedMessages.append(message)
+        participants.add(message["sender_name"])
+        parsedMessages.append(message)
 
-        except Exception as e:
-          print(e, message)
+ 
 
     vocab.extend([
         {"chat_name": data["title"],

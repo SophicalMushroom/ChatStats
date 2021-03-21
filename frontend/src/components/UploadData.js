@@ -92,6 +92,7 @@ export const UploadData = (props) => {
 		onDrop: (files) => {
 			setUploadedProgress(0);
 			setUploadedFiles(files);
+			setError(false);
 		},
 	});
 

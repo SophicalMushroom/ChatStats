@@ -27,5 +27,6 @@ backend/__pycache__/
 backend/src/__pycache__/
 backend/src/resources/__pycache__/
 backend/src/utils/__pycache__/
+backend/src/sentimentClassifier/__pycache__
 ChatStatsProject.sublime-project
 ChatStatsProject.sublime-workspace

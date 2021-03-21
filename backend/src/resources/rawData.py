@@ -23,7 +23,8 @@ class RawData(Resource):
     offset are still in the url query string.
     """
     try:
-        # get raw data from request
+      cwd = os.getcwd()
+      # get raw data from request
       file = request.files.getlist("uploadedFiles")[0]
       rawDataFolder = file.filename.replace(".zip", "")
 
@@ -34,10 +35,12 @@ class RawData(Resource):
         #  parse raw data file and update database
         parser.runParser(dbCon, rawDataFolder)
 
-      os.remove(file.filename)
-      rmtree(rawDataFolder)
+      os.remove(cwd+"/"+file.filename)
+      rmtree(cwd+"/"+rawDataFolder)
 
     except Exception as e:  # if sql server throws any errors
+      os.remove(cwd+"/"+file.filename)
+      rmtree(cwd+"/"+rawDataFolder)
       return {"message": "{}".format(e)}, 400
 
     return {"message": "uploaded"}
