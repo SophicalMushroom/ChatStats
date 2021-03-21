@@ -1,5 +1,5 @@
 # Introduction 
-Get statistics on your facebook group chats.
+Get statistics on your Facebook group chats.
 <p align="center">
 <img src="https://github.com/PhilosophicalMushroom/ChatStats/blob/CLIApp/sceenshots/messageDistribution.png" width="800" height="418">
 </p>
