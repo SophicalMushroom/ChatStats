@@ -1,14 +1,11 @@
 from flask import jsonify, request
 from flask_restful import Resource, reqparse, fields, marshal
 from werkzeug.utils import secure_filename
-from datetime import datetime
-from shutil import rmtree
 from ..utils import parser
 from src import dbCon
+import tempfile
 import zipfile
 import os
-
-
 class RawData(Resource):
   """ Class representing the /mdcmessages endpoint, returns all mdc
   messages that satisfy certain filters
@@ -23,24 +20,22 @@ class RawData(Resource):
     offset are still in the url query string.
     """
     try:
-      cwd = os.getcwd()
+      
       # get raw data from request
       file = request.files.getlist("uploadedFiles")[0]
-      rawDataFolder = file.filename.replace(".zip", "")
 
-      # extract and save the raw data
-      file.save(secure_filename(file.filename))
-      with zipfile.ZipFile(file.filename, 'r') as zipFile:
-        zipFile.extractall("./")
-        #  parse raw data file and update database
-        parser.runParser(dbCon, rawDataFolder)
+      # create temp directory
+      with tempfile.TemporaryDirectory() as tempDir:
+      	# save uploaded file to temp directory
+        file.save(os.path.join(tempDir,secure_filename(file.filename)))
+        # extract uploaded file to temp directory
+        with zipfile.ZipFile(os.path.join(tempDir, file.filename), 'r') as zipFile:
+          zipFile.extractall(tempDir)
+          #  parse raw data file and update database
+          parser.runParser(dbCon, tempDir)
 
-      os.remove(cwd+"/"+file.filename)
-      rmtree(cwd+"/"+rawDataFolder)
 
-    except Exception as e:  # if sql server throws any errors
-      os.remove(cwd+"/"+file.filename)
-      rmtree(cwd+"/"+rawDataFolder)
+    except Exception as e:  # if server throws any errors
       return {"message": "{}".format(e)}, 400
 
     return {"message": "uploaded"}
