@@ -102,7 +102,7 @@ messages: [DONE]
       actor: <string>
     },
   ],
-  type: <string> Generic || Shared || Unsubscribed || Subscribe,
+  type: <string> Generic || Share || Unsubscribed || Subscribe,
   users:(usersRemoved) [
         {
           name: <string>
@@ -111,3 +111,103 @@ messages: [DONE]
   isUnsent: <bool>,
 },
 ```
+# Backend Endpoints
+
+GET /chats/{chatID}              
+list of all chats and meta data for each chat
+
+
+
+GET /chats/{chatID}/messages            
+fetch all messages for this chat between date
+fetch messages grouped by date, user, message type between date
+fetch messages grouped by date, user, message type between date filtered by regex
+fetch message count grouped by date, user, message type between date
+fetch message count grouped by date, user, message type between date filtered by regex
+params:
+chatID: str
+groupby: null, users, messagetype, {day, week, month, year}
+startdate: null, str
+enddate: null, str
+messagecount: null, true, false
+regex: null, str
+
+
+
+GET /chats/{chatID}/messages/{msgID}
+fetch meta data for this message
+params:
+chatID: str
+msgID: str
+
+
+
+
+GET /chats/{chatID}/vocab/words
+fetch all unique words and count used in chat
+fetch total  word count between sepcific date
+fetch word count grouped by date between sepcific date
+fetch word count grouped by user between date
+fetch word count grouped by user, date between date
+params:
+chatID: str
+mostused: null, int (top n words, disables all other querystring params )
+groupby: null, users, {day, week, month, year}
+startdate: null, str
+enddate: null, str
+
+
+
+
+GET /chats/{chatID}/vocab/chars
+fetch total char count between sepcific date
+fetch char count grouped by user between date
+fetch char count grouped by user, date between date
+params:
+chatID: str
+groupby: null, users, {day, week, month, year}
+startdate: null, str
+enddate: null, str
+
+
+
+
+GET /chats/{chatID}/vocab/sentiment
+fetch avg sentiment grouped by date between date
+fetch avg setiment grouped by date, user between date
+fetch number of pos/neu/neg messages grouped by date between date
+fetch number of pos/neu/neg messages grouped by date, user between date
+params:
+chatID: str
+groupby: null, users, {day, week, month, year}
+startdate: null, str
+enddate: null, str
+messagecount: null, true, false
+
+
+
+
+GET /chats/{chatID}/reactions
+fetch total reacts grouped by emoji between date
+fetch total reacts grouped by user between date
+fetch total reacts grouped by emoji and user between date
+fetch total reacts grouped by emoji and user between date (filter on one emoji)
+params:
+chatID: str
+groupby: null, users, emoji, {day, week, month, year}
+startdate: null, str
+enddate: null, str
+
+
+
+
+GET /chats/{chatID}/kicks
+fetch total people kicked grouped by date between date 
+fetch kicks received grouped by user between date
+fetch kicks given grouped by user between date
+params:
+chatID: str
+groupby: null, users, emoji, {day, week, month, year}
+startdate: null, str
+enddate: null, str
+
