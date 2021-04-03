@@ -32,7 +32,6 @@ export const NavLogo = () => {
 				color={currentTheme === "dark" ? "secondary" : "primary"}
 				variant="h5"
 			>
-				{" "}
 				ChatStats
 			</Typography>
 			<img

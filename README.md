@@ -67,7 +67,7 @@ messages: [DONE]
   _id:,
   chatName:<string>,
   senderName: <string>,
-  timestamp: <DateTime>,
+  date: <DateTime>,
   totalWords:<int>,
   totalCharacters:<int>,
   sentiment:<float>,
@@ -102,7 +102,7 @@ messages: [DONE]
       actor: <string>
     },
   ],
-  type: <string> Generic || Share || Unsubscribed || Subscribe,
+  type: <string> Generic || Share || Unsubscribed || Subscribe || Call,
   users:(usersRemoved) [
         {
           name: <string>

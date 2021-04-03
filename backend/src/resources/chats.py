@@ -30,7 +30,7 @@ class Chats(Resource):
 
   def get(self):
     result = {"data": []}
-
+    #  convert datetime field to string
     for i in dbCon["chats"].find({}):
       i["_id"] = str(i["_id"])
       i["first_message_date"] = i["first_message_date"].strftime(
