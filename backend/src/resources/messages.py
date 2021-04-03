@@ -25,6 +25,8 @@ def formatArgs(args):
 
 
 def runQuery(args):
+  results = []
+
   #  base query filter messgaes by chat_name and date
   filters = [
       {"$match": {
@@ -32,11 +34,13 @@ def runQuery(args):
           "date": {
               "$lte": args["enddate"],
               "$gte": args["startdate"]
-          }
+          },
       }}
   ]
 
-  results = []
+  if args["regex"]:
+    filters[0]["$match"]["content"] = {"$regex": args["regex"]}
+
   # return raw messages between date range for specified chat_name
   # sorted by date from latest to oldest
   if args["messagecount"] is None and not args["groupby"]:
@@ -168,20 +172,17 @@ class Messages(Resource):
       chat = dbCon["chats"].find_one({"_id": ObjectId(chatid)})
     except InvalidId as e:
       return {"message": "Chat with ID {} not found".format(chatid)}, 404
+
     if chat is None:
       return {"message": "Chat with ID {} not found".format(chatid)}, 404
     args["chatName"], results = chat["chat_name"], None
 
-    if all(i is not None for i in [args["regex"], args["startdate"],
-                                   args["enddate"]]):
+    if args["startdate"] is not None and args["enddate"] is not None:
       results = runQuery(args)
-
-
-    elif all(i is not None for i in [args["startdate"], args["enddate"]]):
-      results = runQuery(args)
-
     else:
-      return {"message": "Invalid parameters"}, 400
+      args["startdate"] = chat["first_message_date"]
+      args["enddate"] = chat["last_message_date"]
+      results = runQuery(args)
 
     return {"data": results}
 
