@@ -191,9 +191,22 @@ class Message(Resource):
   """ Class representing the 
   """
 
-  def __init__(self):
-    # define format of the responses
-    pass
-
   def get(self, chatid, msgid):
-    return {"message": msgid+" "+chatid}
+    try:
+      chat = dbCon["chats"].find_one({"_id": ObjectId(chatid)})
+    except InvalidId as e:
+      return {"message": "Chat with ID {} not found".format(chatid)}, 404
+    if chat is None:
+      return {"message": "Chat with ID {} not found".format(chatid)}, 404
+
+    try:
+      message = dbCon["messages"].find_one({"_id": ObjectId(msgid)})
+    except InvalidId as e:
+      return {"message": "Message with ID {} not found".format(msgid)}, 404
+    if message is None:
+      return {"message": "Message with ID {} not found".format(msgid)}, 404
+
+    message["date"] = message["date"].strftime("%Y-%m-%dT%H:%M:%S.%f")
+    message["_id"] = str(message["_id"])
+
+    return {"data": message}
