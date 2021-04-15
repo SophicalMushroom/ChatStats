@@ -6,7 +6,7 @@ from bson.errors import InvalidId
 from datetime import datetime
 from src import dbCon
 import pymongo
-
+import json
 
 def formatArgs(args):
   try:
@@ -166,7 +166,7 @@ class Messages(Resource):
 
   def get(self, chatid):
     args = formatArgs(self.parser.parse_args())
-
+    print(args)
     # check if chat with id "chatid" exists and get its chat_name
     try:
       chat = dbCon["chats"].find_one({"_id": ObjectId(chatid)})
@@ -175,6 +175,7 @@ class Messages(Resource):
 
     if chat is None:
       return {"message": "Chat with ID {} not found".format(chatid)}, 404
+    
     args["chatName"], results = chat["chat_name"], None
 
     if args["startdate"] is not None and args["enddate"] is not None:

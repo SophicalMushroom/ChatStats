@@ -4,6 +4,8 @@ from src.resources.home import Home
 from src.resources.rawData import RawData
 from src.resources.chats import Chats, Chat
 from src.resources.messages import Messages, Message
+from src.resources.vocab import Words, Chars
+
 
 # define all endpoints
 api.add_resource(Home, "/")
@@ -13,7 +15,10 @@ api.add_resource(Chat, config["baseURL"]+"/chats/<string:chatid>")
 api.add_resource(Messages, config["baseURL"]+"/chats/<string:chatid>/messages")
 api.add_resource(Message, config["baseURL"] +
                  "/chats/<string:chatid>/messages/<string:msgid>")
-
+api.add_resource(Words, config["baseURL"] +
+                 "/chats/<string:chatid>/vocab/words")
+api.add_resource(Chars, config["baseURL"] +
+                 "/chats/<string:chatid>/vocab/chars")
 
 if __name__ == "__main__":
   app.run(debug=config["debugMode"])

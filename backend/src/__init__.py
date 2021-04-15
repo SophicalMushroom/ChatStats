@@ -14,3 +14,7 @@ api = Api(app)
 
 client = pymongo.MongoClient(config["dbConfig"]["connectionStr"])
 dbCon = client[config["dbConfig"]["dbName"]]
+with open("src/utils/top1000words.txt", "r") as file:
+  top1000words=file.readlines()
+  top1000words=[i.strip("\n") for i in top1000words]
+  top1000words.append("")
