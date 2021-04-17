@@ -8,6 +8,7 @@ from src import dbCon
 import pymongo
 import json
 
+
 def formatArgs(args):
   try:
 
@@ -73,10 +74,37 @@ def runQuery(args):
   elif args["groupby"] and args["messagecount"] is None:
     groups = {}
     for i in args["groupby"]:
+
       if i == "users":
         groups["sender_name"] = "$sender_name"
+
       elif i == "messagetype":
         groups["type"] = "$type"
+
+      elif i == "day":
+        groups["date"] = {"$dateToString": {
+            "format": "%Y-%m-%d",
+            "date": "$date"
+        }}
+
+      elif i == "week":
+        groups["date"] = {"$dateToString": {
+            "format": "%G-%m-%d",
+            "date": {
+                "$dateFromString": {
+                    "dateString": {
+                        "$dateToString": {
+                            "format": "%G-W%V",
+                            "date": "$date"
+                        }},
+                    "format": "%G-W%V"
+                }}}}
+
+      elif i == "month":
+        groups["date"] = {"$dateToString": {
+            "format": "%Y-%m-01",
+            "date": "$date"
+        }}
 
     filters.append({
         "$group": {
@@ -116,6 +144,7 @@ def runQuery(args):
 
     results = dbCon["messages"].aggregate(filters)
     results = list(results)
+    print(results)
     return results
 
   # return message count between date range for specified chat_name
@@ -128,19 +157,48 @@ def runQuery(args):
       elif i == "messagetype":
         groups["type"] = "$type"
 
-    filters.append({
-        "$group": {
+      elif i == "day":
+        groups["date"] = {"$dateToString": {
+            "format": "%Y-%m-%d",
+            "date": "$date"
+        }}
+
+      elif i == "week":
+        groups["date"] = {"$dateToString": {
+            "format": "%G-%m-%d",
+            "date": {
+                "$dateFromString": {
+                    "dateString": {
+                        "$dateToString": {
+                            "format": "%G-W%V",
+                            "date": "$date"
+                        }},
+                    "format": "%G-W%V"
+                }}}}
+
+      elif i == "month":
+        groups["date"] = {"$dateToString": {
+            "format": "%Y-%m-01",
+            "date": "$date"
+        }}
+
+    filters.extend([
+        {"$group": {
             "_id": groups,
             "message_count": {
                 "$sum": 1
             }
         }
-    })
-    filters.append({
-        "$sort": {
-            "message_count": -1
-        }
-    })
+        },
+        {"$sort": {
+            "_id.date": 1
+        }}
+    ])
+    # filters.append({
+    #     "$sort": {
+    #         "message_count": -1
+    #     }
+    # })
 
     results = dbCon["messages"].aggregate(filters)
     results = list(results)
@@ -166,7 +224,6 @@ class Messages(Resource):
 
   def get(self, chatid):
     args = formatArgs(self.parser.parse_args())
-    print(args)
     # check if chat with id "chatid" exists and get its chat_name
     try:
       chat = dbCon["chats"].find_one({"_id": ObjectId(chatid)})
@@ -175,7 +232,7 @@ class Messages(Resource):
 
     if chat is None:
       return {"message": "Chat with ID {} not found".format(chatid)}, 404
-    
+
     args["chatName"], results = chat["chat_name"], None
 
     if args["startdate"] is not None and args["enddate"] is not None:

@@ -142,8 +142,8 @@ msgID: str
 
 
 GET /chats/{chatID}/vocab/words
-fetch all unique words and count used in chat
-fetch total  word count between sepcific date
+fetch top n unique words and count used in chat
+fetch total word count between sepcific date
 fetch word count grouped by date between sepcific date
 fetch word count grouped by user between date
 fetch word count grouped by user, date between date

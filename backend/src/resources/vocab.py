@@ -25,11 +25,11 @@ def formatArgs(args):
 
 
 def queryTopNWords(args):
-  
+
   filters = [
       {"$match": {
           "chat_name": args["chatName"],
-          "word":{"$nin":top1000words}
+          "word":{"$nin": top1000words}
       }},
       {"$sort": {
           "count": -1
@@ -37,12 +37,92 @@ def queryTopNWords(args):
       {"$limit": args["mostused"]
        },
       {"$project": {
-          "_id": 0
+          "_id": 0,
+          "chat_name": 0
       }}
   ]
   results = dbCon["vocab"].aggregate(filters)
   results = list(results)
   return results
+
+
+def runQuery(args):
+  filters = [
+      {"$match": {
+          "chat_name": args["chatName"],
+          "date": {
+              "$lte": args["enddate"],
+              "$gte": args["startdate"]
+          },
+      }},
+  ]
+  # return total word count of all messages between date
+  if not args["groupby"]:
+    filters.extend([
+        {"$group": {
+            "_id": None,
+            "totalWordsCount": {
+                "$sum": "$total_words"
+            }
+        }},
+        {"$project": {
+            "_id": 0,
+            "totalWordsCount": 1
+        }}
+    ])
+
+    results = dbCon["messages"].aggregate(filters)
+    results = list(results)
+    return results[0]["totalWordsCount"]
+
+  # return total word count of all messages between date
+  # grouped by specified fields
+  elif args["groupby"]:
+    groups = {}
+    for i in args["groupby"]:
+      if i == "users":
+        groups["sender_name"] = "$sender_name"
+
+      elif i == "day":
+        groups["date"] = {"$dateToString": {
+            "format": "%Y-%m-%d",
+            "date": "$date"
+        }}
+
+      elif i == "week":
+        groups["date"] = {"$dateToString": {
+            "format": "%G-%m-%d",
+            "date": {
+                "$dateFromString": {
+                    "dateString": {
+                        "$dateToString": {
+                            "format": "%G-W%V",
+                            "date": "$date"
+                        }},
+                    "format": "%G-W%V"
+                }}}}
+
+      elif i == "month":
+        groups["date"] = {"$dateToString": {
+            "format": "%Y-%m-01",
+            "date": "$date"
+        }}
+
+    filters.extend([
+        {"$group": {
+            "_id": groups,
+            "totalWordsCount": {
+                "$sum": "$total_words"
+            }
+        }},
+        {"$sort": {
+            "_id.date": 1
+        }}
+    ])
+
+    results = dbCon["messages"].aggregate(filters)
+    results = list(results)
+    return results
 
 
 class Words(Resource):
@@ -63,7 +143,7 @@ class Words(Resource):
 
   def get(self, chatid):
     args = formatArgs(self.parser.parse_args())
-    
+
     # check if chat with id "chatid" exists and get its chat_name
     try:
       chat = dbCon["chats"].find_one({"_id": ObjectId(chatid)})
