@@ -114,6 +114,7 @@ def runQuery(args):
             }
         }
     })
+    # convert datetime and _id object in each message to string
     filters.append({
         "$addFields": {
             "messages": {
@@ -144,7 +145,6 @@ def runQuery(args):
 
     results = dbCon["messages"].aggregate(filters)
     results = list(results)
-    print(results)
     return results
 
   # return message count between date range for specified chat_name
@@ -182,23 +182,27 @@ def runQuery(args):
             "date": "$date"
         }}
 
-    filters.extend([
-        {"$group": {
-            "_id": groups,
-            "message_count": {
-                "$sum": 1
+    filters.append(
+        {
+            "$group": {
+                "_id": groups,
+                "message_count": {
+                    "$sum": 1
+                }
             }
         }
-        },
-        {"$sort": {
-            "_id.date": 1
-        }}
-    ])
-    # filters.append({
-    #     "$sort": {
-    #         "message_count": -1
-    #     }
-    # })
+    )
+    if any(i in ["day", "week", "month"] for i in args["groupby"]):
+      filters.append({
+          "$sort": {
+              "_id.date": 1
+          }})
+    else:
+      filters.append({
+          "$sort": {
+              "message_count": -1
+          }
+      })
 
     results = dbCon["messages"].aggregate(filters)
     results = list(results)
