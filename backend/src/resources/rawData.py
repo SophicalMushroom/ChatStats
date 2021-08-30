@@ -9,17 +9,25 @@ import os
 
 
 class RawData(Resource):
-  """ Class representing the /mdcmessages endpoint, returns all mdc
-  messages that satisfy certain filters
+  """ Class representing the /RawData endpoint, upload raw chat data
+  from Facebook JSON export
   """
 
   def post(self):
     """
-    Implements the HTTP POST method for the the /mdcmessages endpoint
+    Implements the HTTP POST method for the the /rawdata endpoint
 
-    Note the filters for the mdc messages are in the request body in
-    JSON format instead of being in the url query string. Limit and
-    offset are still in the url query string.
+    Takes in a zip file with the format:
+
+    myZip.zip
+      |__GroupChat1
+          |__message_1.json      
+          |__message_2.json
+          ...      
+      |__GroupChat2
+          |__message_1.json      
+          |__message_2.json
+          ...   
     """
     try:
 
@@ -37,6 +45,7 @@ class RawData(Resource):
           parser.runParser(dbCon, tempDir)
 
     except Exception as e:  # if server throws any errors
+      print(e)
       return {"message": "{}".format(e)}, 400
 
     return {"message": "uploaded"}

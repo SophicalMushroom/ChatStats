@@ -1,5 +1,5 @@
 # Introduction 
-Get statistics on your Facebook group chats.
+Analytics dashboard for Facebook group chats.
 
 
 # Dependencies 

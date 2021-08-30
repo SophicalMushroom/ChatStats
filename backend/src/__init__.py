@@ -12,9 +12,10 @@ cache = Cache(config=config["cacheConfig"])
 cache.init_app(app)
 api = Api(app)
 
-client = pymongo.MongoClient(config["dbConfig"]["connectionStr"])
+client = pymongo.MongoClient(
+    config["dbConfig"]["connectionStr"], ssl=True, ssl_cert_reqs='CERT_NONE')
 dbCon = client[config["dbConfig"]["dbName"]]
 with open("src/utils/top1000words.txt", "r") as file:
-  top1000words=file.readlines()
-  top1000words=[i.strip("\n") for i in top1000words]
+  top1000words = file.readlines()
+  top1000words = [i.strip("\n") for i in top1000words]
   top1000words.append("")

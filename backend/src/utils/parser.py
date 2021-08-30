@@ -19,7 +19,9 @@ fixFBEncoding = partial(re.compile(
 def parseChats(rawDataPath, classifier, vectorizer):
   parsedMessages, chatMetaData, vocab = [], [], []
   # for each chat for in rawDataPath
-  for chat in os.listdir(rawDataPath):
+  # ignore the last element in list since it is the original uploaded
+  # zip file
+  for chat in os.listdir(rawDataPath)[:-1]:
     print(chat)
     totalMessages, totalWords, totalChars, totalReacts = 0, 0, 0, 0
     participants, chatVocab = set(), dict()
@@ -33,7 +35,7 @@ def parseChats(rawDataPath, classifier, vectorizer):
       data = json.loads(repaired.decode('utf8'))
 
       for message in data["messages"]:
-   
+
         # convert timestamp_ms to python datetime object
         message["date"] = datetime.strptime(datetime.fromtimestamp(
             message["timestamp_ms"] / 1000).strftime("%Y-%m-%d %H:%M:%S"),
@@ -75,8 +77,6 @@ def parseChats(rawDataPath, classifier, vectorizer):
         participants.add(message["sender_name"])
         parsedMessages.append(message)
 
- 
-
     vocab.extend([
         {"chat_name": data["title"],
          "word":word,
@@ -94,6 +94,10 @@ def parseChats(rawDataPath, classifier, vectorizer):
 
 
 def updateChatMetaData(dbCon):
+  """Updates the "chats" collection with the date of first/last message and
+  total joins and kicks
+  """
+
   for chat in dbCon["chats"].find({}):
     # find the first and last messages sent for each chat
     firstDate = dbCon["messages"].find({"chat_name": chat["chat_name"]}).sort(
@@ -132,6 +136,7 @@ def buildDatabase(dbCon, parsedMessages, chatMetaData, vocab):
   dbCon["chats"].insert_many(chatMetaData)
   dbCon["vocab"].delete_many({})
   dbCon["vocab"].insert_many(vocab)
+  updateChatMetaData(dbCon)
 
 
 def runParser(dbCon, rawDataPath):
@@ -140,8 +145,20 @@ def runParser(dbCon, rawDataPath):
   classifier, vectorizer = loadClassifierModel(config["sentimentModelPath"])
   parsedMessages, chatMetaData, vocab = parseChats(
       rawDataPath, classifier, vectorizer)
-  buildDatabase(dbCon, parsedMessages, chatMetaData, vocab)
-  updateChatMetaData(dbCon)
+  # comment out next line to avoid updating db
+  # buildDatabase(dbCon, parsedMessages, chatMetaData, vocab)
+  end = time.time()
+  print(end-start)
+
+
+if __name__ == '__main__':
+  start = time.time()
+
+  classifier, vectorizer = loadClassifierModel(
+      "C:/Users/ditta/Documents/Code/ChatStats/backend/src/sentimentClassifier/MultinomialNB_Sklearn_Accuracy76.pkl")
+  parsedMessages, chatMetaData, vocab = parseChats(
+      "C:/Users/ditta/Documents/Code/inbox/test",
+      classifier, vectorizer)
 
   end = time.time()
   print(end-start)
