@@ -33,6 +33,53 @@ $ pip install -r requirements.txt
 $ cd ChatStats/backend
 $ python app.py
 ```
+### Facebook export scheme
+```
+{ 
+  _id:,
+  chatName:<string>,
+  sender_name: <string>,
+  timestamp_ms: <int>,
+  is_unsent: <bool>,
+  content: <string>,
+  type: <string> Generic || Share || Unsubscribed || Subscribe || Call,
+  users: [ // users that have been removed
+           {
+             name: <string>
+           }
+         ],
+  photos: [
+            {
+              uri:<string>,
+            	creation_timestamp:<DateTime>
+            }
+          ],
+  gifs: [
+          {
+             uri:<string>,
+             creation_timestamp:<DateTime>,
+             thumbnail:{
+               uri:<string>
+             },
+          }
+        ],
+  videos: [
+            {
+              uri:<string>
+            }
+          ],
+
+  share: {
+        link: <string>
+      },
+  reactions:[
+  	{
+      reaction: <string>,
+      actor: <string>
+    },
+  ],
+},
+```
 
 ### Database Schema
 ```
@@ -100,7 +147,7 @@ messages: [DONE]
       actor: <string>
     },
   ],
-  type: <string> Generic || Share || Unsubscribed || Subscribe || Call,
+  type: <string> Generic || Link || Video || Photo || Gif || Unsubscribed || Subscribe || Call,
   users:(usersRemoved) [
         {
           name: <string>

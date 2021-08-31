@@ -18,10 +18,14 @@ fixFBEncoding = partial(re.compile(
 
 def parseChats(rawDataPath, classifier, vectorizer):
   parsedMessages, chatMetaData, vocab = [], [], []
-  # for each chat for in rawDataPath
-  # ignore the last element in list since it is the original uploaded
-  # zip file
-  for chat in os.listdir(rawDataPath)[:-1]:
+
+  # remove any chatFolder that ends with .zip since that is the
+  # original uploaded zip file
+  chatFolders = [i for i in os.listdir(
+      rawDataPath) if len(i.split(".zip")) == 1]
+
+  # iterate over each chat for in rawDataPath
+  for chat in chatFolders:
     print(chat)
     totalMessages, totalWords, totalChars, totalReacts = 0, 0, 0, 0
     participants, chatVocab = set(), dict()
@@ -73,6 +77,19 @@ def parseChats(rawDataPath, classifier, vectorizer):
         totalWords += message["total_words"]
         totalChars += message["total_chars"]
         totalMessages += 1
+
+        # update the type of the message
+        if "photos" in message.keys():
+          message["type"] = "Photo"
+        elif "gifs" in message.keys():
+          message["type"] = "Gif"
+        elif "videos" in message.keys():
+          message["type"] = "Video"
+        elif "share" in message.keys():
+          message["type"] = "Link"
+        # sometimes facebook doesnt auto generate the share field
+        elif message["type"] == "Share" and "share" not in message.keys():
+          message["type"] = "Link"
 
         participants.add(message["sender_name"])
         parsedMessages.append(message)
@@ -146,7 +163,7 @@ def runParser(dbCon, rawDataPath):
   parsedMessages, chatMetaData, vocab = parseChats(
       rawDataPath, classifier, vectorizer)
   # comment out next line to avoid updating db
-  # buildDatabase(dbCon, parsedMessages, chatMetaData, vocab)
+  buildDatabase(dbCon, parsedMessages, chatMetaData, vocab)
   end = time.time()
   print(end-start)
 
