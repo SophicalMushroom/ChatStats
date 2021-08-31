@@ -4,6 +4,7 @@ import Drawer from "@material-ui/core/Drawer";
 import { NavItems } from "./NavItems";
 import { NavLogo } from "./NavLogo";
 import { NavContext } from "./../../contexts/NavContext";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 	drawer: {
@@ -17,12 +18,11 @@ const useStyles = makeStyles((theme) => ({
 export const MobileNav = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const { isMobileNavOpen, setIsMobileNavOpen, setCurTab } = useContext(
-		NavContext
-	);
+	const { isMobileNavOpen, setIsMobileNavOpen } = useContext(NavContext);
+	const history = useHistory();
 
-	const HandleNavItemClick = (text) => {
-		setCurTab(text);
+	const HandleNavItemClick = (path) => {
+		history.push(path);
 		setIsMobileNavOpen(!isMobileNavOpen);
 	};
 

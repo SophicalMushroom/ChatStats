@@ -16,9 +16,9 @@ import Divider from "@material-ui/core/Divider";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
 import { ThemeContext } from "./../../contexts/ThemeContext";
-import { NavContext } from "./../../contexts/NavContext";
 import { ChatSelector } from "./ChatSelector";
 import { Profile } from "./Profile";
+import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 	nestedItems: {
@@ -46,27 +46,42 @@ const useStyles = makeStyles((theme) => ({
 export const NavItems = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
+	const location = useLocation();
 	const { currentTheme, setTheme } = useContext(ThemeContext);
-	const { curTab } = useContext(NavContext);
 
 	const handleThemeChange = (event) => {
 		setTheme(currentTheme === "dark" ? "light" : "dark");
 	};
 
 	const navItems = [
-		{ label: "Overview", icon: <DataUsageIcon className={classes.icons} /> },
+		{
+			label: "Overview",
+			path: "/overview",
+			icon: <DataUsageIcon className={classes.icons} />,
+		},
 		{
 			label: "Vocabulary",
+			path: "/vocabulary",
 			icon: <LocalLibraryIcon className={classes.icons} />,
 		},
-		{ label: "Emojis", icon: <EmojiEmotionsIcon className={classes.icons} /> },
+		{
+			label: "Emojis",
+			path: "/emojis",
+			icon: <EmojiEmotionsIcon className={classes.icons} />,
+		},
 		{
 			label: "Miscellaneous",
+			path: "/miscellaneous",
 			icon: <EqualizerIcon className={classes.icons} />,
 		},
-		{ label: "Regex", icon: <CodeIcon className={classes.icons} /> },
+		{
+			label: "Regex",
+			path: "/regex",
+			icon: <CodeIcon className={classes.icons} />,
+		},
 		{
 			label: "Upload Data",
+			path: "/upload",
 			icon: <PublishIcon className={classes.icons} />,
 			disabled: props.diableDataUpload,
 		},
@@ -82,10 +97,10 @@ export const NavItems = (props) => {
 					<ListItem
 						button
 						disabled={item.disabled}
-						selected={item.label === curTab}
+						selected={item.path === `/${location.pathname.replace(/\W/g, "")}`}
 						className={classes.nestedItems}
 						key={item.label}
-						onClick={() => props.HandleNavItemClick(item.label)}
+						onClick={() => props.HandleNavItemClick(item.path)}
 					>
 						<ListItemIcon>{item.icon}</ListItemIcon>
 						<ListItemText

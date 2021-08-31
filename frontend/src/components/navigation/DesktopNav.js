@@ -3,7 +3,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import { NavItems } from "./NavItems";
 import { NavLogo } from "./NavLogo";
-import { NavContext } from "./../../contexts/NavContext";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 	drawer: {
@@ -17,10 +17,10 @@ const useStyles = makeStyles((theme) => ({
 export const DesktopNav = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const { setCurTab } = useContext(NavContext);
+	const history = useHistory();
 
-	const HandleNavItemClick = (text) => {
-		setCurTab(text);
+	const HandleNavItemClick = (path) => {
+		history.push(path);
 	};
 
 	return (

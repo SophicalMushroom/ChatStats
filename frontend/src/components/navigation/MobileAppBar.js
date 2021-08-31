@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { NavContext } from "./../../contexts/NavContext";
+import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 	appBar: { backgroundColor: theme.palette.background.paper },
@@ -18,10 +19,19 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+let path2title = new Map();
+path2title.set("overview", "Overview");
+path2title.set("vocabulary", "Vocabulary");
+path2title.set("emojis", "Emojis");
+path2title.set("miscellaneous", "Miscellaneous");
+path2title.set("regex", "Regex");
+path2title.set("upload", "Upload Data");
+
 export const MobileAppBar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const { curTab, isMobileNavOpen, setIsMobileNavOpen, curChat } = useContext(
+	const location = useLocation();
+	const { isMobileNavOpen, setIsMobileNavOpen, curChat } = useContext(
 		NavContext
 	);
 
@@ -42,7 +52,7 @@ export const MobileAppBar = () => {
 							{curChat}
 						</Typography>
 						<Typography noWrap color="textSecondary" className={classes.text}>
-							{curTab}
+							{path2title.get(location.pathname.replace(/\W/g, ""))}
 						</Typography>
 					</Breadcrumbs>
 				</Toolbar>
