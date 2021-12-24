@@ -33,7 +33,7 @@ $ pip install -r requirements.txt
 $ cd ChatStats/backend
 $ python app.py
 ```
-### Facebook export scheme
+### Facebook Export Schema
 ```
 { 
   _id:,
@@ -81,7 +81,7 @@ $ python app.py
 },
 ```
 
-### Database Schema
+### MongoDB Schema
 ```
 chat: [DONE]
 {
@@ -156,6 +156,7 @@ messages: [DONE]
   isUnsent: <bool>,
 },
 ```
+
 # Backend Endpoints
 
 GET /chats/{chatID}              
