@@ -4,7 +4,7 @@ from src.resources.home import Home
 from src.resources.rawData import RawData
 from src.resources.chats import Chats, Chat
 from src.resources.messages import Messages, Message
-from src.resources.vocab import Words, Chars
+from src.resources.vocab import Words, Chars, Sentiment
 
 
 # define all endpoints
@@ -19,6 +19,8 @@ api.add_resource(Words, config["baseURL"] +
                  "/chats/<string:chatid>/vocab/words")
 api.add_resource(Chars, config["baseURL"] +
                  "/chats/<string:chatid>/vocab/chars")
+api.add_resource(Sentiment, config["baseURL"] +
+                 "/chats/<string:chatid>/vocab/sentiment")
 
 if __name__ == "__main__":
   app.run(debug=config["debugMode"])

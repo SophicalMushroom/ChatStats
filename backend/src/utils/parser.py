@@ -147,6 +147,7 @@ def updateChatMetaData(dbCon):
 
 
 def buildDatabase(dbCon, parsedMessages, chatMetaData, vocab):
+  # WARNING this will empty the database before rebuilding
   dbCon["messages"].delete_many({})
   dbCon["messages"].insert_many(parsedMessages)
   dbCon["chats"].delete_many({})

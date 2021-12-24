@@ -163,7 +163,7 @@ list of all chats and meta data for each chat
 
 
 
-GET /chats/{chatID}/messages            
+GET /chats/{chatID}/messages  [DONE]          
 fetch all messages for this chat between date
 fetch messages grouped by date, user, message type between date
 fetch messages grouped by date, user, message type between date filtered by regex
@@ -179,7 +179,7 @@ regex: null, str
 
 
 
-GET /chats/{chatID}/messages/{msgID}
+GET /chats/{chatID}/messages/{msgID}  [DONE]
 fetch meta data for this message
 params:
 chatID: str
@@ -188,7 +188,7 @@ msgID: str
 
 
 
-GET /chats/{chatID}/vocab/words
+GET /chats/{chatID}/vocab/words  [DONE]
 fetch top n unique words and count used in chat
 fetch total word count between sepcific date
 fetch word count grouped by date between sepcific date
@@ -204,7 +204,7 @@ enddate: null, str
 
 
 
-GET /chats/{chatID}/vocab/chars
+GET /chats/{chatID}/vocab/chars  [DONE]
 fetch total char count between sepcific date
 fetch char count grouped by user between date
 fetch char count grouped by user, date between date
@@ -218,10 +218,9 @@ enddate: null, str
 
 
 GET /chats/{chatID}/vocab/sentiment
-fetch avg sentiment grouped by date between date
-fetch avg setiment grouped by date, user between date
-fetch number of pos/neu/neg messages grouped by date between date
-fetch number of pos/neu/neg messages grouped by date, user between date
+fetch number of pos/neu/neg messages grouped by date, user, between date
+fetch avg senetiment (1(#pos) + 0(numNeut) + -1(#neg)/total) grouped by date, user, between date
+
 params:
 chatID: str
 groupby: null, users, {day, week, month, year}
@@ -230,6 +229,7 @@ enddate: null, str
 messagecount: null, true, false
 
 
+TODO: Exclude unsubscribe and subscribe from sentiment classification
 
 
 GET /chats/{chatID}/reactions
@@ -255,4 +255,18 @@ chatID: str
 groupby: null, users, emoji, {day, week, month, year}
 startdate: null, str
 enddate: null, str
+
+
+
+POST /rawdata  [DONE]
+Takes in a zip file with the format:
+    myZip.zip
+      |__GroupChat1
+          |__message_1.json      
+          |__message_2.json
+          ...      
+      |__GroupChat2
+          |__message_1.json      
+          |__message_2.json
+
 
