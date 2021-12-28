@@ -1,11 +1,9 @@
 from flask import request
 from flask_restful import Resource, fields, marshal, reqparse
-from bson.json_util import dumps, loads
 from bson.objectid import ObjectId
 from bson.errors import InvalidId
 from datetime import datetime
 from src import dbCon, top1000words
-import pymongo
 import json
 
 
@@ -16,7 +14,9 @@ def formatArgs(args):
       args["startdate"] = datetime.strptime(args["startdate"], "%Y%m%dT%H%M%S")
       args["enddate"] = datetime.strptime(args["enddate"], "%Y%m%dT%H%M%S")
 
-    args["avg"] = True if args["avg"] == "true" else None
+    if "avg" in args.keys():
+    	args["avg"] = True if args["avg"] == "true" else None
+    
     args["groupby"] = request.args.getlist("groupby")
     return args
 

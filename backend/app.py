@@ -5,6 +5,7 @@ from src.resources.rawData import RawData
 from src.resources.chats import Chats, Chat
 from src.resources.messages import Messages, Message
 from src.resources.vocab import Words, Chars, Sentiment
+from src.resources.reactions import Reactions
 
 
 # define all endpoints
@@ -21,6 +22,7 @@ api.add_resource(Chars, config["baseURL"] +
                  "/chats/<string:chatid>/vocab/chars")
 api.add_resource(Sentiment, config["baseURL"] +
                  "/chats/<string:chatid>/vocab/sentiment")
+api.add_resource(Reactions, config["baseURL"]+"/chats/<string:chatid>/reactions")
 
 if __name__ == "__main__":
   app.run(debug=config["debugMode"])

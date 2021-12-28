@@ -234,13 +234,13 @@ TODO: Exclude unsubscribe and subscribe from sentiment classification
 
 
 GET /chats/{chatID}/reactions
-fetch total reacts grouped by emoji between date
-fetch total reacts grouped by user between date
-fetch total reacts grouped by emoji and user between date
-fetch total reacts grouped by emoji and user between date (filter on one emoji)
+fetch total reaction count
+fetch total reacts sent/received grouped by emoji and user between date
+fetch total reacts sent/received grouped by emoji and user between date (filter on one emoji)
 params:
 chatID: str
-groupby: null, users, emoji, {day, week, month, year}
+groupby: null, users, emoji
+type: null, sent, received (only applies when groupby=user is specified)
 startdate: null, str
 enddate: null, str
 
@@ -269,5 +269,3 @@ Takes in a zip file with the format:
       |__GroupChat2
           |__message_1.json      
           |__message_2.json
-
-
